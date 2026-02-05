@@ -6,7 +6,7 @@
   letter-spacing: var(--tracking-num);
   text-transform: uppercase;
   color: var(--section-accent-hero);
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--section-gap-num-title);
   width: fit-content;
 }
 .deliverablesSection .sectionNum { color: var(--section-accent-deliverables); }
@@ -57,9 +57,6 @@
 }
 
 .logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
   font-weight: var(--font-bold);
   font-size: 1.25rem;
   color: var(--md-sys-color-primary);
@@ -68,22 +65,6 @@
 
 .logo:hover {
   color: var(--md-sys-color-primary-pressed);
-}
-
-.logoIcon {
-  display: block;
-  flex-shrink: 0;
-  line-height: 0;
-}
-
-.logoIcon :global(img) {
-  display: block;
-  width: 32px;
-  height: 32px;
-}
-
-.logoText {
-  letter-spacing: var(--tracking-tight);
 }
 
 .navLinks {
@@ -186,19 +167,26 @@
 }
 
 .heroTitle .highlight {
-  color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-surface);
+  background: var(--md-sys-color-primary-container);
   position: relative;
+  padding: 0.05em 0.2em;
+  border-radius: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .heroTitle .highlight::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -0.15em;
-  height: 3px;
-  background: var(--md-sys-color-primary);
-  z-index: -1;
+  content: none;
+}
+
+.heroNarrative .highlight {
+  color: var(--md-sys-color-on-surface);
+  background: var(--md-sys-color-primary-container);
+  padding: 0.05em 0.2em;
+  border-radius: 2px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 /* Hero dropdown — thin underline, dropdown only */
@@ -335,6 +323,22 @@
   margin-top: 0.5rem;
 }
 
+.heroSub {
+  margin: 1.25rem 0 0;
+  font-size: var(--text-caption);
+  font-weight: var(--font-regular);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.heroSub a {
+  color: var(--md-sys-color-primary);
+  text-decoration: none;
+}
+
+.heroSub a:hover {
+  text-decoration: underline;
+}
+
 /* Keep CTA above fold on small screens */
 @media (max-width: 480px) {
   .nav {
@@ -372,11 +376,6 @@
     line-height: 1.1;
     margin-bottom: 1.75rem;
     max-width: 22ch;
-  }
-
-  .heroTitle .highlight::after {
-    height: 10px;
-    bottom: -0.14em;
   }
 
   /* Put CTAs above the narrative on small screens */
@@ -467,8 +466,8 @@
   letter-spacing: 0.015em;
   line-height: var(--leading-normal);
   color: var(--md-sys-color-on-surface);
-  margin: 0 0 16px;
-  max-width: 720px;
+  margin: 0 0 var(--section-gap-num-title);
+  max-width: var(--section-lead-max-width);
 }
 
 .narrativeFollow {
@@ -478,7 +477,7 @@
   line-height: var(--leading-relaxed);
   color: var(--md-sys-color-on-surface);
   margin: 0;
-  max-width: 720px;
+  max-width: var(--section-lead-max-width);
 }
 
 /* 03 Why work with us — hierarchy aligned with Solutions / How it works */
@@ -489,22 +488,22 @@
 }
 
 .whyTitle {
-  font-size: var(--text-section-heading);
-  font-weight: var(--font-medium);
-  letter-spacing: 0.015em;
-  line-height: 1.35;
+  font-size: var(--section-heading-font-size);
+  font-weight: var(--section-heading-font-weight);
+  letter-spacing: var(--section-heading-letter-spacing);
+  line-height: var(--section-heading-line-height);
   color: var(--md-sys-color-on-surface);
-  margin: 0 0 1.5rem;
+  margin: 0 0 var(--section-gap-title-body);
 }
 
 .whyLead {
-  font-size: var(--text-body);
+  font-size: var(--section-lead-font-size);
   font-weight: var(--font-regular);
   letter-spacing: var(--tracking-wide);
   line-height: var(--leading-relaxed);
   color: var(--md-sys-color-on-surface);
-  margin: 0 0 1.5rem;
-  max-width: 720px;
+  margin: 0 0 var(--section-gap-title-body);
+  max-width: var(--section-lead-max-width);
 }
 
 .whyBulletList {
@@ -515,8 +514,8 @@
 
 .whyBulletList li {
   position: relative;
-  padding-left: 1.25rem;
-  margin-bottom: 0.75rem;
+  padding-left: var(--list-bullet-indent);
+  margin-bottom: var(--list-item-gap);
   font-size: var(--text-body);
   font-weight: var(--font-regular);
   letter-spacing: var(--tracking-wide);
@@ -533,10 +532,10 @@
   position: absolute;
   left: 0;
   top: 0.55em;
-  width: 5px;
-  height: 5px;
+  width: var(--list-bullet-size);
+  height: var(--list-bullet-size);
   background: var(--md-sys-color-primary);
-  border-radius: 999px;
+  border-radius: var(--md-sys-shape-corner-full);
 }
 
 .whyLogosLabel {
@@ -595,7 +594,7 @@
   line-height: var(--leading-loose);
   color: var(--md-sys-color-on-surface);
   margin: 0;
-  max-width: 720px;
+  max-width: var(--section-lead-max-width);
 }
 
 .inlineLink {
@@ -622,10 +621,10 @@
 .processBtn {
   display: inline-block;
   margin-top: 0.5rem;
-  min-height: 48px;
-  padding: 12px 28px;
-  font-size: var(--text-body);
-  font-weight: var(--font-semibold);
+  min-height: var(--btn-primary-min-height);
+  padding: var(--btn-primary-padding-y) var(--btn-primary-padding-x);
+  font-size: var(--btn-primary-font-size);
+  font-weight: var(--btn-primary-font-weight);
   color: #ffffff;
   background: var(--md-sys-color-primary);
   border: none;
@@ -645,21 +644,18 @@
   padding: var(--section-padding-y) var(--section-padding-x) var(--section-padding-y);
 }
 
-.deliverablesSection .narrativeLead {
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-  font-weight: var(--font-regular);
-  letter-spacing: 0.015em;
-  line-height: 1.5;
-  color: var(--md-sys-color-on-surface);
-  margin-bottom: 0.5rem;
-}
-
+.deliverablesSection .narrativeLead,
 .deliverablesSection .narrativeFollow {
-  font-size: var(--text-body);
+  font-size: var(--text-caption);
   font-weight: var(--font-regular);
   letter-spacing: var(--tracking-wide);
   line-height: var(--leading-relaxed);
-  color: var(--md-sys-color-on-surface-variant);
+  color: var(--md-sys-color-on-surface);
+  margin: 0 0 0.5rem;
+  max-width: var(--section-lead-max-width);
+}
+
+.deliverablesSection .narrativeFollow {
   margin-bottom: 2.5rem;
 }
 
@@ -672,12 +668,16 @@
 }
 
 .deliverablesGroupTitle {
-  font-size: var(--text-caption);
+  font-size: var(--text-h3);
   font-weight: var(--font-semibold);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--md-sys-color-on-surface-variant);
-  margin: 0 0 0.75rem;
+  color: var(--md-sys-color-on-surface);
+  background: var(--md-sys-color-primary-container);
+  padding: 0.25em 0.5em;
+  border-radius: var(--md-sys-shape-corner-small);
+  margin: 0 0 1rem;
+  display: inline-block;
 }
 
 .deliverablesGrid {
@@ -753,12 +753,12 @@
 }
 
 .solutionsTitle {
-  font-size: var(--text-section-heading);
-  font-weight: var(--font-medium);
-  letter-spacing: 0.015em;
-  line-height: 1.35;
+  font-size: var(--section-heading-font-size);
+  font-weight: var(--section-heading-font-weight);
+  letter-spacing: var(--section-heading-letter-spacing);
+  line-height: var(--section-heading-line-height);
   color: var(--md-sys-color-on-surface);
-  margin: 0 0 32px;
+  margin: 0 0 var(--section-gap-title-body);
 }
 
 /* Solution block — wireframe box */
@@ -857,8 +857,8 @@
 
 .bulletList li {
   position: relative;
-  padding-left: 20px;
-  margin-bottom: 8px;
+  padding-left: var(--list-bullet-indent);
+  margin-bottom: var(--list-item-gap);
   font-size: var(--text-caption);
   font-weight: var(--font-regular);
   letter-spacing: var(--tracking-widest);
@@ -871,22 +871,23 @@
   position: absolute;
   left: 0;
   top: 0.6em;
-  width: 5px;
-  height: 5px;
+  width: var(--list-bullet-size);
+  height: var(--list-bullet-size);
   background: var(--md-sys-color-primary);
   border-radius: var(--md-sys-shape-corner-full);
 }
 
 .addServiceBtn {
   display: inline-block;
-  margin-top: 1.25rem;
-  min-height: 40px;
-  padding: 10px 20px;
-  font-size: var(--text-caption);
-  font-weight: var(--font-semibold);
+  margin-top: var(--section-gap-title-body);
+  min-height: var(--btn-primary-min-height);
+  padding: var(--btn-primary-padding-y) var(--btn-primary-padding-x);
+  font-size: var(--btn-primary-font-size);
+  font-weight: var(--btn-primary-font-weight);
   color: #ffffff;
   background: var(--md-sys-color-primary);
   border: none;
+  border-radius: var(--md-sys-shape-corner-full);
   text-decoration: none;
   transition: background 150ms ease;
 }
@@ -903,11 +904,11 @@
 }
 
 .processSection .sectionTitle {
-  margin: 0 0 24px;
-  font-size: var(--text-section-heading);
-  font-weight: var(--font-medium);
-  letter-spacing: 0.015em;
-  line-height: 1.35;
+  margin: 0 0 var(--section-gap-title-body);
+  font-size: var(--section-heading-font-size);
+  font-weight: var(--section-heading-font-weight);
+  letter-spacing: var(--section-heading-letter-spacing);
+  line-height: var(--section-heading-line-height);
   color: var(--md-sys-color-on-surface);
 }
 
@@ -961,7 +962,7 @@
   font-weight: var(--font-medium);
 }
 
-/* 05 Pricing */
+/* Shared section wrapper (FAQ, etc.) — same padding pattern as other sections */
 .section {
   padding: var(--section-padding-y) var(--section-padding-x);
   max-width: var(--section-max);
@@ -970,21 +971,27 @@
 
 .card {
   background: var(--md-sys-color-surface);
-  padding: clamp(24px, 4vw, 40px);
+  padding: var(--space-24) var(--space-32);
   border: var(--wire-border);
 }
 
+@media (min-width: 640px) {
+  .card {
+    padding: var(--space-32) var(--space-40);
+  }
+}
+
 .sectionTitle {
-  margin: 0 0 8px;
-  font-size: var(--text-section-heading);
-  font-weight: var(--font-medium);
-  letter-spacing: 0.015em;
-  line-height: 1.35;
+  margin: 0 0 var(--section-gap-title-body);
+  font-size: var(--section-heading-font-size);
+  font-weight: var(--section-heading-font-weight);
+  letter-spacing: var(--section-heading-letter-spacing);
+  line-height: var(--section-heading-line-height);
   color: var(--md-sys-color-on-surface);
 }
 
 .card .sectionNum {
-  margin-bottom: 4px;
+  margin-bottom: var(--section-gap-num-title);
 }
 
 .pricingIntro {
@@ -1066,26 +1073,26 @@
 .contactSection {
   max-width: var(--section-max);
   margin: 0 auto;
-  padding: clamp(72px, 9vw, 120px) var(--section-padding-x) clamp(80px, 10vw, 128px);
+  padding: var(--section-padding-bookend-y) var(--section-padding-x) var(--section-padding-bookend-y-bottom);
 }
 
 .contactTitle {
-  font-size: var(--text-section-heading);
-  font-weight: var(--font-medium);
-  letter-spacing: 0.015em;
-  line-height: 1.35;
+  font-size: var(--section-heading-font-size);
+  font-weight: var(--section-heading-font-weight);
+  letter-spacing: var(--section-heading-letter-spacing);
+  line-height: var(--section-heading-line-height);
   color: var(--md-sys-color-on-surface);
-  margin: 0 0 16px;
+  margin: 0 0 var(--section-gap-title-body);
 }
 
 .contactLead {
-  font-size: var(--text-body-lg);
+  font-size: var(--section-lead-font-size);
   font-weight: var(--font-regular);
   letter-spacing: var(--tracking-widest);
   line-height: var(--leading-relaxed);
   color: var(--md-sys-color-on-surface);
-  margin: 0 0 32px;
-  max-width: 560px;
+  margin: 0 0 var(--section-gap-title-body);
+  max-width: var(--section-lead-max-width);
 }
 
 .form {
@@ -1198,13 +1205,13 @@
   color: var(--md-sys-color-primary);
 }
 
-/* Submit — accent */
+/* Submit — same primary button scale */
 .submit {
-  margin-top: 8px;
-  min-height: 48px;
-  padding: 12px 28px;
-  font-size: var(--text-body);
-  font-weight: var(--font-semibold);
+  margin-top: var(--section-gap-num-title);
+  min-height: var(--btn-primary-min-height);
+  padding: var(--btn-primary-padding-y) var(--btn-primary-padding-x);
+  font-size: var(--btn-primary-font-size);
+  font-weight: var(--btn-primary-font-weight);
   font-family: inherit;
   color: #ffffff;
   background: var(--md-sys-color-primary);

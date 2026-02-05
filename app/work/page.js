@@ -1,10 +1,16 @@
 import Link from "next/link"
-import Image from "next/image"
 import styles from "../page.module.css"
 
 export const metadata = {
-  title: "Our work — Safe Mode",
-  description: "Product and UX discovery work. Case studies and outcomes.",
+  title: "Our work | Safe Mode",
+  description:
+    "Selected product and UX discovery work: case studies and outcomes from Safe Mode.",
+  openGraph: {
+    title: "Our work | Safe Mode",
+    description: "Selected product and UX discovery work.",
+    url: "/work",
+  },
+  alternates: { canonical: "/work" },
 }
 
 export default function WorkPage() {
@@ -12,27 +18,24 @@ export default function WorkPage() {
     <>
       <header className={styles.header}>
         <nav className={styles.nav}>
-          <Link href="/" className={styles.logo} aria-label="Safe Mode home">
-            <span className={styles.logoIcon}>
-              <Image src="/logo.png" alt="" width={32} height={32} priority />
-            </span>
-            <span className={styles.logoText}>Safe Mode</span>
+          <Link href="/" className={styles.logo}>
+            Safe Mode
           </Link>
           <ul className={styles.navLinks}>
-            <li><a href="/#solutions">Solutions</a></li>
+            <li><a href="/#offerings">Offerings</a></li>
             <li><a href="/#why-us">Why us</a></li>
             <li><a href="/work">Work</a></li>
+            <li><a href="/blog">Blog</a></li>
             <li><a href="/#faq">FAQ</a></li>
             <li><a href="/#contact">Contact</a></li>
           </ul>
         </nav>
       </header>
 
-      <main>
-        <section className={styles.hero} style={{ paddingBottom: "clamp(4rem, 10vw, 6rem)" }}>
-          <span className={styles.heroLabel} aria-hidden>Work</span>
+      <main id="main-content" role="main">
+        <section className={styles.hero} style={{ paddingBottom: "clamp(4rem, 10vw, 6rem)" }} aria-labelledby="work-heading">
           <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>
+            <h1 id="work-heading" className={styles.heroTitle}>
               Our work
             </h1>
             <p className={styles.heroNarrative}>
@@ -60,14 +63,14 @@ export default function WorkPage() {
         <footer className={styles.footer}>
           <div className={styles.footerInner}>
             <nav className={styles.footerNav}>
-              <a href="/#solutions">Solutions</a>
+              <a href="/#offerings">Offerings</a>
               <a href="/#deliverables">Deliverables</a>
               <a href="/#why-us">Why us</a>
               <a href="/#how-it-works">How it works</a>
               <a href="/work">Work</a>
               <a href="/#contact">Contact</a>
             </nav>
-            <p className={styles.footerText}>Safe Mode — Product & UX discovery studio.</p>
+            <p className={styles.footerText}>Safe Mode. Product and UX discovery studio.</p>
           </div>
         </footer>
       </main>

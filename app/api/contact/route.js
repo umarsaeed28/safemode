@@ -51,7 +51,7 @@ export async function POST(request) {
       from: user,
       to,
       replyTo: email,
-      subject: `Safe Mode contact from ${name}${service ? ` — ${service}` : ""}`,
+      subject: `Safe Mode contact from ${name}${service ? ` (${service})` : ""}`,
       text,
       html: `<p>From: ${name} &lt;${email}&gt;</p>${htmlService}${htmlMessage}`,
     })

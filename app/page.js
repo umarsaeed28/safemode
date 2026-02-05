@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
+import HomeJsonLd from "./components/HomeJsonLd"
 import styles from "./page.module.css"
 
 export default function Home() {
@@ -56,54 +56,53 @@ export default function Home() {
     <>
       <header className={styles.header}>
         <nav className={styles.nav}>
-          <a href="#" className={styles.logo} aria-label="Safe Mode home">
-            <span className={styles.logoIcon}>
-              <Image src="/logo.png" alt="" width={32} height={32} priority />
-            </span>
-            <span className={styles.logoText}>Safe Mode</span>
+          <a href="#" className={styles.logo}>
+            Safe Mode
           </a>
           <ul className={styles.navLinks}>
-            <li><a href="/#solutions">Solutions</a></li>
+            <li><a href="/#offerings">Offerings</a></li>
             <li><a href="/#why-us">Why us</a></li>
             <li><a href="/work">Work</a></li>
+            <li><a href="/blog">Blog</a></li>
             <li><a href="/#faq">FAQ</a></li>
             <li><a href="/#contact">Contact</a></li>
           </ul>
         </nav>
       </header>
 
-      <main>
+      <main id="main-content">
+        <HomeJsonLd />
         {/* 01 Hero */}
-        <section id="hero" className={styles.hero}>
+        <section id="hero" className={styles.hero} aria-labelledby="hero-heading">
           <span className={styles.heroLabel} aria-hidden>01</span>
 
           <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>
-              9/10 ideas don&apos;t hold up. Let&apos;s check yours early.
+            <h1 id="hero-heading" className={styles.heroTitle}>
+              9/10 ideas don&apos;t hold up. Let&apos;s check yours in <span className={styles.highlight}>Safe Mode</span>.
             </h1>
             <p className={styles.heroNarrative}>
-              Product + UX team for moments that need decisions, not more options.<br />
-              Fixed scope. Capped sprints. No wandering—we force the hard calls and leave you with a backlog and flows ready for engineering.
+              We run <span className={styles.highlight}>product discovery</span> and <span className={styles.highlight}>UX</span> when the stakes are high and the roadmap is fuzzy. No open-ended engagements. Fixed scope, capped sprints. You get decisions and a backlog your team can actually build from, not another deck that sits in a folder.
             </p>
             <div className={styles.heroCtas}>
               <a href="#contact" className={styles.ctaPrimary}>
                 Start a conversation
               </a>
               <a href="/work" className={styles.ctaSecondary}>
-                Check out our work
+                See our work
               </a>
             </div>
           </div>
         </section>
 
         {/* 02 Deliverables — narrative + Product & UX tiles */}
-        <section id="deliverables" className={styles.deliverablesSection}>
+        <section id="deliverables" className={styles.deliverablesSection} aria-labelledby="deliverables-heading">
           <span className={styles.sectionNum}>02</span>
+          <h2 id="deliverables-heading" className={styles.sectionTitle}>What you get</h2>
           <p className={styles.narrativeLead}>
-            You don&apos;t need more opinions. You need decisions.
+            More opinions aren&apos;t the bottleneck. You need someone to make the call and hand over something your engineers can use.
           </p>
           <p className={styles.narrativeFollow}>
-            We cut noise. We make tradeoffs. We leave you with artifacts your team can ship from.
+            That&apos;s what we do. Tradeoffs written down, scope locked. Artifacts that ship, not slides that sit in a folder.
           </p>
 
           <div className={styles.deliverablesGroup}>
@@ -196,10 +195,13 @@ export default function Home() {
           <span className={styles.sectionNum}>03</span>
           <h2 className={styles.whyTitle}>Why work with us</h2>
           <p className={styles.whyLead}>
-            We cut through opinions, kill weak ideas early, and make the hard tradeoffs most teams avoid. We don&apos;t chase consensus or comfort. We drive momentum and results. You leave with concrete product and UX artifacts your team can ship immediately, not slides that die in a folder.
+            Most workshops end in more options. We&apos;re built to end in decisions. That means killing weak ideas early and making tradeoffs most teams duck. You walk out with something your team can ship, not another deck.
+          </p>
+          <p className={styles.whyLead} style={{ marginTop: "1rem" }}>
+            30+ years in product, UX, and software. We&apos;ve shipped and we&apos;ve failed. That experience comes from real teams:
           </p>
           <ul className={styles.whyBulletList}>
-            <li>30+ years across Product, UX, and software. We&apos;ve shipped and we&apos;ve failed. Lessons earned inside teams at:</li>
+            <li aria-hidden>Past teams and clients include</li>
           </ul>
           <div className={styles.companyLogos}>
             <span className={styles.companyLogoName}>Amazon</span>
@@ -222,56 +224,56 @@ export default function Home() {
             <li>
               <span className={styles.stepNum}>1</span>
               <div>
-                <strong>Kickoff and alignment</strong> — We lock scope, outcomes, and success metrics so there’s no drift. You get a clear brief and we agree on what “done” looks like.
+                <strong>Kickoff and alignment.</strong> Scope, outcomes, and success metrics get locked up front. You get a brief; we agree what “done” means. No drift.
               </div>
             </li>
             <li>
               <span className={styles.stepNum}>2</span>
               <div>
-                <strong>Research and synthesis</strong> — User insights are gathered and turned into clear decisions. No report that sits in a drawer; we produce a decision log and prioritized opportunities.
+                <strong>Research and synthesis.</strong> We talk to users (when it reduces risk), then turn what we learn into a decision log and prioritized opportunities, not a report that sits in a drawer.
               </div>
             </li>
             <li>
               <span className={styles.stepNum}>3</span>
               <div>
-                <strong>Backlog and flows</strong> — Groomed backlog with acceptance criteria, plus UX flows and key screens for the features that will move the needle.
+                <strong>Backlog and flows.</strong> Groomed backlog with acceptance criteria. UX flows and key screens for what actually moves the needle.
               </div>
             </li>
             <li>
               <span className={styles.stepNum}>4</span>
               <div>
-                <strong>Handoff</strong> — Design foundations and documentation your team can build on. We leave you ready to implement, not wondering what to do next.
+                <strong>Handoff.</strong> Design foundations and docs your team can build on. You’re ready to implement. No “what do we do next?” hangover.
               </div>
             </li>
           </ol>
         </section>
 
         {/* 05 Solutions — three offerings */}
-        <section id="solutions" className={styles.solutionsSection}>
+        <section id="offerings" className={styles.solutionsSection}>
           <span className={styles.sectionNum}>05</span>
-          <h2 className={styles.solutionsTitle}>Solutions</h2>
+          <h2 className={styles.solutionsTitle}>Offerings</h2>
 
           <article className={styles.solutionBlock}>
             <span className={styles.solutionNum}>01</span>
             <h3 className={styles.solutionTitle}>Product &amp; UX Audit</h3>
             <p className={styles.solutionPrice}>$525 · 90-minute senior review</p>
-            <p className={styles.solutionWho}>For founders and product leaders who want clarity before spending more time or money on engineering.</p>
+            <p className={styles.solutionWho}>Founders and product leads who want a straight read before committing more time or budget to build.</p>
             <div className={styles.solutionGrid}>
               <div>
                 <h4 className={styles.blockLabel}>How it works</h4>
                 <ul className={styles.bulletList}>
-                  <li>We review your product, roadmap, and UX against your business goals</li>
-                  <li>We pinpoint the real bottleneck slowing you down</li>
-                  <li>We pressure-test assumptions and call out trade-offs</li>
-                  <li>We recommend the smartest next move</li>
+                  <li>Your product, roadmap, and UX reviewed against your business goals</li>
+                  <li>We find the real bottleneck, not the obvious one</li>
+                  <li>Assumptions pressure-tested; trade-offs called out in plain language</li>
+                  <li>One clear recommendation: quick wins, a sprint, or deeper discovery</li>
                 </ul>
               </div>
               <div>
                 <h4 className={styles.blockLabel}>What you get</h4>
                 <ul className={styles.bulletList}>
-                  <li>A 1-page executive audit with clear priorities</li>
-                  <li>A direct recommendation: quick fixes, a focused sprint, or deeper discovery</li>
-                  <li>A follow-up call to unblock decisions and reduce risk</li>
+                  <li>One-page executive audit with priorities you can act on</li>
+                  <li>Recommendation you can take to the team or the board</li>
+                  <li>Follow-up call so decisions don’t stall</li>
                 </ul>
               </div>
             </div>
@@ -283,24 +285,24 @@ export default function Home() {
             <span className={styles.solutionNum}>02</span>
             <h3 className={styles.solutionTitle}>Discovery Program</h3>
             <p className={styles.solutionPrice}>$18,500 · 3 sprints · fixed scope</p>
-            <p className={styles.solutionWho}>For teams building or evolving a core product who need clarity and speed, not guesses.</p>
+            <p className={styles.solutionWho}>Teams building or evolving a core product. You need clarity and something to build, not another round of guesses.</p>
             <div className={styles.solutionGrid}>
               <div>
                 <h4 className={styles.blockLabel}>How it works</h4>
                 <ul className={styles.bulletList}>
-                  <li>Lock scope, success criteria, and constraints upfront</li>
-                  <li>Run focused research and document decisions, not opinions</li>
-                  <li>Turn insights into a build-ready backlog</li>
-                  <li>Design only what moves the product forward</li>
+                  <li>Scope, success criteria, and constraints locked before we start</li>
+                  <li>Focused research, then we document decisions, not opinions</li>
+                  <li>Insights become a backlog your engineers can pick up</li>
+                  <li>Design only where it moves the product. No filler.</li>
                 </ul>
               </div>
               <div>
                 <h4 className={styles.blockLabel}>What you get</h4>
                 <ul className={styles.bulletList}>
-                  <li>A ship-ready backlog with clear acceptance criteria</li>
-                  <li>Research synthesis and a decision log for alignment</li>
+                  <li>Ship-ready backlog with acceptance criteria</li>
+                  <li>Research synthesis and a decision log so everyone’s aligned</li>
                   <li>UX flows and key screens for the critical path</li>
-                  <li>Design foundations your team can extend with confidence</li>
+                  <li>Design foundations your team can extend. No black box.</li>
                 </ul>
               </div>
             </div>
@@ -311,22 +313,21 @@ export default function Home() {
             <span className={styles.solutionNum}>03</span>
             <h3 className={styles.solutionTitle}>Add a Sprint</h3>
             <p className={styles.solutionPrice}>$6,200 · 1 sprint extension</p>
-            <p className={styles.solutionWho}>For teams already working with us or who need a few extra sprints to finish strong.</p>
+            <p className={styles.solutionWho}>Already with us, or need a few more sprints to close the loop? Same team, same context. We lock scope and finish what we started.</p>
             <div className={styles.solutionGrid}>
               <div>
                 <h4 className={styles.blockLabel}>How it works</h4>
                 <ul className={styles.bulletList}>
-                  <li>Same team, same context</li>
-                  <li>Scope locked before kickoff</li>
-                  <li>Focused on closing gaps, not opening new ones</li>
+                  <li>Same team. No re-onboarding.</li>
+                  <li>Scope agreed before kickoff. We close gaps, we don’t open new ones</li>
                 </ul>
               </div>
               <div>
                 <h4 className={styles.blockLabel}>What you get</h4>
                 <ul className={styles.bulletList}>
-                  <li>Additional flows, screens, or backlog items</li>
-                  <li>Updated design system and documentation</li>
-                  <li>Clean, low-friction handoff to your team</li>
+                  <li>Extra flows, screens, or backlog items as agreed</li>
+                  <li>Design system and docs updated so your team can take over</li>
+                  <li>Handoff that doesn’t leave anyone guessing</li>
                 </ul>
               </div>
             </div>
@@ -343,31 +344,31 @@ export default function Home() {
               <details className={styles.faqItem} open>
                 <summary>What do you deliver?</summary>
                 <div className={styles.faqBody}>
-                  Build-ready product and UX artifacts: a clear product brief, research synthesis, a prioritized backlog with acceptance criteria, UX flows, and design foundations your team can extend.
+                  Stuff your team can build from: a product brief, research synthesis, a prioritized backlog with acceptance criteria, UX flows, and design foundations. No “strategy deck” that dies in a folder.
                 </div>
               </details>
               <details className={styles.faqItem} open>
                 <summary>Who is this for?</summary>
                 <div className={styles.faqBody}>
-                  Founders and product teams at any stage who need clarity, alignment, and momentum.
+                  Founders and product teams who are stuck on what to build next, or need to de-risk before they build more.
                 </div>
               </details>
               <details className={styles.faqItem} open>
                 <summary>What problem do you actually solve?</summary>
                 <div className={styles.faqBody}>
-                  Ambiguity. Too many ideas, too many opinions, and not enough decisions.
+                  Too many ideas and opinions, not enough decisions. We help you get to a clear “what” and “why” so build can start (or stop) with confidence.
                 </div>
               </details>
               <details className={styles.faqItem} open>
                 <summary>How is this different from an agency or consultancy?</summary>
                 <div className={styles.faqBody}>
-                  We don&apos;t optimize for output or recommendations. We optimize for decisions and shippable direction.
+                  We’re not optimizing for billable hours or a long report. We’re optimizing for decisions and something shippable. Fixed scope, capped sprints.
                 </div>
               </details>
               <details className={styles.faqItem} open>
                 <summary>Is this discovery, strategy, or execution?</summary>
                 <div className={styles.faqBody}>
-                  Discovery that collapses into execution. Strategy only matters if it changes what gets built next.
+                  Discovery that turns into execution. Strategy only counts if it changes what gets built. We focus on that line.
                 </div>
               </details>
               <details className={styles.faqShowAll}>
@@ -376,79 +377,79 @@ export default function Home() {
                   <details className={styles.faqItem}>
                     <summary>How do you keep scope under control?</summary>
                     <div className={styles.faqBody}>
-                      Outcomes are locked up front. Sprints are capped. Tradeoffs are written down. New work replaces existing work.
+                      Outcomes locked up front. Sprints capped. Tradeoffs written down. If something new comes in, something else comes out.
                     </div>
                   </details>
                   <details className={styles.faqItem}>
                     <summary>What if priorities change mid-engagement?</summary>
                     <div className={styles.faqBody}>
-                      We adjust by re-cutting scope. We don&apos;t expand timelines.
+                      We re-cut scope. We don’t extend the timeline.
                     </div>
                   </details>
                   <details className={styles.faqItem}>
                     <summary>How fast do you work?</summary>
                     <div className={styles.faqBody}>
-                      Most engagements run 2–6 weeks. Speed comes from focus, not shortcuts.
+                      Most work runs 2 to 6 weeks. Fast because we’re focused, not because we’re cutting corners.
                     </div>
                   </details>
                   <details className={styles.faqItem}>
                     <summary>Who will we work with?</summary>
                     <div className={styles.faqBody}>
-                      A small senior Product and UX team with 30+ years across product, design, and software.
+                      A small senior team (product and UX) with 30+ years combined across product, design, and software. People who’ve shipped and who’ve failed.
                     </div>
                   </details>
                   <details className={styles.faqItem}>
                     <summary>Do you work with existing teams or replace them?</summary>
                     <div className={styles.faqBody}>
-                      We work alongside your team. The goal is to unblock and accelerate, not replace.
+                      Alongside. We’re here to unblock and accelerate, not to take over.
                     </div>
                   </details>
                   <details className={styles.faqItem}>
                     <summary>Do you do user research?</summary>
                     <div className={styles.faqBody}>
-                      Yes, when it reduces risk. We avoid research that doesn&apos;t inform decisions.
+                      When it reduces risk. We skip research that doesn’t lead to a decision.
                     </div>
                   </details>
                   <details className={styles.faqItem}>
                     <summary>Will you talk to customers or users?</summary>
                     <div className={styles.faqBody}>
-                      Yes, if it improves confidence in what gets built next.
+                      Yes, when it makes the next build decision clearer.
                     </div>
                   </details>
                   <details className={styles.faqItem}>
                     <summary>What if we already have a roadmap?</summary>
                     <div className={styles.faqBody}>
-                      We pressure-test it and reduce risk before more is built.
+                      We pressure-test it. Reduce risk before you build more on top of it.
                     </div>
                   </details>
                   <details className={styles.faqItem}>
                     <summary>What if we already know what to build?</summary>
                     <div className={styles.faqBody}>
-                      Then we help confirm it or expose weak assumptions early.
+                      Then we help you confirm it, or surface the weak assumptions before you commit.
                     </div>
                   </details>
                   <details className={styles.faqItem}>
                     <summary>How do you handle stakeholder disagreement?</summary>
                     <div className={styles.faqBody}>
-                      We surface it early and resolve it with evidence and tradeoffs, not politics.
+                      We get it out in the open early. Then we use evidence and tradeoffs to resolve it, not politics.
                     </div>
                   </details>
                   <details className={styles.faqItem}>
                     <summary>What happens after the engagement?</summary>
                     <div className={styles.faqBody}>
-                      You own everything. Backlog, designs, decisions, and rationale. No dependency. No retainer.
+                      You own it all. Backlog, designs, decisions, rationale. No lock-in. No retainer.
                     </div>
                   </details>
                   <details className={styles.faqItem}>
                     <summary>What&apos;s the biggest risk of working with you?</summary>
                     <div className={styles.faqBody}>
-                      You&apos;ll be forced to make decisions you&apos;ve been avoiding.
+                      You’ll have to make decisions you’ve been putting off.
                     </div>
                   </details>
                   <details className={styles.faqItem}>
                     <summary>What&apos;s the biggest risk of not working with you?</summary>
                     <div className={styles.faqBody}>
-                      Shipping the wrong thing with confidence.
+                      Building the wrong thing and feeling sure you’re right.
                     </div>
                   </details>
                 </div>
@@ -462,7 +463,7 @@ export default function Home() {
           <span className={styles.sectionNum}>07</span>
           <h2 className={styles.contactTitle}>Send one note.</h2>
           <p className={styles.contactLead}>
-            Tell us what you’re building and where it’s stuck. We’ll reply with a clear next step.
+            What are you building, and where’s it stuck? Send that. We’ll come back with a clear next step. No pitch, no runaround.
           </p>
           <form onSubmit={handleSubmit} className={styles.form}>
             {selectedService && (
@@ -493,15 +494,16 @@ export default function Home() {
 
         <footer className={styles.footer}>
           <div className={styles.footerInner}>
-            <nav className={styles.footerNav}>
-              <a href="#solutions">Solutions</a>
-              <a href="#deliverables">Deliverables</a>
+            <nav className={styles.footerNav} aria-label="Footer">
+              <a href="#offerings">Offerings</a>
+              <a href="#deliverables">What you get</a>
               <a href="#why-us">Why us</a>
               <a href="#how-it-works">How it works</a>
-              <a href="/work">Work</a>
+              <a href="/work">Our work</a>
+              <a href="/blog">Blog</a>
               <a href="#contact">Contact</a>
             </nav>
-            <p className={styles.footerText}>Safe Mode — Product & UX discovery studio.</p>
+            <p className={styles.footerText}>Safe Mode. Product and UX discovery. Fixed scope, no scope creep.</p>
           </div>
         </footer>
       </main>

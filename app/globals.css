@@ -17,10 +17,41 @@
   /* Surface tint for highlights (primary, low opacity) — follows primary token */
   --surface-tint: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent);
 
-  /* Layout */
+  /* Layout — strict section pattern */
   --section-max: 1200px;
-  --section-padding-y: clamp(80px, 12vw, 140px);
-  --section-padding-x: clamp(24px, 5vw, 48px);
+  --section-padding-y: var(--space-80);
+  --section-padding-x: var(--space-24);
+  --section-padding-y-mobile: var(--space-48);
+  --section-padding-x-mobile: var(--space-16);
+  /* Bookend sections (hero, contact) — larger vertical padding */
+  --section-padding-bookend-y: clamp(72px, 10vw, 120px);
+  --section-padding-bookend-y-bottom: clamp(80px, 10vw, 128px);
+  /* Vertical rhythm: gap between section num and title, title and content */
+  --section-gap-num-title: var(--space-8);
+  --section-gap-title-body: var(--space-24);
+  --section-gap-body-next: var(--space-32);
+  /* Section heading — single pattern for all sections */
+  --section-heading-font-size: var(--text-section-heading);
+  --section-heading-font-weight: var(--font-medium);
+  --section-heading-letter-spacing: 0.015em;
+  --section-heading-line-height: 1.35;
+  /* Lead/body prose — consistent intro text */
+  --section-lead-font-size: var(--text-body-lg);
+  --section-lead-max-width: var(--content-prose);
+  /* Primary button — one scale */
+  --btn-primary-min-height: 48px;
+  --btn-primary-padding-y: 12px;
+  --btn-primary-padding-x: 28px;
+  --btn-primary-font-size: var(--text-body);
+  --btn-primary-font-weight: var(--font-semibold);
+  /* Bullet list — one scale */
+  --list-bullet-indent: 1.25rem;
+  --list-bullet-size: 5px;
+  --list-item-gap: 0.5rem;
+  /* Content widths */
+  --content-narrow: 40rem;   /* 640px */
+  --content-prose: 45rem;   /* 720px */
+  --content-form: 26.25rem; /* 420px */
 
   /* Font weight — light, minimal */
   --font-light: 300;
@@ -92,6 +123,22 @@ body {
 :focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  padding: 12px 16px;
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  font-weight: var(--font-semibold);
+  text-decoration: none;
+  z-index: 1000;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
