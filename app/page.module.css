@@ -1330,7 +1330,11 @@
   list-style: none;
   font-weight: var(--font-regular);
   letter-spacing: 0.01em;
-  color: var(--md-sys-color-on-surface-variant);
+  color: var(--md-sys-color-primary);
+}
+
+.faqShowAllSummary:hover {
+  color: var(--md-sys-color-primary-pressed);
 }
 
 .faqShowAllSummary::-webkit-details-marker {
