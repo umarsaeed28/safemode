@@ -22,7 +22,7 @@ export default function WorkPage() {
             Safe Mode
           </Link>
           <ul className={styles.navLinks}>
-            <li><a href="/#solutions">Solutions</a></li>
+            <li><a href="/#services">Services</a></li>
             <li><a href="/#why-us">Why us</a></li>
             <li><a href="/work">Work</a></li>
             <li><a href="/#faq">FAQ</a></li>
@@ -62,7 +62,7 @@ export default function WorkPage() {
         <footer className={styles.footer}>
           <div className={styles.footerInner}>
             <nav className={styles.footerNav}>
-              <a href="/#offerings">Offerings</a>
+              <a href="/#services">Services</a>
               <a href="/#deliverables">Deliverables</a>
               <a href="/#why-us">Why us</a>
               <a href="/#how-it-works">How it works</a>

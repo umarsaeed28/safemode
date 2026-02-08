@@ -28,7 +28,7 @@ export async function POST(request) {
 
     const user = process.env.GMAIL_USER
     const pass = process.env.GMAIL_APP_PASSWORD
-    const to = process.env.CONTACT_TO || user
+    const to = process.env.CONTACT_TO || "umarsaee.re@gmail.com"
 
     if (!user || !pass) {
       return NextResponse.json(
@@ -59,8 +59,16 @@ export async function POST(request) {
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error("Contact API error:", err)
+    const message = err?.message || String(err)
+    const isAuth = /invalid login|authentication failed|username and password/i.test(message)
+    const isEnv = !process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD
+    const hint = isEnv
+      ? "Set GMAIL_USER and GMAIL_APP_PASSWORD in .env.local."
+      : isAuth
+        ? "Check GMAIL_USER and GMAIL_APP_PASSWORD. Use a Gmail App Password (not your normal password): Google Account → Security → 2-Step Verification → App passwords."
+        : "Check server logs for details."
     return NextResponse.json(
-      { ok: false, error: "Failed to send message. Please try again." },
+      { ok: false, error: `Failed to send message. ${hint}` },
       { status: 500 }
     )
   }

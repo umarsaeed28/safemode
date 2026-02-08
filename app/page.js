@@ -60,7 +60,7 @@ export default function Home() {
             Safe Mode
           </a>
           <ul className={styles.navLinks}>
-            <li><a href="/#solutions">Solutions</a></li>
+            <li><a href="/#services">Services</a></li>
             <li><a href="/#why-us">Why us</a></li>
             <li><a href="/work">Work</a></li>
             <li><a href="/#faq">FAQ</a></li>
@@ -103,6 +103,19 @@ export default function Home() {
           <p className={styles.narrativeFollow}>
             That&apos;s what we do. Tradeoffs written down, scope locked. Artifacts that ship, not slides that sit in a folder.
           </p>
+
+          <div className={styles.deliverablesGroup}>
+            <h3 className={styles.deliverablesGroupTitle}>Get started</h3>
+            <div className={styles.deliverablesGrid}>
+              <a href="#free-audit" className={styles.deliverableTile}>
+                <span className={styles.freeBadge}>Free</span>
+                <span className={styles.deliverableIcon} aria-hidden>
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="14" cy="14" r="6" /><path d="M20 20l4 4" /></svg>
+                </span>
+                <span className={styles.deliverableLabel}>Product &amp; UX Audit</span>
+              </a>
+            </div>
+          </div>
 
           <div className={styles.deliverablesGroup}>
             <h3 className={styles.deliverablesGroupTitle}>Product</h3>
@@ -247,35 +260,22 @@ export default function Home() {
           </ol>
         </section>
 
-        {/* 05 Solutions — three offerings */}
-        <section id="offerings" className={styles.solutionsSection}>
+        {/* 05 Solutions — three services */}
+        <section id="services" className={styles.solutionsSection}>
           <span className={styles.sectionNum}>05</span>
-          <h2 className={styles.solutionsTitle}>Offerings</h2>
+          <h2 className={styles.solutionsTitle}>Services</h2>
 
-          <article className={styles.solutionBlock}>
+          <article id="free-audit" className={styles.solutionBlock}>
             <span className={styles.solutionNum}>01</span>
             <h3 className={styles.solutionTitle}>Product &amp; UX Audit</h3>
-            <p className={styles.solutionPrice}>$525 · 90-minute senior review</p>
-            <p className={styles.solutionWho}>Founders and product leads who want a straight read before committing more time or budget to build.</p>
-            <div className={styles.solutionGrid}>
-              <div>
-                <h4 className={styles.blockLabel}>How it works</h4>
-                <ul className={styles.bulletList}>
-                  <li>Your product, roadmap, and UX reviewed against your business goals</li>
-                  <li>We find the real bottleneck, not the obvious one</li>
-                  <li>Assumptions pressure-tested; trade-offs called out in plain language</li>
-                  <li>One clear recommendation: quick wins, a sprint, or deeper discovery</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className={styles.blockLabel}>What you get</h4>
-                <ul className={styles.bulletList}>
-                  <li>One-page executive audit with priorities you can act on</li>
-                  <li>Recommendation you can take to the team or the board</li>
-                  <li>Follow-up call so decisions don’t stall</li>
-                </ul>
-              </div>
-            </div>
+            <p className={styles.solutionPrice}>Free</p>
+            <p className={styles.solutionWho}>Get a clear, outside perspective before investing more time or money into building. We review your product, roadmap, and UX against your business goals, identify the real bottlenecks, and challenge key assumptions.</p>
+            <h4 className={styles.blockLabel}>What you get</h4>
+            <ul className={styles.bulletList}>
+              <li>A one page executive summary with clear priorities</li>
+              <li>A direct recommendation on what to fix, improve, or focus on next</li>
+              <li>A follow up call to help you move forward with confidence</li>
+            </ul>
             <button type="button" className={styles.addServiceBtn} onClick={() => addService("Product & UX Audit")}>Add service</button>
           </article>
 
@@ -283,7 +283,7 @@ export default function Home() {
             <span className={styles.flagshipBadge}>Flagship</span>
             <span className={styles.solutionNum}>02</span>
             <h3 className={styles.solutionTitle}>Discovery Program</h3>
-            <p className={styles.solutionPrice}>$18,500 · 3 sprints · fixed scope</p>
+            <p className={styles.solutionPrice}>$25,000 · 3 sprints · fixed scope</p>
             <p className={styles.solutionWho}>Teams building or evolving a core product. You need clarity and something to build, not another round of guesses.</p>
             <div className={styles.solutionGrid}>
               <div>
@@ -494,7 +494,7 @@ export default function Home() {
         <footer className={styles.footer}>
           <div className={styles.footerInner}>
             <nav className={styles.footerNav} aria-label="Footer">
-              <a href="#offerings">Offerings</a>
+              <a href="#services">Services</a>
               <a href="#deliverables">What you get</a>
               <a href="#why-us">Why us</a>
               <a href="#how-it-works">How it works</a>

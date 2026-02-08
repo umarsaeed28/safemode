@@ -1,0 +1,5 @@
+# Keep secrets out of AI context — never paste env contents in chat
+.env
+.env.*
+.env.local
+.env.*.local
