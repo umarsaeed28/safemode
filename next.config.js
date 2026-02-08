@@ -1,12 +1,21 @@
 /** @type {import('next').NextConfig} */
+const isVercel = process.env.VERCEL === "1";
+const isGitHubPages =
+  process.env.GITHUB_ACTIONS === "true" || process.env.NEXT_PUBLIC_BASE_PATH;
+
 const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] || process.env.NEXT_PUBLIC_BASE_PATH?.replace(/^\//, "") || "";
 const basePath = repoName ? `/${repoName}` : (process.env.NEXT_PUBLIC_BASE_PATH || "");
 
 const nextConfig = {
-  output: "export",
-  basePath: basePath || undefined,
-  assetPrefix: basePath ? `${basePath}/` : undefined,
-  trailingSlash: true,
+  // GitHub Pages: static export + basePath. Vercel: normal app at root.
+  ...(isGitHubPages && !isVercel
+    ? {
+        output: "export",
+        basePath: basePath || undefined,
+        assetPrefix: basePath ? `${basePath}/` : undefined,
+        trailingSlash: true,
+      }
+    : {}),
 };
 
 module.exports = nextConfig;
