@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Header from "../components/Header"
 import styles from "../page.module.css"
 
 export const metadata = {
@@ -17,7 +16,20 @@ export const metadata = {
 export default function WorkPage() {
   return (
     <>
-      <Header />
+      <header className={styles.header}>
+        <nav className={styles.nav}>
+<Link href="/" className={styles.logo} aria-label="Safe Mode home">
+            Safe Mode
+          </Link>
+          <ul className={styles.navLinks}>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#why-us">Why us</a></li>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
 
       <main id="main-content" role="main">
         <section className={styles.hero} style={{ paddingBottom: "clamp(4rem, 10vw, 6rem)" }} aria-labelledby="work-heading">

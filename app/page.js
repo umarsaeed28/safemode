@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import HomeJsonLd from "./components/HomeJsonLd"
-import Header from "./components/Header"
 import styles from "./page.module.css"
 
 export default function Home() {
@@ -55,7 +54,20 @@ export default function Home() {
 
   return (
     <>
-      <Header />
+      <header className={styles.header}>
+        <nav className={styles.nav}>
+<a href="/" className={styles.logo} aria-label="Safe Mode home">
+            Safe Mode
+          </a>
+          <ul className={styles.navLinks}>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#why-us">Why us</a></li>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
 
       <main id="main-content">
         <HomeJsonLd />
