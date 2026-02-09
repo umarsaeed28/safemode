@@ -118,7 +118,7 @@ export default async function BlogPostPage({ params }) {
             href="/#contact"
             className="mt-4 inline-block rounded-md bg-[var(--md-sys-color-primary)] px-5 py-2.5 text-sm font-medium text-white hover:opacity-90"
           >
-            Start a conversation
+            Book a 30-min Intro Call
           </Link>
         </div>
         <p className="mt-6 text-center">

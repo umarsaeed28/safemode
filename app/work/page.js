@@ -30,7 +30,7 @@ export default function WorkPage() {
             </p>
             <div className={styles.heroCtas}>
               <Link href="/#contact" className={styles.ctaPrimary}>
-                Start a conversation
+                Book a 30-min Intro Call
               </Link>
               <Link href="/" className={styles.ctaSecondary}>
                 Back to home

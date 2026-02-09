@@ -92,14 +92,14 @@ export default function Home() {
 
           <div className={styles.heroContent}>
             <h1 id="hero-heading" className={styles.heroTitle}>
-              9/10 ideas don&apos;t hold up. Let&apos;s check yours in <span className={styles.highlight}>shipgate</span>.
+              9/10 ideas don&apos;t pass the gate. <span className={styles.heroTitleNoBreak}>Does yours?</span>
             </h1>
             <p className={styles.heroNarrative}>
-              For teams unsure what to build or validate, we&apos;re a Product and UX duo with 30+ years of experience across big tech and startups. We talk to real users, test ideas early, and help you make clear go or no go decisions so you build what actually drives growth.
+              For teams unsure what to build, we&apos;re a product and UX duo with 30+ years of experience across big tech and startups. We&apos;ll talk to your users and validate ideas early, so you focus on building what actually drives growth.
             </p>
             <div className={styles.heroCtas}>
               <a href="#contact" className={styles.ctaPrimary}>
-                Start a conversation
+                Book a 30-min Intro Call
               </a>
               <a href="/work" className={styles.ctaSecondary}>
                 See our work
@@ -108,111 +108,39 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 02 Deliverables — narrative + Product & UX tiles */}
+        {/* 02 Deliverables — What you get */}
         <section id="deliverables" className={styles.deliverablesSection} aria-labelledby="deliverables-heading">
           <span className={styles.sectionNum}>02</span>
           <h2 id="deliverables-heading" className={styles.sectionTitle}>What you get</h2>
-          <p className={styles.narrativeLead}>
-            More opinions aren&apos;t the bottleneck. You need someone to make the call and hand over something your engineers can use.
-          </p>
-          <p className={styles.narrativeFollow}>
-            That&apos;s what we do. Tradeoffs written down, scope locked. Artifacts that ship, not slides that sit in a folder.
-          </p>
 
-          <div className={styles.deliverablesGroup}>
-            <h3 className={styles.deliverablesGroupTitle}>Get started</h3>
-            <div className={styles.deliverablesGrid}>
-              <a href="#free-audit" className={styles.deliverableTile}>
-                <span className={styles.freeBadge}>Free</span>
-                <span className={styles.deliverableIcon} aria-hidden>
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="14" cy="14" r="6" /><path d="M20 20l4 4" /></svg>
-                </span>
-                <span className={styles.deliverableLabel}>Product &amp; UX Audit</span>
-              </a>
+          <div className={styles.deliverablesGrid}>
+            <div className={styles.deliverableTile}>
+              <span className={styles.deliverableLabel}>One-page Bet Sheet</span>
+              <p className={styles.deliverableDesc}>Your goal → top 3 opportunities → recommended bets → 90-day outcomes. Cagan value and risk framing with clear success metrics.</p>
             </div>
-          </div>
-
-          <div className={styles.deliverablesGroup}>
-            <h3 className={styles.deliverablesGroupTitle}>Product</h3>
-            <div className={styles.deliverablesGrid}>
-              <div className={styles.deliverableTile}>
-                <span className={styles.deliverableIcon} aria-hidden>
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 4h12l6 6v18H8V4z" /><path d="M20 4v6h6" /></svg>
-                </span>
-                <span className={styles.deliverableLabel}>Product brief</span>
-              </div>
-              <div className={styles.deliverableTile}>
-                <span className={styles.deliverableIcon} aria-hidden>
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="16" cy="14" r="8" /><path d="M10 22a6 6 0 0 1 12 0" /><path d="M16 10v2M14 14h4" /></svg>
-                </span>
-                <span className={styles.deliverableLabel}>Problem statement and JTBD</span>
-              </div>
-              <div className={styles.deliverableTile}>
-                <span className={styles.deliverableIcon} aria-hidden>
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 8h20M6 14h20M6 20h14" /></svg>
-                </span>
-                <span className={styles.deliverableLabel}>PRD</span>
-              </div>
-              <div className={styles.deliverableTile}>
-                <span className={styles.deliverableIcon} aria-hidden>
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 6h24v4H4zM4 14h24v4H4zM4 22h16v4H4z" /></svg>
-                </span>
-                <span className={styles.deliverableLabel}>Prioritized backlog</span>
-              </div>
-              <div className={styles.deliverableTile}>
-                <span className={styles.deliverableIcon} aria-hidden>
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 24l8-8 8 8M16 16V8" /><path d="M4 28h24" /></svg>
-                </span>
-                <span className={styles.deliverableLabel}>MVP scope and tradeoffs</span>
-              </div>
-              <div className={styles.deliverableTile}>
-                <span className={styles.deliverableIcon} aria-hidden>
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 24V8l12 8 12-8v16" /><path d="M4 16l12 8 12-8" /></svg>
-                </span>
-                <span className={styles.deliverableLabel}>Success metrics</span>
-              </div>
+            <div className={styles.deliverableTile}>
+              <span className={styles.deliverableLabel}>Live Opportunity Solution Tree</span>
+              <p className={styles.deliverableDesc}>Teresa Torres–style OST mapping outcome → opportunities → solutions. Includes evidence scores and verbatim quotes from user interviews.</p>
             </div>
-          </div>
-
-          <div className={styles.deliverablesGroup}>
-            <h3 className={styles.deliverablesGroupTitle}>UX</h3>
-            <div className={styles.deliverablesGrid}>
-              <div className={styles.deliverableTile}>
-                <span className={styles.deliverableIcon} aria-hidden>
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="14" cy="14" r="6" /><path d="M20 20l4 4" /></svg>
-                </span>
-                <span className={styles.deliverableLabel}>Research insights summary</span>
-              </div>
-              <div className={styles.deliverableTile}>
-                <span className={styles.deliverableIcon} aria-hidden>
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="16" cy="10" r="4" /><path d="M8 28c0-4 4-8 8-8s8 4 8 8" /></svg>
-                </span>
-                <span className={styles.deliverableLabel}>Personas or proto-personas</span>
-              </div>
-              <div className={styles.deliverableTile}>
-                <span className={styles.deliverableIcon} aria-hidden>
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 16h6l4-8 4 12 4-4h6" /></svg>
-                </span>
-                <span className={styles.deliverableLabel}>User journeys</span>
-              </div>
-              <div className={styles.deliverableTile}>
-                <span className={styles.deliverableIcon} aria-hidden>
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="6" width="24" height="20" rx="1" /><path d="M4 12h24M10 12v14" /></svg>
-                </span>
-                <span className={styles.deliverableLabel}>Wireframes</span>
-              </div>
-              <div className={styles.deliverableTile}>
-                <span className={styles.deliverableIcon} aria-hidden>
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="24" height="24" rx="2" /><path d="M4 12h24M12 4v24" /></svg>
-                </span>
-                <span className={styles.deliverableLabel}>High-fidelity designs</span>
-              </div>
-              <div className={styles.deliverableTile}>
-                <span className={styles.deliverableIcon} aria-hidden>
-                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h10v10H4zM18 4h10v10H18zM4 18h10v10H4zM18 18h10v10H18z" /></svg>
-                </span>
-                <span className={styles.deliverableLabel}>Design system foundations</span>
-              </div>
+            <div className={styles.deliverableTile}>
+              <span className={styles.deliverableLabel}>User and UX foundation</span>
+              <p className={styles.deliverableDesc}>2–3 proto-personas with UX needs. Critical journey map with pain-to-opportunity mapping. UX stakeholder feedback summary.</p>
+            </div>
+            <div className={styles.deliverableTile}>
+              <span className={styles.deliverableLabel}>Competitive strategy</span>
+              <p className={styles.deliverableDesc}>Gibson Biddle DHM matrix (Delight, Hard-to-copy, Margin). Your strategic positioning compared to key competitors.</p>
+            </div>
+            <div className={styles.deliverableTile}>
+              <span className={styles.deliverableLabel}>Build-ready PRDs</span>
+              <p className={styles.deliverableDesc}>1–2 Marty Cagan PRDs for top bets. Clear value proposition, risks, success criteria, and non-goals.</p>
+            </div>
+            <div className={styles.deliverableTile}>
+              <span className={styles.deliverableLabel}>Now / Next / Later roadmap</span>
+              <p className={styles.deliverableDesc}>Time-phased plan linking OST → PRDs → execution. Outcome metrics defined for each milestone.</p>
+            </div>
+            <div className={styles.deliverableTile}>
+              <span className={styles.deliverableLabel}>Stakeholder alignment report</span>
+              <p className={styles.deliverableDesc}>CTO, Sales, and Investor perspectives on your bets. Objections, counters, and a clear decision table.</p>
             </div>
           </div>
         </section>
