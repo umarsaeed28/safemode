@@ -11,13 +11,13 @@ const plusJakarta = Plus_Jakarta_Sans({
   weight: ["300", "400", "500", "600", "700"],
 })
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://safemode.com"
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://shipgate.ai"
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Safe Mode | Product & UX Discovery Studio",
-    template: "%s | Safe Mode",
+    default: "shipgate | Product & UX Discovery Studio",
+    template: "%s | shipgate",
   },
   description:
     "We run product discovery and UX so you get decisions and a shippable backlog. Fixed scope, no scope creep. For founders and product teams who need to move fast without guessing.",
@@ -30,21 +30,21 @@ export const metadata = {
     "product team",
     "founder",
   ],
-  authors: [{ name: "Safe Mode", url: SITE_URL }],
-  creator: "Safe Mode",
+  authors: [{ name: "shipgate", url: SITE_URL }],
+  creator: "shipgate",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    siteName: "Safe Mode",
-    title: "Safe Mode | Product & UX Discovery Studio",
+    siteName: "shipgate",
+    title: "shipgate | Product & UX Discovery Studio",
     description:
       "Product discovery and UX. Fixed scope, capped sprints. Decisions and a backlog ready for engineering.",
     images: [],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Safe Mode | Product & UX Discovery",
+    title: "shipgate | Product & UX Discovery",
     description:
       "Product discovery and UX. Fixed scope. We force the hard calls so you ship with clarity.",
   },

@@ -3,11 +3,11 @@ import Header from "../components/Header"
 import styles from "../page.module.css"
 
 export const metadata = {
-  title: "Our work | Safe Mode",
+  title: "Our work | shipgate",
   description:
-    "Selected product and UX discovery work: case studies and outcomes from Safe Mode.",
+    "Selected product and UX discovery work: case studies and outcomes from shipgate.",
   openGraph: {
-    title: "Our work | Safe Mode",
+    title: "Our work | shipgate",
     description: "Selected product and UX discovery work.",
     url: "/work",
   },
@@ -57,7 +57,7 @@ export default function WorkPage() {
               <a href="/work">Work</a>
               <a href="/#contact">Contact</a>
             </nav>
-            <p className={styles.footerText}>Safe Mode. Product and UX discovery studio.</p>
+            <p className={styles.footerText}>shipgate. Product and UX discovery studio.</p>
           </div>
         </footer>
       </main>

@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export const metadata = {
   title: {
-    default: "Product Discovery & UX | Blog | Safe Mode",
-    template: "%s | Safe Mode",
+    default: "Product Discovery & UX | Blog | shipgate",
+    template: "%s | shipgate",
   },
   description:
     "Practical posts on product discovery, prioritization, and UX for founders and product leads who want to ship with less guesswork.",
   openGraph: {
-    title: "Product Discovery and UX | Safe Mode",
+    title: "Product Discovery and UX | shipgate",
     description: "Practical product discovery and UX. No fluff.",
     type: "website",
   },
@@ -24,7 +24,7 @@ export default function BlogLayout({ children }) {
             href="/"
             className="text-lg font-semibold text-gray-900 hover:text-[var(--md-sys-color-primary)]"
           >
-            Safe Mode
+            shipgate
           </Link>
           <div className="flex gap-6">
             <Link

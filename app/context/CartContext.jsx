@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, useCallback, useEffect } from "react"
 import { getOfferingByName } from "../../lib/offerings"
 
-const CART_KEY = "safemode_cart"
+const CART_KEY = "shipgate_cart"
 
 const CartContext = createContext(null)
 

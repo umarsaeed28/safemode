@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "Posts on discovery, roadmaps, MVPs, and UX. Written for founders and product leaders.",
   openGraph: {
-    title: "Product Discovery & UX | Safe Mode",
+    title: "Product Discovery & UX | shipgate",
     description: "Posts on discovery, roadmaps, MVPs, and UX.",
     type: "website",
     url: "/blog",

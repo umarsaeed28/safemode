@@ -11,11 +11,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  if (!post) return { title: "Post | Safe Mode" };
+  if (!post) return { title: "Post | shipgate" };
   const { frontmatter } = post;
   const title = frontmatter.title || slug;
   const description = frontmatter.description || "";
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://safemode.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://shipgate.ai";
   const url = `${siteUrl}/blog/${slug}`;
   const publishedTime = post.frontmatter.date || null;
   return {
@@ -23,17 +23,17 @@ export async function generateMetadata({ params }) {
     description,
     alternates: { canonical: url },
     openGraph: {
-      title: `${title} | Safe Mode`,
+      title: `${title} | shipgate`,
       description,
       type: "article",
       url,
       publishedTime: publishedTime || undefined,
-      authors: ["Safe Mode"],
-      siteName: "Safe Mode",
+      authors: ["shipgate"],
+      siteName: "shipgate",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | Safe Mode`,
+      title: `${title} | shipgate`,
       description,
     },
     robots: { index: true, follow: true },
@@ -60,7 +60,7 @@ export default async function BlogPostPage({ params }) {
     components: mdComponents,
   });
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://safemode.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://shipgate.ai";
   const articleUrl = `${siteUrl}/blog/${slug}`;
   const articleSchema = {
     "@context": "https://schema.org",
@@ -70,8 +70,8 @@ export default async function BlogPostPage({ params }) {
     url: articleUrl,
     datePublished: frontmatter.date || null,
     dateModified: frontmatter.date || null,
-    author: { "@type": "Organization", name: "Safe Mode", url: siteUrl },
-    publisher: { "@type": "Organization", name: "Safe Mode", url: siteUrl },
+    author: { "@type": "Organization", name: "shipgate", url: siteUrl },
+    publisher: { "@type": "Organization", name: "shipgate", url: siteUrl },
     mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
   };
 
@@ -110,7 +110,7 @@ export default async function BlogPostPage({ params }) {
 
       <footer className="mt-14 border-t border-gray-200 pt-10">
         <div className="rounded-lg bg-gray-50 p-6 text-center">
-          <p className="font-semibold text-gray-900">Work with Safe Mode</p>
+          <p className="font-semibold text-gray-900">Work with shipgate</p>
           <p className="mt-1 text-sm text-gray-600">
             Fixed scope. Capped sprints. Decisions, not more options.
           </p>

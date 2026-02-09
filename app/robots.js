@@ -1,4 +1,4 @@
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://safemode.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://shipgate.ai";
 
 export default function robots() {
   return {

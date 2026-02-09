@@ -1,6 +1,6 @@
-# Safe Mode — Marketing site
+# shipgate — Marketing site
 
-One-page marketing site for Safe Mode (product + UX discovery studio). Deploys to GitHub Pages via Actions. Next.js 14 App Router, JavaScript, CSS Modules, contact form with Gmail via nodemailer.
+One-page marketing site for shipgate (product + UX discovery studio). Deploys to GitHub Pages via Actions. Next.js 14 App Router, JavaScript, CSS Modules, contact form with Gmail via nodemailer.
 
 ## Run locally (Mac)
 

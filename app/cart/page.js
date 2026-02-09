@@ -14,7 +14,7 @@ export default function CartPage() {
       <header className={styles.header}>
         <nav className={styles.nav}>
           <Link href="/" className={styles.logo}>
-            Safe Mode
+            shipgate
           </Link>
           <div className={styles.navRight}>
             <ul className={styles.navLinks}>

@@ -43,8 +43,8 @@ export default function Header() {
         className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}
         aria-label="Main"
       >
-        <Link href="/" className={styles.logo} aria-label="Safe Mode home" onClick={closeMenu}>
-          Safe Mode
+        <Link href="/" className={styles.logo} aria-label="shipgate home" onClick={closeMenu}>
+          shipgate
         </Link>
 
         <button

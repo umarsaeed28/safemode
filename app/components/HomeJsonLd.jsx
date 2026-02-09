@@ -1,7 +1,7 @@
 /**
  * FAQPage and Service schema for the home page. Rendered in the DOM for crawlers.
  */
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://safemode.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://shipgate.ai";
 
 export default function HomeJsonLd() {
   const faqSchema = {
@@ -54,14 +54,14 @@ export default function HomeJsonLd() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "Safe Mode",
+    name: "shipgate",
     url: SITE_URL,
     description: "Product and UX discovery for founders and product teams. Fixed scope, capped sprints.",
     areaServed: "Worldwide",
     serviceType: ["Product discovery", "UX discovery", "Product audit", "Backlog grooming"],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Safe Mode offerings",
+      name: "shipgate offerings",
       itemListElement: [
         {
           "@type": "Offer",

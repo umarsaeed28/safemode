@@ -92,10 +92,10 @@ export default function Home() {
 
           <div className={styles.heroContent}>
             <h1 id="hero-heading" className={styles.heroTitle}>
-              9/10 ideas don&apos;t hold up. Let&apos;s check yours in <span className={styles.highlight}>Safe Mode</span>.
+              9/10 ideas don&apos;t hold up. Let&apos;s check yours in <span className={styles.highlight}>shipgate</span>.
             </h1>
             <p className={styles.heroNarrative}>
-              We run <span className={styles.highlight}>product discovery</span> and <span className={styles.highlight}>UX</span> when the stakes are high and the roadmap is fuzzy. No open-ended engagements. Fixed scope, capped sprints. You get decisions and a backlog your team can actually build from, not another deck that sits in a folder.
+              For teams unsure what to build or validate, we&apos;re a Product and UX duo with 30+ years of experience across big tech and startups. We talk to real users, test ideas early, and help you make clear go or no go decisions so you build what actually drives growth.
             </p>
             <div className={styles.heroCtas}>
               <a href="#contact" className={styles.ctaPrimary}>
@@ -521,7 +521,7 @@ export default function Home() {
               <a href="/blog">Blog</a>
               <a href="#contact">Contact</a>
             </nav>
-            <p className={styles.footerText}>Safe Mode. Product and UX discovery. Fixed scope, no scope creep.</p>
+            <p className={styles.footerText}>shipgate. Product and UX discovery. Fixed scope, no scope creep.</p>
           </div>
         </footer>
       </main>

@@ -48,7 +48,7 @@ function CheckoutContent() {
       <>
         <header className={styles.header}>
           <nav className={styles.nav}>
-            <Link href="/" className={styles.logo}>Safe Mode</Link>
+            <Link href="/" className={styles.logo}>shipgate</Link>
             <div className={styles.navRight}>
               <ul className={styles.navLinks}>
                 <li><Link href="/#offerings">Offerings</Link></li>
@@ -72,7 +72,7 @@ function CheckoutContent() {
     <>
       <header className={styles.header}>
         <nav className={styles.nav}>
-          <Link href="/" className={styles.logo}>Safe Mode</Link>
+          <Link href="/" className={styles.logo}>shipgate</Link>
           <div className={styles.navRight}>
             <ul className={styles.navLinks}>
               <li><Link href="/#offerings">Offerings</Link></li>
