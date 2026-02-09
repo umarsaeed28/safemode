@@ -24,6 +24,14 @@ function isCompanyEmail(email) {
   return domain && !DISALLOWED_EMAIL_DOMAINS.has(domain)
 }
 
+function LinkedInIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  )
+}
+
 export default function Home() {
   const [formState, setFormState] = useState("idle")
   const [formError, setFormError] = useState("")
@@ -117,19 +125,31 @@ export default function Home() {
           </p>
           <div className={styles.whyProfiles}>
             <div className={styles.whyProfile}>
-              <img src="/farabi.jpg" alt="" className={styles.whyProfilePic} width={80} height={80} />
-              <p className={styles.whyLead}>
-                <strong className={styles.whyProfileName}>Farabi</strong> brings battle-tested product judgment across prop tech, e-commerce, and marketplaces, where wrong bets are expensive and decisions must hold up at scale.
-              </p>
+              <img src="/farabi.jpg" alt="" className={styles.whyProfilePic} width={160} height={160} />
+              <div className={styles.whyProfileText}>
+                <div className={styles.whyProfileNameRow}>
+                  <strong className={styles.whyProfileName}>Farabi</strong>
+                  <a href="https://www.linkedin.com/in/farabi/" target="_blank" rel="noopener noreferrer" className={styles.whyProfileLinkedIn} aria-label="Farabi on LinkedIn">
+                    <LinkedInIcon />
+                  </a>
+                </div>
+                <p className={styles.whyLead}>Brings battle-tested product judgment across prop tech, e-commerce, and marketplaces, where wrong bets are expensive and decisions must hold up at scale.</p>
+              </div>
             </div>
             <div className={styles.whyProfile}>
-              <img src="/umar.jpg" alt="" className={styles.whyProfilePic} width={80} height={80} />
-              <p className={styles.whyLead}>
-                <strong className={styles.whyProfileName}>Umar</strong> brings seasoned UX and engineering leadership from consulting and in-house work across SaaS, mobile, and e-commerce, turning ambiguity into testable solutions and real user signal.
-              </p>
+              <img src="/umar.jpg" alt="" className={styles.whyProfilePic} width={160} height={160} />
+              <div className={styles.whyProfileText}>
+                <div className={styles.whyProfileNameRow}>
+                  <strong className={styles.whyProfileName}>Umar</strong>
+                  <a href="https://www.linkedin.com/in/umarsaeed28/" target="_blank" rel="noopener noreferrer" className={styles.whyProfileLinkedIn} aria-label="Umar on LinkedIn">
+                    <LinkedInIcon />
+                  </a>
+                </div>
+                <p className={styles.whyLead}>Brings seasoned UX and engineering leadership from consulting and in-house work across SaaS, mobile, and e-commerce, turning ambiguity into testable solutions and real user signal.</p>
+              </div>
             </div>
           </div>
-          <p className={styles.whyLead} style={{ marginTop: "1.5rem", marginBottom: "0.75rem" }}>Past teams and clients include</p>
+          <p className={styles.whyLead} style={{ marginTop: "3rem", marginBottom: "0.75rem" }}>Past teams and clients include</p>
           <div className={styles.companyLogos} aria-hidden>
             <span className={styles.companyLogoName}>Amazon</span>
             <span className={styles.companyLogoName}>Autodesk</span>
