@@ -125,7 +125,7 @@ export default function Home() {
             <div className={styles.whyProfile}>
               <img src="/umar.jpg" alt="" className={styles.whyProfilePic} width={80} height={80} />
               <p className={styles.whyLead}>
-                <strong className={styles.whyProfileName}>Umer</strong> brings seasoned UX and engineering leadership from consulting and in-house work across SaaS, mobile, and e-commerce, turning ambiguity into testable solutions and real user signal.
+                <strong className={styles.whyProfileName}>Umar</strong> brings seasoned UX and engineering leadership from consulting and in-house work across SaaS, mobile, and e-commerce, turning ambiguity into testable solutions and real user signal.
               </p>
             </div>
           </div>
