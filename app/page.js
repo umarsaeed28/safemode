@@ -113,15 +113,24 @@ export default function Home() {
           <span className={styles.sectionNum}>02</span>
           <h2 className={styles.whyTitle}>Why work with us?</h2>
           <p className={styles.whyLead}>
-            Most workshops end in more options. We&apos;re built to end in decisions. That means killing weak ideas early and making tradeoffs most teams duck. You walk out with something your team can ship, not another deck.
+            Most discovery fails by leaning too far in one direction: strategy without user truth, or UX without hard decisions. We close that gap with a senior Product + UX partnership.
           </p>
-          <p className={styles.whyLead} style={{ marginTop: "1rem" }}>
-            30+ years in product, UX, and software. We&apos;ve shipped and we&apos;ve failed. That experience comes from real teams:
-          </p>
-          <ul className={styles.whyBulletList}>
-            <li aria-hidden>Past teams and clients include</li>
-          </ul>
-          <div className={styles.companyLogos}>
+          <div className={styles.whyProfiles}>
+            <div className={styles.whyProfile}>
+              <img src="/farabi.jpg" alt="" className={styles.whyProfilePic} width={80} height={80} />
+              <p className={styles.whyLead}>
+                <strong className={styles.whyProfileName}>Farabi</strong> brings battle-tested product judgment across proptech, e-commerce, and marketplaces—at Amazon, Chewy, TikTok, and Zillow—where wrong bets cost millions.
+              </p>
+            </div>
+            <div className={styles.whyProfile}>
+              <img src="/umar.jpg" alt="" className={styles.whyProfilePic} width={80} height={80} />
+              <p className={styles.whyLead}>
+                <strong className={styles.whyProfileName}>Umer</strong> brings seasoned UX and engineering leadership from consulting and in-house roles across SaaS, mobile, and e-commerce, with experience at companies like VMware, Blackberry, ALLDATA, Autodesk, and Funko.
+              </p>
+            </div>
+          </div>
+          <p className={styles.whyLead} style={{ marginTop: "1.5rem", marginBottom: "0.75rem" }}>Past teams and clients include</p>
+          <div className={styles.companyLogos} aria-hidden>
             <span className={styles.companyLogoName}>Amazon</span>
             <span className={styles.companyLogoName}>Autodesk</span>
             <span className={styles.companyLogoName}>Zillow</span>
@@ -130,8 +139,10 @@ export default function Home() {
             <span className={styles.companyLogoName}>T-Mobile</span>
             <span className={styles.companyLogoName}>BlackBerry</span>
             <span className={styles.companyLogoName}>VMware</span>
+            <span className={styles.companyLogoName}>ALLDATA</span>
+            <span className={styles.companyLogoName}>Funko</span>
+            <span className={styles.companyLogoName}>ORHub</span>
           </div>
-          <a href="#how-it-works" className={styles.processBtn}>Our process</a>
         </section>
 
         {/* 03 What you get */}
@@ -212,7 +223,7 @@ export default function Home() {
             <span className={styles.solutionNum}>01</span>
             <h3 className={styles.solutionTitle}>Product Audit</h3>
             <p className={styles.solutionPrice}>$1,500 · Credit toward Discovery Program</p>
-            <p className={styles.solutionWho}>Get a clear outside perspective before investing more time or money. We review your product, roadmap, and UX, identify real bottlenecks, and challenge key assumptions. The $1,500 fee is credited toward the Discovery Program if you continue.</p>
+            <p className={styles.solutionWho}>Get a clear outside perspective before investing more time or money. We review your product, roadmap, and UX, identify real bottlenecks, and challenge key assumptions.</p>
             <h4 className={styles.blockLabel}>What you get</h4>
             <ul className={styles.bulletList}>
               <li>A one page executive summary with clear priorities</li>
@@ -248,7 +259,6 @@ export default function Home() {
                 </ul>
               </div>
             </div>
-            <p className={styles.solutionWho} style={{ marginTop: "1rem" }}>Everything is focused on one outcome: clear go or no-go decisions and a plan your team can ship.</p>
             <button type="button" className={styles.addServiceBtn} onClick={() => addService("Discovery Program")}>Add service</button>
           </article>
 
@@ -404,9 +414,9 @@ export default function Home() {
         {/* 07 Contact */}
         <section id="contact" className={styles.contactSection}>
           <span className={styles.sectionNum}>07</span>
-          <h2 className={styles.contactTitle}>Send one note.</h2>
+          <h2 className={styles.contactTitle}>Start the conversation</h2>
           <p className={styles.contactLead}>
-            What are you building, and where’s it stuck? Send that. We’ll come back with a clear next step. No pitch, no runaround.
+            Tell us what you&apos;re building and where you&apos;re unsure. We&apos;ll review it and come back with a clear next step. No pitch. No runaround.
           </p>
           <form onSubmit={handleSubmit} className={styles.form}>
             {selectedService && (
