@@ -2,7 +2,27 @@
 
 import { useState } from "react"
 import HomeJsonLd from "./components/HomeJsonLd"
+import Header from "./components/Header"
 import styles from "./page.module.css"
+
+const DISALLOWED_EMAIL_DOMAINS = new Set([
+  "gmail.com", "googlemail.com",
+  "yahoo.com", "yahoo.co.uk", "yahoo.fr", "yahoo.de", "yahoo.es", "yahoo.it",
+  "hotmail.com", "hotmail.co.uk", "hotmail.fr", "hotmail.es", "live.com", "live.co.uk",
+  "outlook.com", "outlook.co.uk", "msn.com", "passport.com",
+  "icloud.com", "me.com", "mac.com",
+  "aol.com", "aim.com",
+  "mail.com", "email.com", "protonmail.com", "proton.me", "pm.me",
+  "zoho.com", "yandex.com", "yandex.ru", "yandex.ua",
+  "gmx.com", "gmx.net", "gmx.de", "inbox.com", "mail.ru", "rambler.ru",
+  "fastmail.com", "tutanota.com", "hey.com", "disroot.org",
+])
+
+function isCompanyEmail(email) {
+  if (!email || typeof email !== "string") return false
+  const domain = email.trim().split("@")[1]?.toLowerCase()
+  return domain && !DISALLOWED_EMAIL_DOMAINS.has(domain)
+}
 
 export default function Home() {
   const [formState, setFormState] = useState("idle")
@@ -15,10 +35,17 @@ export default function Home() {
     const name = form.name.value?.trim() || ""
     const email = form.email.value?.trim() || ""
     const message = form.message.value?.trim() || ""
+    const website = form.website?.value?.trim() || ""
 
     if (!name || !email || !message) {
       setFormState("error")
-      setFormError("Please fill in all fields.")
+      setFormError("Name, email, and message are required.")
+      return
+    }
+
+    if (!isCompanyEmail(email)) {
+      setFormState("error")
+      setFormError("Please use your company email address. Personal addresses (e.g. Gmail, Yahoo, Outlook) are not accepted.")
       return
     }
 
@@ -29,7 +56,7 @@ export default function Home() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message, service: selectedService }),
+        body: JSON.stringify({ name, email, message, website: website || undefined, service: selectedService }),
       })
       const data = await res.json()
 
@@ -37,6 +64,7 @@ export default function Home() {
         setFormState("sent")
         form.reset()
         setSelectedService(null)
+        setFormError("")
       } else {
         setFormState("error")
         setFormError(data.error || "Something went wrong.")
@@ -54,20 +82,7 @@ export default function Home() {
 
   return (
     <>
-      <header className={styles.header}>
-        <nav className={styles.nav}>
-<a href="/" className={styles.logo} aria-label="Safe Mode home">
-            Safe Mode
-          </a>
-          <ul className={styles.navLinks}>
-            <li><a href="/#services">Services</a></li>
-            <li><a href="/#why-us">Why us</a></li>
-            <li><a href="/work">Work</a></li>
-            <li><a href="/#faq">FAQ</a></li>
-            <li><a href="/#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
 
       <main id="main-content">
         <HomeJsonLd />
@@ -477,11 +492,15 @@ export default function Home() {
             </label>
             <label className={styles.label}>
               Email <span className={styles.required}>*</span>
-              <input type="email" name="email" required className={styles.input} disabled={formState === "sending"} />
+              <input type="email" name="email" required placeholder="you@yourcompany.com" className={styles.input} disabled={formState === "sending"} />
+            </label>
+            <label className={styles.label}>
+              Website
+              <input type="url" name="website" placeholder="https://yourcompany.com" className={styles.input} disabled={formState === "sending"} />
             </label>
             <label className={styles.label}>
               Message <span className={styles.required}>*</span>
-              <textarea name="message" rows={4} required className={styles.textarea} disabled={formState === "sending"} />
+              <textarea name="message" rows={4} required placeholder="What are you building, and where's it stuck?" className={styles.textarea} disabled={formState === "sending"} />
             </label>
             {formState === "error" && <p className={styles.formError} role="alert">{formError}</p>}
             {formState === "sent" && <p className={styles.formSuccess}>Transaction successful.</p>}
