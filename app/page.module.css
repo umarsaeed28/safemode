@@ -700,6 +700,14 @@
   display: none;
 }
 
+@media (max-width: 768px) {
+  .companyLogos {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    gap: 0.75rem 1.25rem;
+  }
+}
+
 .companyLogoName {
   flex-shrink: 0;
   font-size: var(--text-body-lg);
