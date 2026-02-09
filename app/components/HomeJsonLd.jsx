@@ -67,7 +67,7 @@ export default function HomeJsonLd() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Product & UX Audit",
+            name: "Product Audit",
           },
         },
         {

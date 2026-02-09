@@ -108,9 +108,35 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 02 Deliverables — What you get */}
-        <section id="deliverables" className={styles.deliverablesSection} aria-labelledby="deliverables-heading">
+        {/* 02 Why work with us */}
+        <section id="why-us" className={styles.whySection}>
           <span className={styles.sectionNum}>02</span>
+          <h2 className={styles.whyTitle}>Why work with us?</h2>
+          <p className={styles.whyLead}>
+            Most workshops end in more options. We&apos;re built to end in decisions. That means killing weak ideas early and making tradeoffs most teams duck. You walk out with something your team can ship, not another deck.
+          </p>
+          <p className={styles.whyLead} style={{ marginTop: "1rem" }}>
+            30+ years in product, UX, and software. We&apos;ve shipped and we&apos;ve failed. That experience comes from real teams:
+          </p>
+          <ul className={styles.whyBulletList}>
+            <li aria-hidden>Past teams and clients include</li>
+          </ul>
+          <div className={styles.companyLogos}>
+            <span className={styles.companyLogoName}>Amazon</span>
+            <span className={styles.companyLogoName}>Autodesk</span>
+            <span className={styles.companyLogoName}>Zillow</span>
+            <span className={styles.companyLogoName}>Chewy</span>
+            <span className={styles.companyLogoName}>TikTok</span>
+            <span className={styles.companyLogoName}>T-Mobile</span>
+            <span className={styles.companyLogoName}>BlackBerry</span>
+            <span className={styles.companyLogoName}>VMware</span>
+          </div>
+          <a href="#how-it-works" className={styles.processBtn}>Our process</a>
+        </section>
+
+        {/* 03 What you get */}
+        <section id="deliverables" className={styles.deliverablesSection} aria-labelledby="deliverables-heading">
+          <span className={styles.sectionNum}>03</span>
           <h2 id="deliverables-heading" className={styles.sectionTitle}>What you get</h2>
 
           <div className={styles.deliverablesGrid}>
@@ -143,32 +169,6 @@ export default function Home() {
               <p className={styles.deliverableDesc}>CTO, Sales, and Investor perspectives on your bets. Objections, counters, and a clear decision table.</p>
             </div>
           </div>
-        </section>
-
-        {/* 03 Why work with us + Our process */}
-        <section id="why-us" className={styles.whySection}>
-          <span className={styles.sectionNum}>03</span>
-          <h2 className={styles.whyTitle}>Why work with us</h2>
-          <p className={styles.whyLead}>
-            Most workshops end in more options. We&apos;re built to end in decisions. That means killing weak ideas early and making tradeoffs most teams duck. You walk out with something your team can ship, not another deck.
-          </p>
-          <p className={styles.whyLead} style={{ marginTop: "1rem" }}>
-            30+ years in product, UX, and software. We&apos;ve shipped and we&apos;ve failed. That experience comes from real teams:
-          </p>
-          <ul className={styles.whyBulletList}>
-            <li aria-hidden>Past teams and clients include</li>
-          </ul>
-          <div className={styles.companyLogos}>
-            <span className={styles.companyLogoName}>Amazon</span>
-            <span className={styles.companyLogoName}>Autodesk</span>
-            <span className={styles.companyLogoName}>Zillow</span>
-            <span className={styles.companyLogoName}>Chewy</span>
-            <span className={styles.companyLogoName}>TikTok</span>
-            <span className={styles.companyLogoName}>T-Mobile</span>
-            <span className={styles.companyLogoName}>BlackBerry</span>
-            <span className={styles.companyLogoName}>VMware</span>
-          </div>
-          <a href="#how-it-works" className={styles.processBtn}>Our process</a>
         </section>
 
         {/* 04 How it works */}
@@ -208,46 +208,47 @@ export default function Home() {
           <span className={styles.sectionNum}>05</span>
           <h2 className={styles.solutionsTitle}>Services</h2>
 
-          <article id="free-audit" className={styles.solutionBlock}>
+          <article id="product-audit" className={styles.solutionBlock}>
             <span className={styles.solutionNum}>01</span>
-            <h3 className={styles.solutionTitle}>Product &amp; UX Audit</h3>
-            <p className={styles.solutionPrice}>Free</p>
-            <p className={styles.solutionWho}>Get a clear, outside perspective before investing more time or money into building. We review your product, roadmap, and UX against your business goals, identify the real bottlenecks, and challenge key assumptions.</p>
+            <h3 className={styles.solutionTitle}>Product Audit</h3>
+            <p className={styles.solutionPrice}>$1,500 · Credit toward Discovery Program</p>
+            <p className={styles.solutionWho}>Get a clear outside perspective before investing more time or money. We review your product, roadmap, and UX, identify real bottlenecks, and challenge key assumptions. The $1,500 fee is credited toward the Discovery Program if you continue.</p>
             <h4 className={styles.blockLabel}>What you get</h4>
             <ul className={styles.bulletList}>
               <li>A one page executive summary with clear priorities</li>
               <li>A direct recommendation on what to fix, improve, or focus on next</li>
               <li>A follow up call to help you move forward with confidence</li>
             </ul>
-            <button type="button" className={styles.addServiceBtn} onClick={() => addService("Product & UX Audit")}>Add service</button>
+            <button type="button" className={styles.addServiceBtn} onClick={() => addService("Product Audit")}>Add service</button>
           </article>
 
           <article className={`${styles.solutionBlock} ${styles.solutionBlockFlagship}`}>
             <span className={styles.flagshipBadge}>Flagship</span>
             <span className={styles.solutionNum}>02</span>
             <h3 className={styles.solutionTitle}>Discovery Program</h3>
-            <p className={styles.solutionPrice}>$25,000 · 3 sprints · fixed scope</p>
-            <p className={styles.solutionWho}>Teams building or evolving a core product. You need clarity and something to build, not another round of guesses.</p>
+            <p className={styles.solutionPrice}>$25,000 · Fixed scope · Outcome driven</p>
+            <p className={styles.solutionWho}>For teams building or evolving a core product who need clarity and a real plan to build from, not another round of guessing.</p>
             <div className={styles.solutionGrid}>
               <div>
                 <h4 className={styles.blockLabel}>How it works</h4>
                 <ul className={styles.bulletList}>
-                  <li>Scope, success criteria, and constraints locked before we start</li>
-                  <li>Focused research, then we document decisions, not opinions</li>
-                  <li>Insights become a backlog your engineers can pick up</li>
-                  <li>Design only where it moves the product. No filler.</li>
+                  <li>Outcomes, scope, and success metrics locked before we start</li>
+                  <li>Real user research and opportunity mapping to surface what matters</li>
+                  <li>Decisions documented clearly, with tradeoffs made explicit</li>
+                  <li>Insights translated into build-ready product and UX artifacts</li>
                 </ul>
               </div>
               <div>
                 <h4 className={styles.blockLabel}>What you get</h4>
                 <ul className={styles.bulletList}>
-                  <li>Ship-ready backlog with acceptance criteria</li>
-                  <li>Research synthesis and a decision log so everyone’s aligned</li>
-                  <li>UX flows and key screens for the critical path</li>
-                  <li>Design foundations your team can extend. No black box.</li>
+                  <li>One-page bet sheet and evidence-backed opportunity map</li>
+                  <li>Build-ready PRDs and a prioritized backlog with acceptance criteria</li>
+                  <li>User journeys, UX flows, and key screens for the critical path</li>
+                  <li>Design foundations your team can extend with confidence</li>
                 </ul>
               </div>
             </div>
+            <p className={styles.solutionWho} style={{ marginTop: "1rem" }}>Everything is focused on one outcome: clear go or no-go decisions and a plan your team can ship.</p>
             <button type="button" className={styles.addServiceBtn} onClick={() => addService("Discovery Program")}>Add service</button>
           </article>
 
@@ -443,7 +444,6 @@ export default function Home() {
             <nav className={styles.footerNav} aria-label="Footer">
               <a href="#services">Services</a>
               <a href="#deliverables">What you get</a>
-              <a href="#why-us">Why us</a>
               <a href="#how-it-works">How it works</a>
               <a href="/work">Our work</a>
               <a href="/blog">Blog</a>

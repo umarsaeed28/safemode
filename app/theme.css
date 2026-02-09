@@ -1,5 +1,5 @@
 /**
-   * Safety green — high-visibility, confident. Flat color only. WCAG AA.
+ * Blue theme (#3498db), white page background. WCAG AA.
  */
 
 /* ---------- Spacing, shape, motion ---------- */
@@ -29,46 +29,47 @@
   --md-sys-shape-corner-full: var(--shape-full);
 
   --elevation-0: none;
-  --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
-  --elevation-2: 0 2px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --elevation-1: 0 1px 3px rgba(52, 152, 219, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --elevation-2: 0 4px 12px rgba(52, 152, 219, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05);
 
   --motion-duration-short: 150ms;
   --motion-duration-medium: 250ms;
   --motion-easing: cubic-bezier(0.2, 0, 0, 1);
 }
 
-/* ---------- Light scheme — extracted palette ---------- */
+/* ---------- Light scheme — #3498db blue, white page bg ---------- */
 :root {
-  /* Raw palette — safety green */
-  --color-safety-green: #6BBD2E;
-  --color-safety-green-dark: #5a9f26;
-  --color-safety-green-light: #dcf5c8;
+  /* Raw palette — blue #3498db */
+  --color-primary: #3498db;
+  --color-primary-dark: #2980b9;
+  --color-primary-light: #aed6f1;
+  --color-primary-pale: #ebf5fb;
   --color-white: #FFFFFF;
   --color-off-white: #FAFAFA;
   --color-soft-gray: #EDEDED;
   --color-text-primary: #1F2933;
   --color-text-secondary: #6B7280;
 
-  /* Semantic — primary = safety green */
-  --md-sys-color-primary: var(--color-safety-green);
-  --md-sys-color-on-primary: #1F2933;
-  --md-sys-color-primary-pressed: var(--color-safety-green-dark);
-  --md-sys-color-primary-container: var(--color-safety-green-light);
-  --md-sys-color-on-primary-container: #1F2933;
+  /* Semantic — primary = #3498db */
+  --md-sys-color-primary: var(--color-primary);
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-pressed: var(--color-primary-dark);
+  --md-sys-color-primary-container: var(--color-primary-pale);
+  --md-sys-color-on-primary-container: var(--color-text-primary);
 
-  --md-sys-color-secondary: var(--color-safety-green);
-  --md-sys-color-on-secondary: #1F2933;
-  --md-sys-color-secondary-container: var(--color-safety-green-light);
-  --md-sys-color-on-secondary-container: #1F2933;
+  --md-sys-color-secondary: var(--color-primary);
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-secondary-container: var(--color-primary-pale);
+  --md-sys-color-on-secondary-container: var(--color-text-primary);
 
-  --md-sys-color-tertiary: var(--color-safety-green);
-  --md-sys-color-on-tertiary: #1F2933;
-  --md-sys-color-tertiary-container: var(--color-safety-green-light);
-  --md-sys-color-on-tertiary-container: #1F2933;
+  --md-sys-color-tertiary: var(--color-primary);
+  --md-sys-color-on-tertiary: #FFFFFF;
+  --md-sys-color-tertiary-container: var(--color-primary-pale);
+  --md-sys-color-on-tertiary-container: var(--color-text-primary);
 
   --md-sys-color-accent-yellow: #fef08a;
   --md-sys-color-on-accent-yellow: #1F2933;
-  --md-sys-color-accent-coral: #F26B4F;
+  --md-sys-color-accent-coral: #E07A5F;
   --md-sys-color-on-accent-coral: #ffffff;
 
   --md-sys-color-error: #b91c1c;
@@ -76,7 +77,7 @@
   --md-sys-color-error-container: #fee2e2;
   --md-sys-color-on-error-container: #450a0a;
 
-  /* Surfaces — white / off-white only */
+  /* Surfaces — white page background */
   --md-sys-color-surface: var(--color-white);
   --md-sys-color-on-surface: var(--color-text-primary);
   --md-sys-color-surface-variant: var(--color-off-white);
@@ -84,7 +85,7 @@
   --md-sys-color-outline: var(--color-soft-gray);
   --md-sys-color-outline-variant: #e0e0e0;
 
-  --md-sys-color-background: var(--color-off-white);
+  --md-sys-color-background: var(--color-white);
   --md-sys-color-on-background: var(--color-text-primary);
 
   --md-sys-color-surface-container-lowest: var(--color-white);
@@ -96,56 +97,56 @@
   --md-sys-color-inverse-surface: var(--color-text-primary);
   --md-sys-color-inverse-on-surface: var(--color-off-white);
 
-  /* Section accents — safety green */
-  --section-accent-hero: var(--color-safety-green);
-  --section-accent-deliverables: var(--color-safety-green);
-  --section-accent-why: var(--color-safety-green);
-  --section-accent-process: var(--color-safety-green);
-  --section-accent-contact: var(--color-safety-green);
+  /* Section accents — #3498db */
+  --section-accent-hero: var(--color-primary);
+  --section-accent-deliverables: var(--color-primary);
+  --section-accent-why: var(--color-primary);
+  --section-accent-process: var(--color-primary);
+  --section-accent-contact: var(--color-primary);
 }
 
 /* ---------- Dark scheme ---------- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --md-sys-color-primary: #7ed34e;
-    --md-sys-color-on-primary: #1F2933;
-    --md-sys-color-primary-pressed: #6BBD2E;
-    --md-sys-color-primary-container: #2d4a1a;
-    --md-sys-color-on-primary-container: #dcf5c8;
+    --md-sys-color-primary: #5dade2;
+    --md-sys-color-on-primary: #0f172a;
+    --md-sys-color-primary-pressed: #3498db;
+    --md-sys-color-primary-container: #1a5276;
+    --md-sys-color-on-primary-container: #aed6f1;
 
-    --md-sys-color-secondary: #7ed34e;
-    --md-sys-color-on-secondary: #1F2933;
-    --md-sys-color-secondary-container: #2d4a1a;
-    --md-sys-color-on-secondary-container: #dcf5c8;
+    --md-sys-color-secondary: #5dade2;
+    --md-sys-color-on-secondary: #0f172a;
+    --md-sys-color-secondary-container: #1a5276;
+    --md-sys-color-on-secondary-container: #aed6f1;
 
-    --md-sys-color-tertiary: #7ed34e;
-    --md-sys-color-on-tertiary: #1F2933;
-    --md-sys-color-tertiary-container: #2d4a1a;
-    --md-sys-color-on-tertiary-container: #dcf5c8;
+    --md-sys-color-tertiary: #5dade2;
+    --md-sys-color-on-tertiary: #0f172a;
+    --md-sys-color-tertiary-container: #1a5276;
+    --md-sys-color-on-tertiary-container: #aed6f1;
 
     --md-sys-color-error: #fca5a5;
     --md-sys-color-on-error: #7f1d1d;
 
-    --md-sys-color-surface: #1a1a1a;
-    --md-sys-color-on-surface: #EDEDED;
-    --md-sys-color-surface-variant: #2d2d2d;
-    --md-sys-color-on-surface-variant: #b0b0b0;
-    --md-sys-color-outline: #404040;
-    --md-sys-color-outline-variant: #333;
+    --md-sys-color-surface: #0f172a;
+    --md-sys-color-on-surface: #e2e8f0;
+    --md-sys-color-surface-variant: #1e3a5f;
+    --md-sys-color-on-surface-variant: #94a3b8;
+    --md-sys-color-outline: #334155;
+    --md-sys-color-outline-variant: #1e293b;
 
-    --md-sys-color-background: #121212;
-    --md-sys-color-on-background: #EDEDED;
+    --md-sys-color-background: #0c1222;
+    --md-sys-color-on-background: #e2e8f0;
 
-    --md-sys-color-surface-container-low: #2d2d2d;
-    --md-sys-color-surface-container: #404040;
+    --md-sys-color-surface-container-low: #1e3a5f;
+    --md-sys-color-surface-container: #334155;
 
-    --section-accent-hero: #7ed34e;
-    --section-accent-deliverables: #7ed34e;
-    --section-accent-why: #7ed34e;
-    --section-accent-process: #7ed34e;
-    --section-accent-contact: #7ed34e;
+    --section-accent-hero: #5dade2;
+    --section-accent-deliverables: #5dade2;
+    --section-accent-why: #5dade2;
+    --section-accent-process: #5dade2;
+    --section-accent-contact: #5dade2;
 
-    --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --elevation-2: 0 2px 6px rgba(0, 0, 0, 0.35);
+    --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --elevation-2: 0 4px 12px rgba(0, 0, 0, 0.35);
   }
 }
