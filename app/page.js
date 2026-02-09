@@ -149,7 +149,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <p className={styles.whyLead} style={{ marginTop: "3rem", marginBottom: "0.75rem" }}>Past teams and clients include</p>
+          <p className={`${styles.whyLead} ${styles.whyLogosHeader}`} style={{ marginTop: "3rem", marginBottom: "0.75rem" }}>Past teams and clients include</p>
           <div className={styles.companyLogos} aria-hidden>
             <span className={styles.companyLogoName}>Amazon</span>
             <span className={styles.companyLogoName}>Autodesk</span>
@@ -161,7 +161,6 @@ export default function Home() {
             <span className={styles.companyLogoName}>VMware</span>
             <span className={styles.companyLogoName}>ALLDATA</span>
             <span className={styles.companyLogoName}>Funko</span>
-            <span className={styles.companyLogoName}>ORHub</span>
           </div>
         </section>
 
