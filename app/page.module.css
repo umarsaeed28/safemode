@@ -80,6 +80,7 @@
 .navBurger {
   display: none;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   gap: 6px;
   width: 44px;
@@ -473,25 +474,25 @@
   }
 
   .heroLabel {
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     letter-spacing: 0.18em;
     margin-bottom: 1.5rem;
   }
 
   .heroTitle {
-    font-size: 1.75rem;
-    line-height: 1.1;
+    font-size: 2rem;
+    line-height: 1.15;
     margin-bottom: 1.75rem;
     max-width: 22ch;
   }
 
   .heroCtas {
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
   }
 
   .heroNarrative {
-    font-size: 0.98rem;
-    line-height: 1.5;
+    font-size: 1.1rem;
+    line-height: 1.55;
     margin-bottom: 0;
   }
 
