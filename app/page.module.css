@@ -643,6 +643,21 @@
   color: var(--md-sys-color-on-surface);
 }
 
+@media (max-width: 480px) {
+  .whyProfile {
+    gap: 1rem;
+  }
+
+  .whyProfilePic {
+    width: 64px;
+    height: 64px;
+  }
+
+  .whyProfile .whyLead {
+    font-size: var(--text-body);
+  }
+}
+
 .whyBulletList {
   list-style: none;
   margin: 0 0 2rem;
@@ -922,6 +937,45 @@
   padding: var(--section-padding-y) var(--section-padding-x) var(--section-padding-y);
 }
 
+@media (max-width: 768px) {
+  .whySection,
+  .deliverablesSection,
+  .processSection,
+  .solutionsSection,
+  .section {
+    padding-left: var(--section-padding-x-mobile);
+    padding-right: var(--section-padding-x-mobile);
+  }
+
+  .solutionBlock {
+    padding: 1.25rem 1rem;
+  }
+
+  .solutionBlockFlagship .solutionGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .whySection,
+  .deliverablesSection,
+  .processSection,
+  .solutionsSection,
+  .section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .solutionBlock {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .card {
+    padding: 1.25rem 1rem;
+  }
+}
+
 .solutionsTitle {
   font-size: var(--section-heading-font-size);
   font-weight: var(--section-heading-font-weight);
@@ -1066,7 +1120,7 @@
   background: var(--md-sys-color-primary-pressed);
 }
 
-/* 04 How it works */
+/* 04 How it works — vertical timeline */
 .processSection {
   max-width: var(--section-max);
   margin: 0 auto;
@@ -1082,54 +1136,101 @@
   color: var(--md-sys-color-on-surface);
 }
 
-.steps {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
 }
 
-.steps li {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 16px;
-  align-items: start;
-  margin-bottom: 32px;
-  padding-bottom: 32px;
-  border-bottom: var(--wire-border-light);
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--md-sys-color-primary);
+  border-radius: 1px;
 }
 
-.steps li:last-child {
+.timelineStep {
+  position: relative;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.timelineStep:last-child {
   margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
 }
 
-/* Step number — accent yellow (minimal) */
-.stepNum {
-  width: 44px;
-  height: 44px;
+.timelineDot {
+  position: absolute;
+  left: -2.5rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--md-sys-color-primary);
+  color: #ffffff;
+  font-size: var(--text-caption);
+  font-weight: var(--font-bold);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-weight: var(--font-bold);
-  font-size: var(--text-body-lg);
-  color: var(--md-sys-color-on-surface);
-  background: var(--md-sys-color-surface);
-  border: var(--wire-border);
   flex-shrink: 0;
+  z-index: 1;
 }
 
-.steps li div {
+.timelineContent {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    left: 9px;
+  }
+
+  .timelineDot {
+    left: -2rem;
+    width: 22px;
+    height: 22px;
+    font-size: 0.75rem;
+  }
+
+  .timelineStep {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .timelineTitle {
+    font-size: var(--text-body);
+  }
+
+  .timelineDesc {
+    font-size: var(--text-caption);
+  }
+}
+
+.timelineTitle {
+  margin: 0 0 0.35rem;
+  font-size: var(--text-body-lg);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-wide);
+  color: var(--md-sys-color-on-surface);
+}
+
+.timelineDesc {
+  margin: 0;
   font-size: var(--text-body);
   font-weight: var(--font-regular);
-  letter-spacing: var(--tracking-widest);
+  letter-spacing: var(--tracking-wide);
   line-height: var(--leading-relaxed);
-  color: var(--md-sys-color-on-surface);
-}
-
-.steps li strong {
-  color: var(--md-sys-color-on-surface);
-  font-weight: var(--font-medium);
+  color: var(--md-sys-color-on-surface-variant);
 }
 
 /* Shared section wrapper (FAQ, etc.) — same padding pattern as other sections */
@@ -1467,6 +1568,29 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 32px var(--section-padding-x-mobile);
+  }
+
+  .footerInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footerNav {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 24px 16px;
+  }
 }
 
 .footerNav {

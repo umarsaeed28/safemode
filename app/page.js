@@ -119,13 +119,13 @@ export default function Home() {
             <div className={styles.whyProfile}>
               <img src="/farabi.jpg" alt="" className={styles.whyProfilePic} width={80} height={80} />
               <p className={styles.whyLead}>
-                <strong className={styles.whyProfileName}>Farabi</strong> brings battle-tested product judgment across proptech, e-commerce, and marketplaces—at Amazon, Chewy, TikTok, and Zillow—where wrong bets cost millions.
+                <strong className={styles.whyProfileName}>Farabi</strong> brings battle-tested product judgment across prop tech, e-commerce, and marketplaces, where wrong bets are expensive and decisions must hold up at scale.
               </p>
             </div>
             <div className={styles.whyProfile}>
               <img src="/umar.jpg" alt="" className={styles.whyProfilePic} width={80} height={80} />
               <p className={styles.whyLead}>
-                <strong className={styles.whyProfileName}>Umer</strong> brings seasoned UX and engineering leadership from consulting and in-house roles across SaaS, mobile, and e-commerce, with experience at companies like VMware, Blackberry, ALLDATA, Autodesk, and Funko.
+                <strong className={styles.whyProfileName}>Umer</strong> brings seasoned UX and engineering leadership from consulting and in-house work across SaaS, mobile, and e-commerce, turning ambiguity into testable solutions and real user signal.
               </p>
             </div>
           </div>
@@ -182,36 +182,40 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 04 How it works */}
+        {/* 04 How it works — vertical timeline */}
         <section id="how-it-works" className={styles.processSection}>
           <span className={styles.sectionNum}>04</span>
           <h2 className={styles.sectionTitle}>How it works</h2>
-          <ol className={styles.steps}>
-            <li>
-              <span className={styles.stepNum}>1</span>
-              <div>
-                <strong>Kickoff and alignment.</strong> Scope, outcomes, and success metrics get locked up front. You get a brief; we agree what “done” means. No drift.
+          <div className={styles.timeline}>
+            <div className={styles.timelineStep}>
+              <span className={styles.timelineDot}>1</span>
+              <div className={styles.timelineContent}>
+                <h3 className={styles.timelineTitle}>Frame the bet</h3>
+                <p className={styles.timelineDesc}>We lock the goal, success metrics, and decision criteria up front.</p>
               </div>
-            </li>
-            <li>
-              <span className={styles.stepNum}>2</span>
-              <div>
-                <strong>Research and synthesis.</strong> We talk to users (when it reduces risk), then turn what we learn into a decision log and prioritized opportunities, not a report that sits in a drawer.
+            </div>
+            <div className={styles.timelineStep}>
+              <span className={styles.timelineDot}>2</span>
+              <div className={styles.timelineContent}>
+                <h3 className={styles.timelineTitle}>Find the signal</h3>
+                <p className={styles.timelineDesc}>We talk to users when it reduces risk and turn insights into clear opportunities.</p>
               </div>
-            </li>
-            <li>
-              <span className={styles.stepNum}>3</span>
-              <div>
-                <strong>Backlog and flows.</strong> Groomed backlog with acceptance criteria. UX flows and key screens for what actually moves the needle.
+            </div>
+            <div className={styles.timelineStep}>
+              <span className={styles.timelineDot}>3</span>
+              <div className={styles.timelineContent}>
+                <h3 className={styles.timelineTitle}>Decide what to build</h3>
+                <p className={styles.timelineDesc}>We make tradeoffs, define the bets, and produce a build-ready backlog and flows.</p>
               </div>
-            </li>
-            <li>
-              <span className={styles.stepNum}>4</span>
-              <div>
-                <strong>Handoff.</strong> Design foundations and docs your team can build on. You’re ready to implement. No “what do we do next?” hangover.
+            </div>
+            <div className={styles.timelineStep}>
+              <span className={styles.timelineDot}>4</span>
+              <div className={styles.timelineContent}>
+                <h3 className={styles.timelineTitle}>Set you up to ship</h3>
+                <p className={styles.timelineDesc}>You get clear decisions, design foundations, and everything your team needs to implement.</p>
               </div>
-            </li>
-          </ol>
+            </div>
+          </div>
         </section>
 
         {/* 05 Solutions — three services */}
