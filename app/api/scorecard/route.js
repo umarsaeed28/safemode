@@ -47,20 +47,20 @@ export async function POST(request) {
     }
 
     const tierForPb = tier === "Defensible Bet" ? "defensible_bet" : tier === "Partial Clarity" ? "partial_clarity" : "guessing"
-    const saved = await createScorecardSubmission({
-      email: email.toLowerCase(),
-      score_total: totalScore,
-      tier: tierForPb,
-      answers: answers.map((a) => Number(a)),
-      page_url: pageUrl || undefined,
-      user_agent: request.headers.get("user-agent") || undefined,
-    })
-    if (!saved) {
-      console.error("Scorecard API: PocketBase not configured or createScorecardSubmission failed.")
-      return NextResponse.json(
-        { ok: false, error: "Unable to save your scorecard. Please try again later." },
-        { status: 503 }
-      )
+    try {
+      const saved = await createScorecardSubmission({
+        email: email.toLowerCase(),
+        score_total: totalScore,
+        tier: tierForPb,
+        answers: answers.map((a) => Number(a)),
+        page_url: pageUrl || undefined,
+        user_agent: request.headers.get("user-agent") || undefined,
+      })
+      if (!saved) {
+        console.warn("Scorecard API: PocketBase not configured or save failed; results still returned.")
+      }
+    } catch (pbErr) {
+      console.warn("Scorecard API: PocketBase save error (results still returned):", pbErr)
     }
 
     // Try to send email notification; do not fail the request if email is not configured or send fails
