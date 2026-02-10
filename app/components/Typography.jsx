@@ -3,7 +3,7 @@
 import styles from "./Typography.module.css"
 
 /**
- * Semantic typography components — all use design tokens from globals.css.
+ * Semantic typography components: all use design tokens from globals.css.
  * Use for new sections or refactoring; existing page styles still use page.module.css.
  */
 

@@ -51,7 +51,6 @@ export default function WorkPage() {
           <div className={styles.footerInner}>
             <nav className={styles.footerNav}>
               <a href="/#services">Services</a>
-              <a href="/#deliverables">Deliverables</a>
               <a href="/#how-it-works">How it works</a>
               <a href="/work">Work</a>
               <a href="/#contact">Contact</a>

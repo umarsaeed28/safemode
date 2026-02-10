@@ -10,42 +10,58 @@ export default function HomeJsonLd() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "What do you deliver?",
+        name: "What do you deliver",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Build-ready product and UX artifacts: a clear product brief, research synthesis, a prioritized backlog with acceptance criteria, UX flows, and design foundations your team can extend.",
+          text: "Decision confidence your team can act on, delivered through shippable artifacts. This includes a clear product brief, research synthesis, a prioritized backlog with acceptance criteria, UX flows, and design foundations. No strategy decks. No ambiguity.",
         },
       },
       {
         "@type": "Question",
-        name: "Who is this for?",
+        name: "Who is this for",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Founders and product teams at any stage who need clarity, alignment, and momentum.",
+          text: "Founders and product teams who are unsure what to build next, or who want to reduce risk before committing more engineering time.",
         },
       },
       {
         "@type": "Question",
-        name: "What problem do you actually solve?",
+        name: "What problem do you solve",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Ambiguity. Too many ideas, too many opinions, and not enough decisions.",
+          text: "Too many ideas and opinions. Not enough certainty. We help teams make clear decisions about what to build or not build, so work starts or stops without second guessing.",
         },
       },
       {
         "@type": "Question",
-        name: "How is this different from an agency or consultancy?",
+        name: "How are you different from agencies or consultants",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We optimize for decisions and shippable direction, not output or recommendations.",
+          text: "We optimize for decisions and build ready output, not billable hours or long reports. Scope is fixed. Sprints are capped. Tradeoffs are explicit. We deliver clear bets and build ready output in weeks.",
         },
       },
       {
         "@type": "Question",
-        name: "What happens after the engagement?",
+        name: "How does the Discovery Scorecard fit in",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You own everything. Backlog, designs, decisions, and rationale. No dependency. No retainer.",
+          text: "The Discovery Scorecard is a free readiness check. It helps teams understand whether they are guessing, partially aligned, or truly ready to ship before investing more time or money.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is the difference between the Scorecard and the Discovery Program",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The Scorecard shows where you stand. The Discovery Program shows exactly what to do next and why, with evidence and build ready artifacts.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What happens after the engagement",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "You keep everything. The backlog, decisions, rationale, and design foundations are yours to build on without dependency on us.",
         },
       },
     ],
@@ -67,21 +83,21 @@ export default function HomeJsonLd() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Product Audit",
+            name: "Discovery Scorecard",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Discovery Program",
+            name: "Decision Gate",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Add a Sprint",
+            name: "Advisory",
           },
         },
       ],

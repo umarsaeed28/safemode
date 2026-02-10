@@ -26,34 +26,36 @@
   /* Bookend sections (hero, contact) — larger vertical padding */
   --section-padding-bookend-y: clamp(72px, 10vw, 120px);
   --section-padding-bookend-y-bottom: clamp(80px, 10vw, 128px);
-  /* Vertical rhythm: gap between section num and title, title and content */
-  --section-gap-num-title: var(--space-8);
-  --section-gap-title-body: var(--space-24);
+  /* Vertical rhythm: generous gaps for calm hierarchy */
+  --section-gap-num-title: var(--space-12);
+  --section-gap-title-body: var(--space-32);
   --section-gap-body-next: var(--space-32);
-  /* Section heading — single pattern for all sections */
+  /* Section heading — single pattern, weight 500, slight tight tracking */
   --section-heading-font-size: var(--text-section-heading);
   --section-heading-font-weight: var(--font-medium);
-  --section-heading-letter-spacing: 0.015em;
-  --section-heading-line-height: 1.35;
-  /* Lead/body prose — consistent intro text */
+  --section-heading-letter-spacing: -0.015em;
+  --section-heading-line-height: 1.4;
+  /* Lead/body prose */
   --section-lead-font-size: var(--text-body-lg);
   --section-lead-max-width: var(--content-prose);
-  /* Primary button — one scale */
+  /* Primary button — medium weight only */
   --btn-primary-min-height: 48px;
   --btn-primary-padding-y: 12px;
   --btn-primary-padding-x: 28px;
   --btn-primary-font-size: var(--text-body);
   --btn-primary-font-weight: var(--font-semibold);
-  /* Bullet list — one scale */
+  /* Bullet list */
   --list-bullet-indent: 1.25rem;
   --list-bullet-size: 5px;
   --list-item-gap: 0.5rem;
   /* Content widths */
-  --content-narrow: 40rem;   /* 640px */
-  --content-prose: 45rem;   /* 720px */
-  --content-form: 26.25rem; /* 420px */
+  --content-narrow: 40rem;
+  --content-prose: 45rem;
+  --content-form: 26.25rem;
 
-  /* Font weight — light, minimal */
+  /* Font stack — set by layout (Plus Jakarta Sans variable); body uses var(--font-sans) */
+
+  /* Font weight — full range for punch and hierarchy */
   --font-light: 300;
   --font-regular: 400;
   --font-medium: 500;
@@ -62,33 +64,34 @@
   --font-extrabold: 800;
   --font-black: 800;
 
-  /* Line height */
-  --leading-tight: 1.15;
-  --leading-snug: 1.35;
+  /* Line height — generous for calm rhythm */
+  --leading-tight: 1.2;
+  --leading-snug: 1.4;
   --leading-normal: 1.5;
   --leading-relaxed: 1.6;
   --leading-loose: 1.75;
 
-  /* Typography scale */
-  --text-hero: clamp(2.5rem, 5vw, 4rem);
-  --text-section-heading: clamp(1.5rem, 3vw, 2.25rem);
-  --text-lead: 1.25rem;
-  --text-lead-lg: 1.375rem;
+  /* Type scale — 16–17px body, 24–32px section, 40–56px hero */
+  --text-hero: clamp(2.5rem, 6vw, 3.5rem);
+  --text-section-heading: clamp(1.5rem, 3vw, 2rem);
+  --text-lead: 1.0625rem;
+  --text-lead-lg: 1.125rem;
   --text-body: 1rem;
-  --text-body-lg: 1.125rem;
-  --text-caption: 0.875rem;
+  --text-body-lg: 1.0625rem;
+  --text-caption: 0.8125rem;
   --text-num: 0.75rem;
   --text-h3: 1.5rem;
   --text-h4: 1.25rem;
 
-  /* Letter spacing */
+  /* Letter spacing — tighten large type only */
   --tracking-tight: -0.02em;
+  --tracking-heading: -0.01em;
   --tracking-normal: 0;
   --tracking-wide: 0.01em;
   --tracking-wider: 0.04em;
   --tracking-widest: 0.08em;
-  --tracking-num: 0.12em;
-  --tracking-label: 0.06em;
+  --tracking-num: 0.08em;
+  --tracking-label: 0.04em;
 }
 
 *,
@@ -105,11 +108,11 @@ body {
   margin: 0;
   background: var(--md-sys-color-background);
   color: var(--md-sys-color-on-background);
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 17px;
-  font-weight: var(--font-light);
+  font-weight: var(--font-regular);
   line-height: 1.6;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;

@@ -8,7 +8,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-sans",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 })
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://shipgate.ai"
