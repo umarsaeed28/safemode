@@ -463,7 +463,7 @@ export default function Home() {
               <textarea name="message" rows={4} required placeholder="What are you building, and where's it stuck?" className={styles.textarea} disabled={formState === "sending"} />
             </label>
             {formState === "error" && <p className={styles.formError} role="alert">{formError}</p>}
-            {formState === "sent" && <p className={styles.formSuccess}>Transaction successful.</p>}
+            {formState === "sent" && <p className={styles.formSuccess}>Message sent successfully.</p>}
             <button type="submit" className={styles.submit} disabled={formState === "sending"}>
               {formState === "sending" ? "Sending…" : "Let’s chat"}
             </button>

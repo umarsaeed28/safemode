@@ -142,6 +142,21 @@ Run PocketBase on your server (e.g. `./pocketbase serve` or via Docker/systemd).
 
 With `INTERNAL_DASH_PASSWORD` set, open **/internal** on the site. Enter the password to view read-only stats, search by email, and browse recent inquiries and scorecard submissions. Each record can be opened in the PocketBase Admin UI for full editing.
 
+### Verifying storage and searching actual records
+
+If nothing appears to be stored:
+
+1. **Check env** — In `.env.local` you must have `POCKETBASE_URL`, `POCKETBASE_ADMIN_EMAIL`, `POCKETBASE_ADMIN_PASSWORD`, and (for the dashboard) `INTERNAL_DASH_PASSWORD`. Restart the Next.js dev server after changing env.
+2. **PocketBase running** — In a separate terminal: `cd pocketbase && ./pocketbase serve`. The API should be at http://127.0.0.1:8090.
+3. **Collections exist** — From project root: `POCKETBASE_URL=http://127.0.0.1:8090 POCKETBASE_ADMIN_EMAIL=your@email.com POCKETBASE_ADMIN_PASSWORD=yourpassword node scripts/init-pocketbase.js`. This creates `inquiries` and `scorecard_submissions`.
+4. **Contact form** — The form only accepts **company emails** (no Gmail, Yahoo, etc.). For a quick test use something like `you@yourcompany.com` or add a test domain.
+5. **Scorecard** — Submit the Discovery Scorecard with any valid email; it writes to `scorecard_submissions`.
+
+**Where to search:**
+
+- **Internal dashboard** — Open **http://localhost:3000/internal**, log in with `INTERNAL_DASH_PASSWORD`. You’ll see total counts and “Recent inquiries” / “Recent scorecard submissions”. Use the **Search by email** field to filter by email (partial match). Click a row to open the full record.
+- **PocketBase Admin** — Open **http://127.0.0.1:8090/_/**, log in with your PocketBase admin email/password. Go to **Collections** → **inquiries** or **scorecard_submissions** to view, filter, and search all records.
+
 ## Scripts
 
 - `npm run dev` — development server
