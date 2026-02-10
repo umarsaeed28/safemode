@@ -65,7 +65,14 @@ export default function Home() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message, website: website || undefined, service: selectedService }),
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          website: website || undefined,
+          service: selectedService,
+          page_url: typeof window !== "undefined" ? window.location.href : undefined,
+        }),
       })
       const data = await res.json()
 
@@ -99,21 +106,32 @@ export default function Home() {
         <section id="hero" className={styles.hero} aria-labelledby="hero-heading">
           <span className={styles.heroLabel} aria-hidden>01</span>
 
-          <div className={styles.heroContent}>
-            <h1 id="hero-heading" className={styles.heroTitle}>
-              9/10 ideas don&apos;t pass the gate. <span className={styles.heroTitleNoBreak}>Does yours?</span>
-            </h1>
-            <p className={styles.heroNarrative}>
-              For teams unsure what to build, we&apos;re a product and UX duo with 30+ years of experience across big tech and startups. We&apos;ll talk to your users and validate ideas early, so you focus on building what actually drives growth.
-            </p>
-            <div className={styles.heroCtas}>
-              <a href="#contact" className={styles.ctaPrimary}>
-                Book a 30-min Intro Call
-              </a>
-              <a href="/scorecard" className={styles.ctaSecondary}>
-                Take the Discovery Scorecard
-              </a>
+          <div className={styles.heroLayout}>
+            <div className={styles.heroContent}>
+              <h1 id="hero-heading" className={styles.heroTitle}>
+                9/10 ideas don&apos;t pass the gate. <span className={styles.heroTitleNoBreak}>Does yours?</span>
+              </h1>
+              <p className={styles.heroNarrative}>
+                For teams unsure what to build, we&apos;re a product and UX duo with 30+ years of experience across big tech and startups. We&apos;ll talk to your users and validate ideas early, so you focus on building what actually drives growth.
+              </p>
+              <div className={styles.heroCtas}>
+                <a href="#contact" className={styles.ctaPrimary}>
+                  Book a 30-min Intro Call
+                </a>
+                <a href="/scorecard" className={styles.ctaSecondary}>
+                  Take the Discovery Scorecard
+                </a>
+              </div>
             </div>
+            <figure className={styles.heroIllustration} aria-hidden>
+              <img
+                src="/hero-illustration.png"
+                alt=""
+                width={560}
+                height={360}
+                className={styles.heroIllustrationImg}
+              />
+            </figure>
           </div>
         </section>
 
@@ -123,28 +141,28 @@ export default function Home() {
           <h2 className={styles.sectionTitle}>How it works</h2>
           <div className={styles.timeline}>
             <div className={styles.timelineStep}>
-              <span className={styles.timelineDot}>1</span>
+              <span className={styles.timelineDot}>📋</span>
               <div className={styles.timelineContent}>
                 <h3 className={styles.timelineTitle}>Frame the bet</h3>
                 <p className={styles.timelineDesc}>We lock the goal, success metrics, and decision criteria up front.</p>
               </div>
             </div>
             <div className={styles.timelineStep}>
-              <span className={styles.timelineDot}>2</span>
+              <span className={styles.timelineDot}>📡</span>
               <div className={styles.timelineContent}>
                 <h3 className={styles.timelineTitle}>Find the signal</h3>
                 <p className={styles.timelineDesc}>We talk to users when it reduces risk and turn insights into clear opportunities.</p>
               </div>
             </div>
             <div className={styles.timelineStep}>
-              <span className={styles.timelineDot}>3</span>
+              <span className={styles.timelineDot}>🎯</span>
               <div className={styles.timelineContent}>
                 <h3 className={styles.timelineTitle}>Decide what to build</h3>
                 <p className={styles.timelineDesc}>We make tradeoffs, define the bets, and produce a build-ready backlog and flows.</p>
               </div>
             </div>
             <div className={styles.timelineStep}>
-              <span className={styles.timelineDot}>4</span>
+              <span className={styles.timelineDot}>🚢</span>
               <div className={styles.timelineContent}>
                 <h3 className={styles.timelineTitle}>Set you up to ship</h3>
                 <p className={styles.timelineDesc}>You get clear decisions, design foundations, and everything your team needs to implement.</p>
@@ -158,7 +176,7 @@ export default function Home() {
           <span className={styles.sectionNum}>03</span>
           <h2 className={styles.whyTitle}>Why work with us?</h2>
           <p className={styles.whyLead}>
-            Most discovery fails by leaning too far in one direction: strategy without user truth, or UX without hard decisions. We close that gap with a senior Product + UX partnership.
+            Most discovery fails by leaning too far in one direction: strategy without user truth, or UX without hard decisions. We close that gap by bringing a full product skill set under one roof: product leadership, user research, UX, and engineering working together from day one.
           </p>
           <div className={styles.whyProfiles}>
             <div className={styles.whyProfile}>
@@ -170,7 +188,8 @@ export default function Home() {
                     <LinkedInIcon />
                   </a>
                 </div>
-                <p className={styles.whyLead}>Brings battle-tested product judgment across prop tech, e-commerce, and marketplaces, where wrong bets are expensive and decisions must hold up at scale.</p>
+                <p className={styles.whyLead}>Product leadership with deep experience in marketplaces, CRM, prop tech, and e-commerce at scale.</p>
+                <p className={styles.whyLead}>Owns problem definition, business context, metrics, and executive tradeoffs so decisions hold up when real money and teams are involved.</p>
               </div>
             </div>
             <div className={styles.whyProfile}>
@@ -182,7 +201,8 @@ export default function Home() {
                     <LinkedInIcon />
                   </a>
                 </div>
-                <p className={styles.whyLead}>Brings seasoned UX and engineering leadership from consulting and in-house work across SaaS, mobile, and e-commerce, turning ambiguity into testable solutions and real user signal.</p>
+                <p className={styles.whyLead}>A full stack product builder spanning research, UX, prototyping, engineering partnership, and quality.</p>
+                <p className={styles.whyLead}>Turns ambiguity into testable solutions, validates them with real users, and ensures what gets proposed is actually buildable and sound.</p>
               </div>
             </div>
           </div>

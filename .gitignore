@@ -18,6 +18,11 @@
 .DS_Store
 *.pem
 
+# PocketBase (binary and data)
+pocketbase/pocketbase
+pocketbase/pb_data
+pocketbase/pb_*
+
 # debug
 npm-debug.log*
 yarn-debug.log*

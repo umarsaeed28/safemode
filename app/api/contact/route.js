@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import nodemailer from "nodemailer"
+import { createInquiry } from "../../../lib/pocketbase"
 
 const DISALLOWED_EMAIL_DOMAINS = new Set([
   "gmail.com", "googlemail.com",
@@ -35,6 +35,7 @@ export async function POST(request) {
     const message = typeof body.message === "string" ? body.message.trim() : ""
     const service = typeof body.service === "string" ? body.service.trim() : ""
     const website = typeof body.website === "string" ? body.website.trim() : ""
+    const pageUrl = typeof body.page_url === "string" ? body.page_url.trim() : ""
 
     if (!name) {
       return NextResponse.json({ ok: false, error: "Name is required." }, { status: 400 })
@@ -52,51 +53,28 @@ export async function POST(request) {
       return NextResponse.json({ ok: false, error: "Message is required." }, { status: 400 })
     }
 
-    const user = process.env.GMAIL_USER
-    const pass = process.env.GMAIL_APP_PASSWORD
-    const to = process.env.CONTACT_TO || "umarsaee.re@gmail.com"
+    const record = await createInquiry({
+      email: email.toLowerCase(),
+      name,
+      message,
+      website: website || undefined,
+      source: service || undefined,
+      page_url: pageUrl || undefined,
+    })
 
-    if (!user || !pass) {
+    if (!record) {
+      console.error("Contact API: PocketBase not configured or createInquiry failed.")
       return NextResponse.json(
-        { ok: false, error: "Server email is not configured." },
-        { status: 500 }
+        { ok: false, error: "Unable to save your message. Please try again later." },
+        { status: 503 }
       )
     }
-
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: { user, pass },
-    })
-
-    const serviceLine = service ? `\n\nService / interest: ${service}` : ""
-    const websiteLine = website ? `\nWebsite: ${website}` : ""
-    const text = message + serviceLine + websiteLine
-    const htmlService = service ? `<p><strong>Service / interest:</strong> ${service.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</p>` : ""
-    const htmlWebsite = website ? `<p><strong>Website:</strong> <a href="${website.replace(/"/g, "&quot;")}">${website.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</a></p>` : ""
-    const htmlMessage = `<pre>${message.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</pre>`
-
-    await transporter.sendMail({
-      from: user,
-      to,
-      replyTo: email,
-      subject: `shipgate contact from ${name}${service ? ` (${service})` : ""}`,
-      text,
-      html: `<p>From: ${name} &lt;${email}&gt;</p>${htmlService}${htmlWebsite}${htmlMessage}`,
-    })
 
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error("Contact API error:", err)
-    const message = err?.message || String(err)
-    const isAuth = /invalid login|authentication failed|username and password/i.test(message)
-    const isEnv = !process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD
-    const hint = isEnv
-      ? "Set GMAIL_USER and GMAIL_APP_PASSWORD in .env.local."
-      : isAuth
-        ? "Check GMAIL_USER and GMAIL_APP_PASSWORD. Use a Gmail App Password (not your normal password): Google Account → Security → 2-Step Verification → App passwords."
-        : "Check server logs for details."
     return NextResponse.json(
-      { ok: false, error: `Failed to send message. ${hint}` },
+      { ok: false, error: "Something went wrong. Please try again." },
       { status: 500 }
     )
   }

@@ -1,0 +1,6 @@
+# PocketBase binary (platform-specific; download separately)
+/pocketbase
+/pb_*
+
+# Local data
+pb_data/
