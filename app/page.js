@@ -1,29 +1,11 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
 import HomeJsonLd from "./components/HomeJsonLd"
 import Header from "./components/Header"
 import styles from "./page.module.css"
 
-const DISALLOWED_EMAIL_DOMAINS = new Set([
-  "gmail.com", "googlemail.com",
-  "yahoo.com", "yahoo.co.uk", "yahoo.fr", "yahoo.de", "yahoo.es", "yahoo.it",
-  "hotmail.com", "hotmail.co.uk", "hotmail.fr", "hotmail.es", "live.com", "live.co.uk",
-  "outlook.com", "outlook.co.uk", "msn.com", "passport.com",
-  "icloud.com", "me.com", "mac.com",
-  "aol.com", "aim.com",
-  "mail.com", "email.com", "protonmail.com", "proton.me", "pm.me",
-  "zoho.com", "yandex.com", "yandex.ru", "yandex.ua",
-  "gmx.com", "gmx.net", "gmx.de", "inbox.com", "mail.ru", "rambler.ru",
-  "fastmail.com", "tutanota.com", "hey.com", "disroot.org",
-])
-
-function isCompanyEmail(email) {
-  if (!email || typeof email !== "string") return false
-  const domain = email.trim().split("@")[1]?.toLowerCase()
-  return domain && !DISALLOWED_EMAIL_DOMAINS.has(domain)
-}
+const CALENDLY_URL = "https://calendly.com/farabi-hassan-fh/30min"
 
 function LinkedInIcon() {
   return (
@@ -34,68 +16,6 @@ function LinkedInIcon() {
 }
 
 export default function Home() {
-  const [formState, setFormState] = useState("idle")
-  const [formError, setFormError] = useState("")
-  const [selectedService, setSelectedService] = useState(null)
-
-  async function handleSubmit(e) {
-    e.preventDefault()
-    const form = e.target
-    const name = form.name.value?.trim() || ""
-    const email = form.email.value?.trim() || ""
-    const message = form.message.value?.trim() || ""
-    const website = form.website?.value?.trim() || ""
-
-    if (!name || !email || !message) {
-      setFormState("error")
-      setFormError("Name, email, and message are required.")
-      return
-    }
-
-    if (!isCompanyEmail(email)) {
-      setFormState("error")
-      setFormError("Please use your company email address. Personal addresses (e.g. Gmail, Yahoo, Outlook) are not accepted.")
-      return
-    }
-
-    setFormState("sending")
-    setFormError("")
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          message,
-          website: website || undefined,
-          service: selectedService,
-          page_url: typeof window !== "undefined" ? window.location.href : undefined,
-        }),
-      })
-      const data = await res.json()
-
-      if (data.ok) {
-        setFormState("sent")
-        form.reset()
-        setSelectedService(null)
-        setFormError("")
-      } else {
-        setFormState("error")
-        setFormError(data.error || "Something went wrong.")
-      }
-    } catch {
-      setFormState("error")
-      setFormError("Network error. Please try again.")
-    }
-  }
-
-  function addService(name) {
-    setSelectedService(name)
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-  }
-
   return (
     <>
       <Header />
@@ -115,8 +35,8 @@ export default function Home() {
                 For teams unsure what to build, we&apos;re a product and UX duo with 30+ years of experience across big tech and startups. We&apos;ll talk to your users and validate ideas early, so you focus on building what actually drives growth.
               </p>
               <div className={styles.heroCtas}>
-                <a href="#contact" className={styles.ctaPrimary}>
-                  Book a 30-min Intro Call
+                <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className={styles.ctaPrimary}>
+                  Book a 30-Minute Intro Call
                 </a>
                 <a href="/scorecard" className={styles.ctaSecondary}>
                   Take the Discovery Scorecard
@@ -253,8 +173,7 @@ export default function Home() {
             <span className={styles.flagshipBadge}>Flagship Engagement</span>
             <h3 className={styles.serviceTitle}>Discovery Program</h3>
             <p className={styles.serviceSubhead}>Make the Bet Defensible</p>
-            <p className={styles.servicePrice}>$3,000 one-time*</p>
-            <p className={styles.servicePriceNote}>*Usually $25,000.</p>
+            <p className={styles.servicePrice}>$25,000</p>
             <div className={styles.serviceBody}>
               <p>For teams building or evolving a core product who need clarity, not another round of guessing.</p>
               <p>This is a fixed-scope, outcome-driven discovery engagement that turns ambiguity into clear bets your team can execute with confidence.</p>
@@ -319,7 +238,7 @@ export default function Home() {
               </ul>
               <p>Availability is limited.</p>
             </div>
-            <a href="/#contact" className={styles.serviceCta}>Discuss Advisory</a>
+            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className={styles.serviceCta}>Discuss Advisory</a>
           </article>
         </section>
 
@@ -442,35 +361,9 @@ export default function Home() {
           <p className={styles.contactLead}>
             Tell us what you&apos;re building and where you&apos;re unsure. We&apos;ll review it and come back with a clear next step. No pitch. No runaround.
           </p>
-          <form onSubmit={handleSubmit} className={styles.form}>
-            {selectedService && (
-              <div className={styles.selectedService}>
-                <span>Inquiring about: <strong>{selectedService}</strong></span>
-                <button type="button" className={styles.selectedServiceClear} onClick={() => setSelectedService(null)} aria-label="Remove service">×</button>
-              </div>
-            )}
-            <label className={styles.label}>
-              Name <span className={styles.required}>*</span>
-              <input type="text" name="name" required className={styles.input} disabled={formState === "sending"} />
-            </label>
-            <label className={styles.label}>
-              Email <span className={styles.required}>*</span>
-              <input type="email" name="email" required placeholder="you@yourcompany.com" className={styles.input} disabled={formState === "sending"} />
-            </label>
-            <label className={styles.label}>
-              Website
-              <input type="url" name="website" placeholder="https://yourcompany.com" className={styles.input} disabled={formState === "sending"} />
-            </label>
-            <label className={styles.label}>
-              Message <span className={styles.required}>*</span>
-              <textarea name="message" rows={4} required placeholder="What are you building, and where's it stuck?" className={styles.textarea} disabled={formState === "sending"} />
-            </label>
-            {formState === "error" && <p className={styles.formError} role="alert">{formError}</p>}
-            {formState === "sent" && <p className={styles.formSuccess}>Message sent successfully.</p>}
-            <button type="submit" className={styles.submit} disabled={formState === "sending"}>
-              {formState === "sending" ? "Sending…" : "Let’s chat"}
-            </button>
-          </form>
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className={styles.ctaPrimary}>
+            Book a 30-Minute Intro Call
+          </a>
         </section>
 
         <footer className={styles.footer}>
