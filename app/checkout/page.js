@@ -52,7 +52,6 @@ function CheckoutContent() {
             <div className={styles.navRight}>
               <ul className={styles.navLinks}>
                 <li><Link href="/#offerings">Offerings</Link></li>
-                <li><Link href="/work">Work</Link></li>
                 <li><Link href="/blog">Blog</Link></li>
                 <li><Link href="/#contact">Contact</Link></li>
               </ul>
@@ -77,7 +76,6 @@ function CheckoutContent() {
             <ul className={styles.navLinks}>
               <li><Link href="/#offerings">Offerings</Link></li>
               <li><Link href="/#why-us">Why us</Link></li>
-              <li><Link href="/work">Work</Link></li>
               <li><Link href="/blog">Blog</Link></li>
               <li><Link href="/#faq">FAQ</Link></li>
               <li><Link href="/#contact">Contact</Link></li>

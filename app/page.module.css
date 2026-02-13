@@ -1237,6 +1237,19 @@
   font-weight: var(--font-regular);
   line-height: var(--leading-relaxed);
   color: var(--md-sys-color-on-surface-variant);
+  margin: 0 0 0.5rem;
+}
+
+.servicePrice {
+  font-size: var(--text-body);
+  font-weight: var(--font-semibold);
+  color: var(--md-sys-color-primary);
+  margin: 0 0 0.25rem;
+}
+
+.servicePriceNote {
+  font-size: var(--text-caption);
+  color: var(--md-sys-color-on-surface-variant);
   margin: 0 0 1.25rem;
 }
 

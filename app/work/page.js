@@ -51,8 +51,7 @@ export default function WorkPage() {
           <div className={styles.footerInner}>
             <nav className={styles.footerNav}>
               <a href="/#services">Services</a>
-              <a href="/#how-it-works">How it works</a>
-              <a href="/work">Work</a>
+              <a href="/#faq">FAQ</a>
               <a href="/#contact">Contact</a>
             </nav>
             <p className={styles.footerText}>shipgate. Product and UX discovery studio.</p>

@@ -253,6 +253,8 @@ export default function Home() {
             <span className={styles.flagshipBadge}>Flagship Engagement</span>
             <h3 className={styles.serviceTitle}>Discovery Program</h3>
             <p className={styles.serviceSubhead}>Make the Bet Defensible</p>
+            <p className={styles.servicePrice}>$3,000 one-time*</p>
+            <p className={styles.servicePriceNote}>*Usually $25,000.</p>
             <div className={styles.serviceBody}>
               <p>For teams building or evolving a core product who need clarity, not another round of guessing.</p>
               <p>This is a fixed-scope, outcome-driven discovery engagement that turns ambiguity into clear bets your team can execute with confidence.</p>
@@ -302,6 +304,7 @@ export default function Home() {
           <article id="advisory" className={styles.serviceBlock}>
             <h3 className={styles.serviceTitle}>Advisory</h3>
             <p className={styles.serviceSubhead}>Senior product judgment when the cost of being wrong is real.</p>
+            <p className={styles.servicePrice}>$2,500/month</p>
             <div className={styles.serviceBody}>
               <p>Ongoing product judgment for teams already in motion.</p>
               <p>Advisory is for founders and product leaders who have clarity on what they&apos;re building and want senior product judgment as high-stakes decisions arise.</p>
@@ -474,9 +477,7 @@ export default function Home() {
           <div className={styles.footerInner}>
             <nav className={styles.footerNav} aria-label="Footer">
               <a href="#services">Services</a>
-              <a href="#how-it-works">How it works</a>
-              <a href="/work">Our work</a>
-              <a href="/blog">Blog</a>
+              <a href="#faq">FAQ</a>
               <a href="#contact">Contact</a>
             </nav>
             <p className={styles.footerText}>shipgate. Product and UX discovery. Fixed scope, no scope creep.</p>

@@ -6,7 +6,6 @@ import styles from "../page.module.css"
 
 const links = [
   { href: "/#services", label: "Services" },
-  { href: "/work", label: "Work" },
   { href: "/#faq", label: "FAQ" },
   { href: "/#contact", label: "Contact" },
 ]
