@@ -1,0 +1,9 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /api/
+
+Sitemap: https://shipgate.ai/sitemap.xml
