@@ -61,21 +61,21 @@ export default function Home() {
           <h2 className={styles.sectionTitle}>Six weeks. One decision.</h2>
           <div className={styles.timeline}>
             <div className={styles.timelineStep}>
-              <span className={styles.timelineDot}>🎤</span>
+              <span className={styles.timelineDot}>🗳️</span>
               <div className={styles.timelineContent}>
                 <h3 className={styles.timelineTitle}>Weeks 1–2: We talk to your users.</h3>
                 <p className={styles.timelineDesc}>We run 6-8 interviews independently to understand real pain, not to confirm what you already believe.</p>
               </div>
             </div>
             <div className={styles.timelineStep}>
-              <span className={styles.timelineDot}>📱</span>
+              <span className={styles.timelineDot}>📐</span>
               <div className={styles.timelineContent}>
                 <h3 className={styles.timelineTitle}>Weeks 3–4: We prototype the top bet.</h3>
                 <p className={styles.timelineDesc}>We narrow to 1-2 opportunities, build a clickable concept, and test it with the same users.</p>
               </div>
             </div>
             <div className={styles.timelineStep}>
-              <span className={styles.timelineDot}>📄</span>
+              <span className={styles.timelineDot}>🎯</span>
               <div className={styles.timelineContent}>
                 <h3 className={styles.timelineTitle}>Weeks 5-6: You get The Build Case.</h3>
                 <p className={styles.timelineDesc}>What to build, why, the evidence, and the risks. We present it live and defend it with you.</p>
@@ -227,7 +227,7 @@ export default function Home() {
               <details className={styles.faqItem}>
                 <summary>How long does it take?</summary>
                 <div className={styles.faqBody}>
-                  <p>Three weeks, fixed scope.</p>
+                  <p>Six weeks, fixed scope.</p>
                 </div>
               </details>
               <details className={styles.faqItem}>
