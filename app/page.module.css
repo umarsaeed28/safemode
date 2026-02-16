@@ -163,15 +163,15 @@
   position: relative;
   max-width: var(--section-max);
   margin: 0 auto;
-  padding: clamp(48px, 8vw, 100px) clamp(24px, 5vw, 40px) clamp(56px, 8vw, 100px);
-  min-height: min(100vh, 720px);
-  min-height: min(100dvh, 720px);
+  padding: clamp(24px, 4vw, 64px) clamp(24px, 5vw, 40px) clamp(24px, 4vw, 64px);
+  min-height: calc(100vh - 60px);
+  min-height: calc(100dvh - 60px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
   background: var(--md-sys-color-background);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .heroLabel {
@@ -181,7 +181,7 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--md-sys-color-primary);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--section-gap-num-title);
 }
 
 .heroLayout {
@@ -434,7 +434,7 @@
   z-index: 1;
   margin: 0 0 1.75rem;
   font-size: var(--text-body-l);
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-regular);
   letter-spacing: var(--tracking-wide);
   line-height: 1.55;
   color: var(--md-sys-color-on-surface-variant);
@@ -525,7 +525,20 @@
     font-size: var(--text-body);
   }
 
-  /* Hero CTAs stacked on mobile, full-width so they’re not fat */
+  .heroIllustration {
+    flex-shrink: 1;
+    max-height: 30vh;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .heroIllustrationImg {
+    max-height: 30vh;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* Hero CTAs stacked on mobile, full-width so they're not fat */
   .heroCtas {
     flex-direction: column;
     flex-wrap: nowrap;
@@ -558,9 +571,9 @@
   }
 
   .hero {
-    min-height: 100vh;
-    min-height: 100dvh;
-    padding: clamp(24px, 6vw, 48px) clamp(16px, 4vw, 24px) clamp(32px, 6vw, 56px);
+    min-height: calc(100vh - 52px);
+    min-height: calc(100dvh - 52px);
+    padding: 16px 16px 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -569,20 +582,20 @@
   .heroLabel {
     font-size: var(--text-caption);
     letter-spacing: 0.16em;
-    margin-bottom: 1rem;
+    margin-bottom: var(--section-gap-num-title);
   }
 
   .heroTitle {
-    font-size: var(--text-h1);
+    font-size: clamp(1.5rem, 6vw, var(--text-h1));
     line-height: var(--leading-display);
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     max-width: 22ch;
   }
 
   .heroNarrative {
-    font-size: var(--text-body-l);
-    line-height: 1.55;
-    margin-bottom: 1.25rem;
+    font-size: var(--text-body);
+    line-height: 1.5;
+    margin-bottom: 1rem;
   }
 
   .heroCtas {
