@@ -29,10 +29,10 @@ export default function Home() {
           <div className={styles.heroLayout}>
             <div className={styles.heroContent}>
               <h1 id="hero-heading" className={styles.heroTitle}>
-                9/10 ideas don&apos;t pass the gate. <span className={styles.heroTitleNoBreak}>Does yours?</span>
+                Stop guessing what to build.
               </h1>
               <p className={styles.heroNarrative}>
-                For teams unsure what to build, we&apos;re a product and UX duo with 30+ years of experience across big tech and startups. We&apos;ll talk to your users and validate ideas early, so you focus on building what actually drives growth.
+                We help product teams validate the bet before engineering starts. In 6 weeks, you&apos;ll know exactly what to build and why, backed by real user evidence, not opinions.
               </p>
               <div className={styles.heroCtas}>
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className={styles.ctaPrimary}>
@@ -55,45 +55,58 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 02 How it works, vertical timeline */}
+        {/* 02 How it works */}
         <section id="how-it-works" className={styles.processSection}>
           <span className={styles.sectionNum}>02</span>
-          <h2 className={styles.sectionTitle}>How it works</h2>
+          <h2 className={styles.sectionTitle}>Six weeks. One decision.</h2>
           <div className={styles.timeline}>
             <div className={styles.timelineStep}>
-              <span className={styles.timelineDot}>📋</span>
+              <span className={styles.timelineDot}>🎤</span>
               <div className={styles.timelineContent}>
-                <h3 className={styles.timelineTitle}>Frame the bet</h3>
-                <p className={styles.timelineDesc}>We lock the goal, success metrics, and decision criteria up front.</p>
+                <h3 className={styles.timelineTitle}>Weeks 1–2: We talk to your users.</h3>
+                <p className={styles.timelineDesc}>We run 6-8 interviews independently to understand real pain, not to confirm what you already believe.</p>
               </div>
             </div>
             <div className={styles.timelineStep}>
-              <span className={styles.timelineDot}>📡</span>
+              <span className={styles.timelineDot}>📱</span>
               <div className={styles.timelineContent}>
-                <h3 className={styles.timelineTitle}>Find the signal</h3>
-                <p className={styles.timelineDesc}>We talk to users when it reduces risk and turn insights into clear opportunities.</p>
+                <h3 className={styles.timelineTitle}>Weeks 3–4: We prototype the top bet.</h3>
+                <p className={styles.timelineDesc}>We narrow to 1-2 opportunities, build a clickable concept, and test it with the same users.</p>
               </div>
             </div>
             <div className={styles.timelineStep}>
-              <span className={styles.timelineDot}>🎯</span>
+              <span className={styles.timelineDot}>📄</span>
               <div className={styles.timelineContent}>
-                <h3 className={styles.timelineTitle}>Decide what to build</h3>
-                <p className={styles.timelineDesc}>We make tradeoffs, define the bets, and produce a build-ready backlog and flows.</p>
-              </div>
-            </div>
-            <div className={styles.timelineStep}>
-              <span className={styles.timelineDot}>🚢</span>
-              <div className={styles.timelineContent}>
-                <h3 className={styles.timelineTitle}>Set you up to ship</h3>
-                <p className={styles.timelineDesc}>You get clear decisions, design foundations, and everything your team needs to implement.</p>
+                <h3 className={styles.timelineTitle}>Weeks 5-6: You get The Build Case.</h3>
+                <p className={styles.timelineDesc}>What to build, why, the evidence, the risks, and a 90-day plan. We present it live and defend it with you.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 03 Why work with us */}
-        <section id="why-us" className={styles.whySection}>
+        {/* 03 What this looks like in practice */}
+        <section id="in-practice" className={styles.practiceSection} aria-labelledby="practice-heading">
           <span className={styles.sectionNum}>03</span>
+          <h2 id="practice-heading" className={styles.sectionTitle}>What this looks like in practice</h2>
+          <div className={styles.practiceGrid}>
+            <div className={styles.practiceCard}>
+              <strong className={styles.practiceClient}>ALLDATA</strong>
+              <p className={styles.practiceQuote}>Mechanics wouldn&apos;t use the app. Adoption was near zero. We went into the field and watched them work. The blocker wasn&apos;t the product — it was gloves. Touch navigation didn&apos;t work with heavy-duty gloves. We redesigned for glove-friendly use. Adoption went from near zero to 20%+ in three months.</p>
+            </div>
+            <div className={styles.practiceCard}>
+              <strong className={styles.practiceClient}>ClearCapital</strong>
+              <p className={styles.practiceQuote}>Underwriters were stalling on calls. Nobody could figure out why. We sat with them and watched. The data they needed was buried across multiple screens. We redesigned the view into a single visual snapshot. Adoption jumped 130%.</p>
+            </div>
+            <div className={styles.practiceCard}>
+              <strong className={styles.practiceClient}>Amazon</strong>
+              <p className={styles.practiceQuote}>Leadership was convinced the checkout flow was fine. It wasn&apos;t. User research revealed a deeply held assumption was driving large-scale abandonment. We ran controlled experiments to prove it. 15% revenue lift post launch. $100M+ in contribution profit protected.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* 04 Why work with us */}
+        <section id="why-us" className={styles.whySection}>
+          <span className={styles.sectionNum}>04</span>
           <h2 className={styles.whyTitle}>Why work with us?</h2>
           <p className={styles.whyLead}>
             Most discovery fails by leaning too far in one direction: strategy without user truth, or UX without hard decisions. We close that gap by bringing a full product skill set under one roof: product leadership, user research, UX, and engineering working together from day one.
@@ -143,102 +156,61 @@ export default function Home() {
 
         {/* 04 Services, 3-step decision ladder */}
         <section id="services" className={styles.solutionsSection} aria-labelledby="services-heading">
-          <span className={styles.sectionNum} aria-hidden>04</span>
+          <span className={styles.sectionNum} aria-hidden>05</span>
           <h2 id="services-heading" className={styles.solutionsTitle}>Services</h2>
 
-          {/* SERVICE 1 FREE */}
-          <article id="discovery-scorecard" className={styles.serviceBlock}>
-            <span className={styles.serviceBadge}>Free</span>
-            <h3 className={styles.serviceTitle}>Start With the Discovery Scorecard (Free)</h3>
-            <p className={styles.serviceSubhead}>Are You Ready to Build, or About to Guess?</p>
-            <div className={styles.serviceBody}>
-              <p>Most teams don&apos;t fail because they lack ideas.</p>
-              <p>They fail because they commit engineering time before the bet is clear.</p>
-              <p>The Discovery Scorecard is a short self-assessment that shows whether your team is:</p>
-              <ul className={styles.serviceBodyList}>
-                <li>guessing,</li>
-                <li>partially aligned, or</li>
-                <li>truly ready to ship.</li>
-              </ul>
-              <p>It takes a few minutes.</p>
-              <p>The result is blunt.</p>
-            </div>
-            <Link href="/scorecard" className={styles.serviceCta}>
-              Take the Discovery Scorecard
-            </Link>
-          </article>
+          <p className={styles.costOfInaction}>The average cost of building the wrong feature at a funded startup is $150-300K in wasted engineering time. A discovery engagement costs a fraction of that.</p>
 
-          {/* SERVICE 2 FLAGSHIP */}
-          <article id="discovery-program" className={`${styles.serviceBlock} ${styles.serviceBlockFlagship}`}>
+          {/* The Build Case */}
+          <article id="build-case" className={`${styles.serviceBlock} ${styles.serviceBlockFlagship} ${styles.buildCaseTile}`}>
             <span className={styles.flagshipBadge}>Flagship Engagement</span>
-            <h3 className={styles.serviceTitle}>Discovery Program</h3>
-            <p className={styles.serviceSubhead}>Make the Bet Defensible</p>
-            <p className={styles.servicePrice}>$25,000</p>
-            <div className={styles.serviceBody}>
-              <p>For teams building or evolving a core product who need clarity, not another round of guessing.</p>
-              <p>This is a fixed-scope, outcome-driven discovery engagement that turns ambiguity into clear bets your team can execute with confidence.</p>
-              <p>This is not a UX review or a roadmap critique.</p>
-              <p>It&apos;s decision work.</p>
+
+            <header className={styles.buildCaseHeader}>
+              <h3 className={styles.buildCaseTitle}>The Build Case</h3>
+              <p className={styles.buildCasePrice} aria-label="Price and duration">$20K · 6 weeks</p>
+            </header>
+
+            <div className={styles.buildCaseValueProp}>
+              <p>Every sprint spent on the wrong thing costs $150-300K. 75% of venture-backed startups fail, 42% because they built something nobody wanted. The Build Case gives you a defensible go/no-go decision in 6 weeks.</p>
             </div>
-            <details className={styles.deliverablesDetails}>
-              <summary className={styles.deliverablesHeading}>
-                <span className={styles.deliverablesHeadingText}>What You Get</span>
-                <span className={styles.deliverablesHeadingHint} aria-hidden>Show 7 deliverables</span>
-              </summary>
-              <ul className={styles.deliverablesList}>
-              <li className={styles.deliverableItem}>
-                <span className={styles.deliverableTitle}>One-Page Bet Sheet</span>
-                <span className={styles.deliverableDesc}>Your goal → top 3 opportunities → recommended bets → 90-day outcomes. Value and risk framed explicitly, with clear success metrics.</span>
-              </li>
-              <li className={styles.deliverableItem}>
-                <span className={styles.deliverableTitle}>Live Opportunity Solution Tree</span>
-                <span className={styles.deliverableDesc}>Outcome → opportunities → solutions, mapped end-to-end. Evidence-scored and grounded in real user quotes.</span>
-              </li>
-              <li className={styles.deliverableItem}>
-                <span className={styles.deliverableTitle}>User &amp; UX Foundation</span>
-                <span className={styles.deliverableDesc}>2 to 3 proto-personas with concrete UX needs. Critical journey mapped from pain → opportunity. UX stakeholder feedback summary.</span>
-              </li>
-              <li className={styles.deliverableItem}>
-                <span className={styles.deliverableTitle}>Competitive Strategy</span>
-                <span className={styles.deliverableDesc}>Delight / Hard-to-copy / Margin matrix. Clear positioning against real competitors — not slideware.</span>
-              </li>
-              <li className={styles.deliverableItem}>
-                <span className={styles.deliverableTitle}>Build-Ready PRDs</span>
-                <span className={styles.deliverableDesc}>1 to 2 PRDs for the highest-confidence bets. Clear value proposition, risks, success criteria, and non-goals.</span>
-              </li>
-              <li className={styles.deliverableItem}>
-                <span className={styles.deliverableTitle}>Now / Next / Later Roadmap</span>
-                <span className={styles.deliverableDesc}>Time-phased plan linking opportunities → PRDs → execution. Outcome metrics defined at every stage.</span>
-              </li>
-              <li className={styles.deliverableItem}>
-                <span className={styles.deliverableTitle}>Stakeholder Alignment Report</span>
-                <span className={styles.deliverableDesc}>Simulated CTO, Sales, and Investor perspectives captured explicitly. Objections, counters, and a clear decision table.</span>
-              </li>
-            </ul>
-            </details>
-            <a href="/#contact" className={styles.serviceCta}>Discuss the Discovery Program</a>
+
+            <div className={styles.buildCaseDeliverables}>
+              <h4 className={styles.buildCaseDeliverablesHeading}>You walk away with</h4>
+              <ul className={styles.buildCaseDeliverablesList}>
+                <li><strong>The Bet:</strong> what to build and why</li>
+                <li><strong>User Evidence:</strong> quotes, patterns, qualitative &amp; quantitative research, prototype and feedback from real user tests.</li>
+                <li><strong>Risks Analysis:</strong> what could go wrong and what assumptions must hold</li>
+                <li><strong>Market Context:</strong> competitive landscape and where the opportunity sits</li>
+                <li><strong>Technical Feasibility:</strong> what&apos;s buildable, what&apos;s hard and difficult vs low hanging fruit.</li>
+                <li><strong>What Was Killed:</strong> Ideas that didn&apos;t survive the evidence, so your team stops relitigating</li>
+              </ul>
+              <p className={styles.buildCaseDeliverablesNote}>Delivered via live walkthrough. We present, defend, and pressure test with your team.</p>
+            </div>
+
+            <blockquote className={styles.buildCaseTaglineBlock}>
+              This is not a strategy deck. It&apos;s a build decision.
+            </blockquote>
+
+            <div className={styles.buildCaseCtaGroup}>
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className={styles.serviceCta}>Book a 30-Minute Intro Call</a>
+              <Link href="/scorecard" className={styles.serviceCtaSecondary}>Not sure? Take the Discovery Scorecard</Link>
+            </div>
           </article>
 
-          {/* SERVICE 3 — ADVISORY */}
-          <article id="advisory" className={styles.serviceBlock}>
-            <h3 className={styles.serviceTitle}>Advisory</h3>
-            <p className={styles.serviceSubhead}>Senior product judgment when the cost of being wrong is real.</p>
-            <p className={styles.servicePrice}>$2,500/month</p>
-            <div className={styles.serviceBody}>
-              <p>Ongoing product judgment for teams already in motion.</p>
-              <p>Advisory is for founders and product leaders who have clarity on what they&apos;re building and want senior product judgment as high-stakes decisions arise.</p>
-              <p>This is not discovery work and not a review.</p>
-              <p>It&apos;s decision support.</p>
+          {/* Advisory */}
+          <article id="advisory" className={`${styles.serviceBlock} ${styles.advisoryTile}`}>
+            <header className={styles.advisoryHeader}>
+              <h3 className={styles.advisoryTitle}>Advisory</h3>
+              <p className={styles.advisoryPrice} aria-label="Price">$3K/mo</p>
+            </header>
+
+            <div className={styles.advisoryValueProp}>
+              <p>Already in motion? We stay on as a sounding board. Weekly call, async access, senior product judgment when the stakes are real. Available after completing The Build Case or by fit.</p>
             </div>
-            <div className={styles.availabilityNote}>
-              <p>Advisory is typically offered:</p>
-              <ul>
-                <li>after completing the Discovery Program, or</li>
-                <li>to founders with clear direction and momentum.</li>
-              </ul>
-              <p>Availability is limited.</p>
+
+            <div className={styles.advisoryCtaGroup}>
+              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className={styles.serviceCta}>Discuss Advisory</a>
             </div>
-            <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className={styles.serviceCta}>Discuss Advisory</a>
           </article>
         </section>
 
@@ -248,118 +220,46 @@ export default function Home() {
             <span className={styles.sectionNum}>06</span>
             <h2 className={styles.sectionTitle}>FAQs</h2>
             <div className={styles.faq}>
-              <details className={styles.faqItem} open>
-                <summary>What do you deliver</summary>
+              <details className={styles.faqItem}>
+                <summary>What do we get?</summary>
                 <div className={styles.faqBody}>
-                  <p>Decision confidence your team can act on, delivered through shippable artifacts. This includes a clear product brief, research synthesis, a prioritized backlog with acceptance criteria, UX flows, and design foundations. No strategy decks. No ambiguity.</p>
+                  <p>The Build Case: a single document with a clear build decision, user evidence, a tested prototype, risk assessment, and a 90-day execution plan. No strategy decks. No ambiguity.</p>
                 </div>
               </details>
-              <details className={styles.faqItem} open>
-                <summary>Who is this for</summary>
+              <details className={styles.faqItem}>
+                <summary>How long does it take?</summary>
                 <div className={styles.faqBody}>
-                  <p>Founders and product teams who are unsure what to build next, or who want to reduce risk before committing more engineering time.</p>
+                  <p>Three weeks, fixed scope.</p>
                 </div>
               </details>
-              <details className={styles.faqItem} open>
-                <summary>What problem do you solve</summary>
+              <details className={styles.faqItem}>
+                <summary>What if we already know what to build?</summary>
                 <div className={styles.faqBody}>
-                  <p>Too many ideas and opinions. Not enough certainty.</p>
-                  <p>We help teams make clear decisions about what to build or not build, so work starts or stops without second guessing.</p>
+                  <p>Then we validate the bet or kill it quickly. Confidence is only useful if it&apos;s earned.</p>
                 </div>
               </details>
-              <details className={styles.faqShowAll}>
-                <summary className={styles.faqShowAllSummary}>Show all FAQs</summary>
-                <div className={styles.faqMore}>
-                  <details className={styles.faqItem}>
-                    <summary>How are you different from agencies or consultants</summary>
-                    <div className={styles.faqBody}>
-                      <p>We optimize for decisions and build ready output, not billable hours or long reports. Scope is fixed. Sprints are capped. Tradeoffs are explicit.</p>
-                      <p>Hiring a senior PM and UX designer duo costs roughly 500K per year plus ramp time. We deliver clear bets and build ready output in weeks.</p>
-                      <p>Agencies optimize for hours. We optimize for decisions.</p>
-                      <p>AI tools document your thinking. We challenge it.</p>
-                    </div>
-                  </details>
-                  <details className={styles.faqItem}>
-                    <summary>Is this discovery, strategy, or execution</summary>
-                    <div className={styles.faqBody}>
-                      <p>It is discovery that turns directly into execution.</p>
-                      <p>Strategy only matters if it results in a defensible bet your team can act on.</p>
-                    </div>
-                  </details>
-                  <details className={styles.faqItem}>
-                    <summary>How does the Discovery Scorecard fit in</summary>
-                    <div className={styles.faqBody}>
-                      <p>The Discovery Scorecard is a free readiness check. It helps teams understand whether they are guessing, partially aligned, or truly ready to ship before investing more time or money.</p>
-                    </div>
-                  </details>
-                  <details className={styles.faqItem}>
-                    <summary>What is the difference between the Scorecard and the Discovery Program</summary>
-                    <div className={styles.faqBody}>
-                      <p>The Scorecard shows where you stand.</p>
-                      <p>The Discovery Program shows exactly what to do next and why, with evidence and build ready artifacts.</p>
-                    </div>
-                  </details>
-                  <details className={styles.faqItem}>
-                    <summary>How long does the Discovery Program take</summary>
-                    <div className={styles.faqBody}>
-                      <p>Engagements are time boxed and outcome driven. Most teams complete the program in a few weeks, not months.</p>
-                    </div>
-                  </details>
-                  <details className={styles.faqItem}>
-                    <summary>Do you talk to real users</summary>
-                    <div className={styles.faqBody}>
-                      <p>Yes, when it reduces risk. We talk directly to users to replace assumptions with evidence, but we do not run research for the sake of it.</p>
-                    </div>
-                  </details>
-                  <details className={styles.faqItem}>
-                    <summary>What if we already have a roadmap</summary>
-                    <div className={styles.faqBody}>
-                      <p>We pressure test it. If it holds up, great. If it does not, we surface the risks early before engineering time is wasted.</p>
-                    </div>
-                  </details>
-                  <details className={styles.faqItem}>
-                    <summary>What if we already know what we want to build</summary>
-                    <div className={styles.faqBody}>
-                      <p>Then we help you validate the bet or kill it quickly. Confidence is only useful if it is earned.</p>
-                    </div>
-                  </details>
-                  <details className={styles.faqItem}>
-                    <summary>What happens after the engagement</summary>
-                    <div className={styles.faqBody}>
-                      <p>You keep everything. The backlog, decisions, rationale, and design foundations are yours to build on without dependency on us.</p>
-                    </div>
-                  </details>
-                  <details className={styles.faqItem}>
-                    <summary>Do you offer ongoing support</summary>
-                    <div className={styles.faqBody}>
-                      <p>Yes. Advisory is available for teams who have clarity and want senior product judgment as high stakes decisions come up. Availability is limited.</p>
-                    </div>
-                  </details>
-                  <details className={styles.faqItem}>
-                    <summary>What is the biggest risk of working with you</summary>
-                    <div className={styles.faqBody}>
-                      <p>You will be forced to make real decisions and let go of ideas that do not hold up.</p>
-                    </div>
-                  </details>
-                  <details className={styles.faqItem}>
-                    <summary>What is the biggest risk of not working with you</summary>
-                    <div className={styles.faqBody}>
-                      <p>Building the wrong thing with confidence and realizing it too late.</p>
-                    </div>
-                  </details>
+              <details className={styles.faqItem}>
+                <summary>What happens after?</summary>
+                <div className={styles.faqBody}>
+                  <p>You keep everything. The decisions, evidence, and prototype are yours. No dependency on us. Advisory is available if you want ongoing support.</p>
                 </div>
               </details>
-
+              <details className={styles.faqItem}>
+                <summary>How are you different?</summary>
+                <div className={styles.faqBody}>
+                  <p>Most consultants give you a strategy deck. Most agencies give you a UX audit. We give you a tested prototype and a build decision backed by real user evidence. You&apos;ll watch your users react before you write a line of code. Nobody else does that in 6 weeks for this price.</p>
+                </div>
+              </details>
             </div>
           </div>
         </section>
 
-        {/* 07 Contact */}
+        {/* 08 Contact */}
         <section id="contact" className={styles.contactSection}>
-          <span className={styles.sectionNum}>07</span>
+          <span className={styles.sectionNum}>08</span>
           <h2 className={styles.contactTitle}>Start the conversation</h2>
           <p className={styles.contactLead}>
-            Tell us what you&apos;re building and where you&apos;re unsure. We&apos;ll review it and come back with a clear next step. No pitch. No runaround.
+            Tell us what you&apos;re building. In 30 minutes we&apos;ll tell you if The Build Case is the right move, or if you don&apos;t need us.
           </p>
           <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className={styles.ctaPrimary}>
             Book a 30-Minute Intro Call
@@ -373,7 +273,7 @@ export default function Home() {
               <a href="#faq">FAQ</a>
               <a href="#contact">Contact</a>
             </nav>
-            <p className={styles.footerText}>shipgate. Product and UX discovery. Fixed scope, no scope creep.</p>
+            <p className={styles.footerText}>We tell you what to build. Then we prove it.</p>
           </div>
         </footer>
       </main>

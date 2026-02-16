@@ -12,6 +12,7 @@
 .deliverablesSection .sectionNum { color: var(--section-accent-deliverables); }
 .whySection .sectionNum { color: var(--section-accent-why); }
 .processSection .sectionNum { color: var(--section-accent-process); }
+.practiceSection .sectionNum { color: var(--section-accent-process); }
 .solutionsSection .sectionNum { color: var(--section-accent-hero); }
 .contactSection .sectionNum { color: var(--section-accent-contact); }
 
@@ -259,9 +260,9 @@
   position: relative;
   z-index: 1;
   margin: 0 0 1.75rem;
-  font-size: var(--text-hero);
-  font-weight: var(--font-black);
-  line-height: 1.15;
+  font-size: clamp(2.75rem, 7vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
   letter-spacing: var(--tracking-tight);
   color: var(--md-sys-color-on-surface);
   max-width: 28ch;
@@ -412,10 +413,10 @@
   position: relative;
   z-index: 1;
   margin: 0 0 1.75rem;
-  font-size: var(--text-lead-lg);
-  font-weight: var(--font-regular);
+  font-size: 1.25rem;
+  font-weight: var(--font-semibold);
   letter-spacing: var(--tracking-wide);
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--md-sys-color-on-surface-variant);
   max-width: 52ch;
 }
@@ -535,14 +536,14 @@
   }
 
   .heroTitle {
-    font-size: clamp(2rem, 8vw, 2.75rem);
-    line-height: 1.15;
+    font-size: clamp(2.25rem, 9vw, 3.25rem);
+    line-height: 1.1;
     margin-bottom: 1.25rem;
     max-width: 22ch;
   }
 
   .heroNarrative {
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     line-height: 1.55;
     margin-bottom: 1.25rem;
   }
@@ -1149,6 +1150,7 @@
   .whySection,
   .deliverablesSection,
   .processSection,
+  .practiceSection,
   .solutionsSection,
   .section {
     padding-left: 16px;
@@ -1319,6 +1321,216 @@
 .serviceCta:focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
+}
+
+.costOfInaction {
+  font-size: var(--text-body);
+  font-weight: var(--font-regular);
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 0 0 1.5rem;
+  max-width: var(--section-lead-max-width);
+}
+
+.buildCaseTagline {
+  font-weight: var(--font-semibold);
+  color: var(--md-sys-color-on-surface);
+  margin: 1rem 0 0;
+}
+
+.serviceCtaSecondary {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: var(--text-body);
+  font-weight: var(--font-medium);
+  color: var(--md-sys-color-primary);
+  text-decoration: none;
+}
+
+.serviceCtaSecondary:hover {
+  text-decoration: underline;
+}
+
+/* ——— The Build Case tile (redesigned) ——— */
+.buildCaseTile {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.buildCaseHeader {
+  padding: clamp(24px, 4vw, 36px) clamp(24px, 4vw, 36px) 0;
+  margin: 0;
+  border: none;
+}
+
+.buildCaseTitle {
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--md-sys-color-on-surface);
+  margin: 0 0 0.5rem;
+}
+
+.buildCasePrice {
+  display: inline-block;
+  font-size: var(--text-body);
+  font-weight: var(--font-semibold);
+  color: var(--md-sys-color-primary);
+  margin: 0;
+  padding: 0.25rem 0.75rem;
+  background: color-mix(in srgb, var(--md-sys-color-primary) 12%, transparent);
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+.buildCaseValueProp {
+  padding: 1.25rem clamp(24px, 4vw, 36px) 0;
+  margin: 0;
+}
+
+.buildCaseValueProp p {
+  font-size: var(--text-body);
+  font-weight: var(--font-regular);
+  line-height: 1.65;
+  color: var(--md-sys-color-on-surface);
+  margin: 0;
+  max-width: 56ch;
+}
+
+.buildCaseDeliverables {
+  padding: 1.5rem clamp(24px, 4vw, 36px) 0;
+  margin: 0;
+}
+
+.buildCaseDeliverablesHeading {
+  font-size: var(--text-body);
+  font-weight: var(--font-semibold);
+  color: var(--md-sys-color-on-surface);
+  margin: 0 0 0.75rem;
+}
+
+.buildCaseDeliverablesList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.buildCaseDeliverablesList li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: var(--text-body);
+  font-weight: var(--font-regular);
+  line-height: 1.5;
+  color: var(--md-sys-color-on-surface);
+}
+
+.buildCaseDeliverablesList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  background: var(--md-sys-color-primary);
+  border-radius: 50%;
+}
+
+.buildCaseDeliverablesNote {
+  font-size: var(--text-body);
+  font-weight: var(--font-regular);
+  line-height: 1.5;
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 1rem 0 0;
+}
+
+.buildCaseTaglineBlock {
+  margin: 1.5rem clamp(24px, 4vw, 36px) 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--md-sys-color-primary);
+  background: var(--md-sys-color-surface-container-lowest);
+  border-radius: 0 var(--md-sys-shape-corner-small) var(--md-sys-shape-corner-small) 0;
+  font-size: var(--text-body);
+  font-weight: var(--font-semibold);
+  font-style: normal;
+  color: var(--md-sys-color-on-surface);
+  line-height: 1.45;
+}
+
+.buildCaseTaglineBlock::before,
+.buildCaseTaglineBlock::after {
+  content: none;
+}
+
+.buildCaseCtaGroup {
+  padding: 1.75rem clamp(24px, 4vw, 36px) clamp(24px, 4vw, 36px);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.buildCaseCtaGroup .serviceCtaSecondary {
+  margin-top: 0;
+}
+
+/* ——— Advisory tile (same design as Build Case) ——— */
+.advisoryTile {
+  display: grid;
+  gap: 0;
+  padding: 0;
+}
+
+.advisoryHeader {
+  padding: clamp(24px, 4vw, 36px) clamp(24px, 4vw, 36px) 0;
+  margin: 0;
+  border: none;
+}
+
+.advisoryTitle {
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--md-sys-color-on-surface);
+  margin: 0 0 0.5rem;
+}
+
+.advisoryPrice {
+  display: inline-block;
+  font-size: var(--text-body);
+  font-weight: var(--font-semibold);
+  color: var(--md-sys-color-primary);
+  margin: 0;
+  padding: 0.25rem 0.75rem;
+  background: color-mix(in srgb, var(--md-sys-color-primary) 12%, transparent);
+  border-radius: var(--md-sys-shape-corner-full);
+}
+
+.advisoryValueProp {
+  padding: 1.25rem clamp(24px, 4vw, 36px) 0;
+  margin: 0;
+}
+
+.advisoryValueProp p {
+  font-size: var(--text-body);
+  font-weight: var(--font-regular);
+  line-height: 1.65;
+  color: var(--md-sys-color-on-surface);
+  margin: 0;
+  max-width: 56ch;
+}
+
+.advisoryCtaGroup {
+  padding: 1.75rem clamp(24px, 4vw, 36px) clamp(24px, 4vw, 36px);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
 }
 
 /* Flagship deliverables — light, minimal expandable */
@@ -1517,6 +1729,56 @@
   letter-spacing: var(--section-heading-letter-spacing);
   line-height: var(--section-heading-line-height);
   color: var(--md-sys-color-on-surface);
+}
+
+/* 03 What this looks like in practice */
+.practiceSection {
+  max-width: var(--section-max);
+  margin: 0 auto;
+  padding: var(--section-padding-y) var(--section-padding-x) var(--section-padding-y);
+}
+
+.practiceSection .sectionTitle {
+  margin: 0 0 var(--section-gap-title-body);
+  font-size: var(--section-heading-font-size);
+  font-weight: var(--section-heading-font-weight);
+  letter-spacing: var(--section-heading-letter-spacing);
+  line-height: var(--section-heading-line-height);
+  color: var(--md-sys-color-on-surface);
+}
+
+.practiceGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--section-gap-body-next);
+}
+
+@media (min-width: 768px) {
+  .practiceGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.practiceCard {
+  padding: 1.5rem;
+  background: var(--md-sys-color-surface);
+  border: var(--wire-border);
+}
+
+.practiceClient {
+  display: block;
+  font-size: var(--text-body);
+  font-weight: var(--font-semibold);
+  color: var(--md-sys-color-on-surface);
+  margin: 0 0 0.75rem;
+}
+
+.practiceQuote {
+  font-size: var(--text-body);
+  font-weight: var(--font-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 0;
 }
 
 .timeline {
