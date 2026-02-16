@@ -59,7 +59,7 @@
 
 .logo {
   font-weight: var(--font-bold);
-  font-size: 1.25rem;
+  font-size: var(--text-body-l);
   color: var(--md-sys-color-primary);
   text-decoration: none;
 }
@@ -142,11 +142,14 @@
 .navLinks a {
   color: var(--md-sys-color-on-surface);
   text-decoration: none;
-  font-size: var(--text-caption);
-  font-weight: var(--font-bold);
-  letter-spacing: var(--tracking-wider);
+  font-size: var(--text-body);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--tracking-wide);
   position: relative;
-  padding: 6px 0;
+  padding: 10px 4px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .navLinks a:hover {
@@ -155,7 +158,7 @@
 }
 
 
-/* Hero — 01 — larger type, CTA above fold */
+/* Hero — 01 — two-page effect: image slides out from under text (desktop) */
 .hero {
   position: relative;
   max-width: var(--section-max);
@@ -168,7 +171,7 @@
   justify-content: center;
   box-sizing: border-box;
   background: var(--md-sys-color-background);
-  overflow: visible;
+  overflow-x: hidden;
 }
 
 .heroLabel {
@@ -195,20 +198,37 @@
     align-items: center;
     justify-content: space-between;
     gap: clamp(40px, 5vw, 64px);
+    overflow: hidden;
   }
 }
 
+/* Text “page” on top — solid background so image can slide out from under */
 .heroContent {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 640px;
   flex-shrink: 0;
+  background: var(--md-sys-color-background);
 }
 
+@media (min-width: 900px) {
+  .heroContent {
+    padding-right: 1rem;
+  }
+}
+
+/* Image “page” — on mobile falls below text; on desktop slides out from under */
 .heroIllustration {
   margin: 0;
   flex-shrink: 0;
   max-width: 100%;
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .heroIllustration {
+    z-index: 1;
+  }
 }
 
 .heroIllustrationImg {
@@ -260,9 +280,9 @@
   position: relative;
   z-index: 1;
   margin: 0 0 1.75rem;
-  font-size: clamp(2.75rem, 7vw, 4rem);
-  font-weight: 900;
-  line-height: 1.1;
+  font-size: var(--text-display-l);
+  font-weight: 700;
+  line-height: var(--leading-display);
   letter-spacing: var(--tracking-tight);
   color: var(--md-sys-color-on-surface);
   max-width: 28ch;
@@ -372,7 +392,7 @@
   padding: 10px 14px;
   text-align: left;
   font: inherit;
-  font-size: 0.4em;
+  font-size: var(--text-body);
   font-weight: var(--font-bold);
   letter-spacing: -0.02em;
   color: var(--md-sys-color-on-surface);
@@ -413,7 +433,7 @@
   position: relative;
   z-index: 1;
   margin: 0 0 1.75rem;
-  font-size: 1.25rem;
+  font-size: var(--text-body-l);
   font-weight: var(--font-semibold);
   letter-spacing: var(--tracking-wide);
   line-height: 1.55;
@@ -428,6 +448,22 @@
   flex-wrap: wrap;
   gap: 0.75rem 1.25rem;
   margin-top: 0;
+}
+
+.heroTextLink {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--text-body);
+  font-weight: var(--font-medium);
+  color: var(--md-sys-color-on-surface-variant);
+  text-decoration: none;
+  transition: color 150ms ease;
+  padding: 4px 0;
+}
+
+.heroTextLink:hover {
+  color: var(--md-sys-color-primary);
+  text-decoration: underline;
 }
 
 .heroSub {
@@ -482,9 +518,11 @@
   }
 
   .navLinks a {
-    display: block;
-    padding: 0.25rem 0;
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 12px 0;
+    font-size: var(--text-body);
   }
 
   /* Hero CTAs stacked on mobile, full-width so they’re not fat */
@@ -494,8 +532,7 @@
     gap: 0.75rem;
   }
 
-  .heroCtas .ctaPrimary,
-  .heroCtas .ctaSecondary {
+  .heroCtas .ctaPrimary {
     width: 100%;
     flex: none;
     min-width: 0;
@@ -530,20 +567,20 @@
   }
 
   .heroLabel {
-    font-size: 0.875rem;
+    font-size: var(--text-caption);
     letter-spacing: 0.16em;
     margin-bottom: 1rem;
   }
 
   .heroTitle {
-    font-size: clamp(2.25rem, 9vw, 3.25rem);
-    line-height: 1.1;
+    font-size: var(--text-h1);
+    line-height: var(--leading-display);
     margin-bottom: 1.25rem;
     max-width: 22ch;
   }
 
   .heroNarrative {
-    font-size: 1.125rem;
+    font-size: var(--text-body-l);
     line-height: 1.55;
     margin-bottom: 1.25rem;
   }
@@ -853,6 +890,7 @@
   justify-content: flex-start;
   gap: 1.25rem 2rem;
   margin: 0 0 2rem;
+  max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -900,7 +938,7 @@
 
 @media (max-width: 480px) {
   .companyLogoName {
-    font-size: var(--text-caption);
+    font-size: var(--text-body);
     letter-spacing: 0.04em;
   }
 }
@@ -1053,7 +1091,7 @@
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  font-size: 0.6875rem;
+  font-size: var(--text-caption);
   font-weight: var(--font-semibold);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
@@ -1113,6 +1151,7 @@
   .whySection,
   .deliverablesSection,
   .processSection,
+  .practiceSection,
   .solutionsSection,
   .section {
     padding-left: var(--section-padding-x-mobile);
@@ -1124,12 +1163,6 @@
   }
 
   /* Flagship badge on its own line so it doesn’t cover the title on small screens */
-  .serviceBlockFlagship .flagshipBadge {
-    position: static;
-    display: inline-block;
-    margin-bottom: 0.5rem;
-  }
-
   .serviceCta {
     display: inline-flex;
     align-items: center;
@@ -1214,7 +1247,7 @@
   position: absolute;
   top: 24px;
   right: 24px;
-  font-size: 0.6875rem;
+  font-size: var(--text-caption);
   font-weight: var(--font-semibold);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
@@ -1223,6 +1256,21 @@
   border: none;
   padding: 6px 12px;
   border-radius: var(--md-sys-shape-corner-full);
+}
+
+/* Build Case: badge lives in title row (same line as “The Build Case”), right-aligned */
+.buildCaseTitleRow .flagshipBadge {
+  position: static;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .buildCaseTitleRow .flagshipBadge {
+    font-size: 11px;
+    padding: 3px 8px;
+    letter-spacing: 0.03em;
+  }
 }
 
 .serviceTitle {
@@ -1323,14 +1371,6 @@
   outline-offset: 2px;
 }
 
-.costOfInaction {
-  font-size: var(--text-body);
-  font-weight: var(--font-regular);
-  color: var(--md-sys-color-on-surface-variant);
-  margin: 0 0 1.5rem;
-  max-width: var(--section-lead-max-width);
-}
-
 .buildCaseTagline {
   font-weight: var(--font-semibold);
   color: var(--md-sys-color-on-surface);
@@ -1362,6 +1402,130 @@
   padding: clamp(24px, 4vw, 36px) clamp(24px, 4vw, 36px) 0;
   margin: 0;
   border: none;
+}
+
+@media (max-width: 900px) {
+  .buildCaseHeader {
+    padding-top: 0;
+    padding-left: clamp(16px, 4vw, 24px);
+    padding-right: clamp(16px, 4vw, 24px);
+  }
+  .buildCaseValueProp,
+  .buildCaseDeliverables,
+  .buildCaseCtaGroup {
+    padding-left: clamp(16px, 4vw, 24px);
+    padding-right: clamp(16px, 4vw, 24px);
+  }
+  .buildCaseTaglineBlock {
+    margin-left: clamp(16px, 4vw, 24px);
+    margin-right: clamp(16px, 4vw, 24px);
+  }
+}
+
+/* ——— Build Case: mobile-first visual hierarchy ——— */
+@media (max-width: 768px) {
+  .serviceBlockFlagship.buildCaseTile {
+    padding: 20px;
+    margin-bottom: 1.5rem;
+    border-radius: var(--md-sys-shape-corner-medium);
+  }
+
+  .serviceBlockFlagship.buildCaseTile .buildCaseHeader,
+  .serviceBlockFlagship.buildCaseTile .buildCaseValueProp,
+  .serviceBlockFlagship.buildCaseTile .buildCaseDeliverables,
+  .serviceBlockFlagship.buildCaseTile .buildCaseTaglineBlock,
+  .serviceBlockFlagship.buildCaseTile .buildCaseCtaGroup {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .buildCaseHeader {
+    padding: 0 0 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  }
+
+  .buildCaseTitleRow {
+    margin-bottom: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .buildCaseTitle {
+    font-size: 1.375rem;
+    line-height: 1.3;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .buildCasePrice {
+    font-size: var(--text-body);
+    padding: 0.35rem 0.75rem;
+  }
+
+  .buildCaseValueProp {
+    padding: 1rem 0 0;
+    margin: 0;
+  }
+
+  .buildCaseValueProp p {
+    font-size: var(--text-body);
+    line-height: 1.65;
+    max-width: none;
+  }
+
+  .buildCaseDeliverables {
+    padding: 1.25rem 0 0;
+    margin: 0;
+  }
+
+  .buildCaseDeliverablesHeading {
+    font-size: var(--text-body);
+    font-weight: var(--font-semibold);
+    margin: 0 0 0.5rem;
+    color: var(--md-sys-color-on-surface);
+  }
+
+  .buildCaseDeliverablesList {
+    gap: 0.5rem;
+  }
+
+  .buildCaseDeliverablesList li {
+    font-size: var(--text-body);
+    line-height: 1.5;
+    padding-left: 1.25rem;
+  }
+
+  .buildCaseDeliverablesList li::before {
+    top: 0.45em;
+    width: 5px;
+    height: 5px;
+  }
+
+  .buildCaseDeliverablesNote {
+    margin-top: 0.75rem;
+    font-size: var(--text-body);
+  }
+
+  .buildCaseTaglineBlock {
+    margin: 1.25rem 0 0;
+    padding: 0;
+  }
+
+  .buildCaseCtaGroup {
+    padding: 1.5rem 0 0;
+    margin: 0;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .buildCaseCtaGroup .serviceCta,
+  .buildCaseCtaGroup .serviceCtaSecondary {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
 }
 
 .buildCaseTitle {
@@ -1448,14 +1612,13 @@
 
 .buildCaseTaglineBlock {
   margin: 1.5rem clamp(24px, 4vw, 36px) 0;
-  padding: 1rem 1.25rem;
-  border-left: 3px solid var(--md-sys-color-primary);
-  background: var(--md-sys-color-surface-container-lowest);
-  border-radius: 0 var(--md-sys-shape-corner-small) var(--md-sys-shape-corner-small) 0;
+  padding: 0;
+  border: none;
+  background: none;
   font-size: var(--text-body);
   font-weight: var(--font-semibold);
   font-style: normal;
-  color: var(--md-sys-color-on-surface);
+  color: var(--md-sys-color-primary);
   line-height: 1.45;
 }
 
@@ -1823,7 +1986,7 @@
 .timelineStep:first-child .timelineDot {
   background: transparent;
   color: inherit;
-  font-size: 1.25rem;
+  font-size: var(--text-body-l);
   width: 24px;
   height: 24px;
 }
@@ -1832,7 +1995,7 @@
 .timelineStep:nth-child(2) .timelineDot {
   background: transparent;
   color: inherit;
-  font-size: 1.25rem;
+  font-size: var(--text-body-l);
   width: 24px;
   height: 24px;
 }
@@ -1841,7 +2004,7 @@
 .timelineStep:nth-child(3) .timelineDot {
   background: transparent;
   color: inherit;
-  font-size: 1.25rem;
+  font-size: var(--text-body-l);
   width: 24px;
   height: 24px;
 }
@@ -1850,7 +2013,7 @@
 .timelineStep:nth-child(4) .timelineDot {
   background: transparent;
   color: inherit;
-  font-size: 1.25rem;
+  font-size: var(--text-body-l);
   width: 24px;
   height: 24px;
 }
@@ -1869,7 +2032,7 @@
     left: -2rem;
     width: 22px;
     height: 22px;
-    font-size: 0.75rem;
+    font-size: var(--text-caption);
   }
 
   .timelineStep {
@@ -1995,7 +2158,7 @@
 
 .pricingPrice {
   margin: 0 0 8px;
-  font-size: 1.5rem;
+  font-size: var(--text-h3);
   font-weight: var(--font-regular);
   letter-spacing: var(--tracking-normal);
   color: var(--md-sys-color-on-surface);
@@ -2062,7 +2225,7 @@
   width: 28px;
   height: 28px;
   padding: 0;
-  font-size: 1.25rem;
+  font-size: var(--text-body-l);
   line-height: 1;
   color: var(--md-sys-color-on-surface);
   background: transparent;

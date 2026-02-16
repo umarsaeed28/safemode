@@ -124,7 +124,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: var(--text-caption);
   font-weight: var(--font-bold);
   color: #fff;
   background: var(--md-sys-color-primary);

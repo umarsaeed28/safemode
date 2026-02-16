@@ -38,8 +38,8 @@ export default function Home() {
                 <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className={styles.ctaPrimary}>
                   Book a 30-Minute Intro Call
                 </a>
-                <a href="/scorecard" className={styles.ctaSecondary}>
-                  Take the Discovery Scorecard
+                <a href="/scorecard" className={styles.heroTextLink}>
+                  Take the Discovery Scorecard →
                 </a>
               </div>
             </div>
@@ -78,7 +78,7 @@ export default function Home() {
               <span className={styles.timelineDot}>📄</span>
               <div className={styles.timelineContent}>
                 <h3 className={styles.timelineTitle}>Weeks 5-6: You get The Build Case.</h3>
-                <p className={styles.timelineDesc}>What to build, why, the evidence, the risks, and a 90-day plan. We present it live and defend it with you.</p>
+                <p className={styles.timelineDesc}>What to build, why, the evidence, and the risks. We present it live and defend it with you.</p>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function Home() {
             </div>
             <div className={styles.practiceCard}>
               <strong className={styles.practiceClient}>Amazon</strong>
-              <p className={styles.practiceQuote}>Leadership was convinced the checkout flow was fine. It wasn&apos;t. User research revealed a deeply held assumption was driving large-scale abandonment. We ran controlled experiments to prove it. 15% revenue lift post launch. $100M+ in contribution profit protected.</p>
+              <p className={styles.practiceQuote}>Leadership was convinced the checkout flow was fine. It wasn&apos;t. User research revealed a deeply held assumption was driving large-scale abandonment. We ran controlled experiments to prove it. 15% revenue lift post launch. Millions in contribution profit protected.</p>
             </div>
           </div>
         </section>
@@ -159,14 +159,12 @@ export default function Home() {
           <span className={styles.sectionNum} aria-hidden>05</span>
           <h2 id="services-heading" className={styles.solutionsTitle}>Services</h2>
 
-          <p className={styles.costOfInaction}>The average cost of building the wrong feature at a funded startup is $150-300K in wasted engineering time. A discovery engagement costs a fraction of that.</p>
-
           {/* The Build Case */}
           <article id="build-case" className={`${styles.serviceBlock} ${styles.serviceBlockFlagship} ${styles.buildCaseTile}`}>
-            <span className={styles.flagshipBadge}>Flagship Engagement</span>
-
             <header className={styles.buildCaseHeader}>
-              <h3 className={styles.buildCaseTitle}>The Build Case</h3>
+              <div className={styles.buildCaseTitleRow}>
+                <h3 className={styles.buildCaseTitle}>The Build Case</h3>
+              </div>
               <p className={styles.buildCasePrice} aria-label="Price and duration">$20K · 6 weeks</p>
             </header>
 

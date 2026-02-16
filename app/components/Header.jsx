@@ -41,8 +41,8 @@ export default function Header() {
         className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}
         aria-label="Main"
       >
-        <Link href="/" className={styles.logo} aria-label="shipgate home" onClick={closeMenu}>
-          shipgate
+        <Link href="/" className={styles.logo} aria-label="Shipgate home" onClick={closeMenu}>
+          Shipgate
         </Link>
 
         <button

@@ -1,10 +1,13 @@
 /**
  * Global base styles — design-led palette.
- * Semantic tokens from theme.css. Restraint: color as accent, not decoration.
+ * Typography: Apple HIG–aligned scale (clarity, deference, depth).
+ * Semantic tokens from theme.css.
  */
 
 :root {
-  /* Semantic aliases → theme (use these or md-sys-* directly) */
+  /* Apple-friendly system font stack */
+  --font-apple: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  /* Semantic aliases → theme */
   --color-accent: var(--md-sys-color-primary);
   --color-heading: var(--md-sys-color-on-surface);
   --color-body: var(--md-sys-color-on-surface);
@@ -14,83 +17,93 @@
   --wire-border: 1px solid var(--md-sys-color-outline);
   --wire-border-light: 1px solid var(--md-sys-color-outline-variant);
 
-  /* Surface tint for highlights (primary, low opacity) — follows primary token */
   --surface-tint: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent);
 
-  /* Layout — strict section pattern */
+  /* Layout */
   --section-max: 1200px;
   --section-padding-y: var(--space-80);
   --section-padding-x: var(--space-24);
   --section-padding-y-mobile: var(--space-48);
   --section-padding-x-mobile: var(--space-16);
-  /* Bookend sections (hero, contact) — larger vertical padding */
   --section-padding-bookend-y: clamp(72px, 10vw, 120px);
   --section-padding-bookend-y-bottom: clamp(80px, 10vw, 128px);
-  /* Vertical rhythm: generous gaps for calm hierarchy */
   --section-gap-num-title: var(--space-12);
   --section-gap-title-body: var(--space-32);
   --section-gap-body-next: var(--space-32);
-  /* Section heading — single pattern, weight 500, slight tight tracking */
-  --section-heading-font-size: var(--text-section-heading);
-  --section-heading-font-weight: var(--font-medium);
-  --section-heading-letter-spacing: -0.015em;
-  --section-heading-line-height: 1.4;
-  /* Lead/body prose */
-  --section-lead-font-size: var(--text-body-lg);
+  --section-heading-font-size: var(--text-h2);
+  --section-heading-font-weight: var(--font-heading);
+  --section-heading-letter-spacing: -0.01em;
+  --section-heading-line-height: 1.25;
+  --section-lead-font-size: var(--text-body-l);
   --section-lead-max-width: var(--content-prose);
-  /* Primary button — medium weight only */
   --btn-primary-min-height: 48px;
   --btn-primary-padding-y: 12px;
   --btn-primary-padding-x: 28px;
-  --btn-primary-font-size: var(--text-body);
+  --btn-primary-font-size: 16px;
   --btn-primary-font-weight: var(--font-semibold);
-  /* Bullet list */
   --list-bullet-indent: 1.25rem;
   --list-bullet-size: 5px;
   --list-item-gap: 0.5rem;
-  /* Content widths */
   --content-narrow: 40rem;
-  --content-prose: 45rem;
+  --content-prose: 42rem;
   --content-form: 26.25rem;
 
-  /* Font stack — set by layout (Plus Jakarta Sans variable); body uses var(--font-sans) */
+  /* Font stack: Plus Jakarta (lighter, vertical) applied via layout; fallback system */
+  --font-sans: var(--font-apple, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
 
-  /* Font weight — full range for punch and hierarchy */
+  /* Font weights — lighter scale */
   --font-light: 300;
   --font-regular: 400;
   --font-medium: 500;
   --font-semibold: 600;
-  --font-bold: 700;
-  --font-extrabold: 800;
-  --font-black: 800;
+  --font-bold: 600;
+  --font-heading: 500;
+  --font-extrabold: 600;
+  --font-black: 600;
 
-  /* Line height — generous for calm rhythm */
+  /* Line heights — more vertical rhythm */
+  --leading-display: 1.15;
+  --leading-heading: 1.3;
+  --leading-heading-sm: 1.35;
+  --leading-body: 1.7;
+  --leading-caption: 1.5;
   --leading-tight: 1.2;
   --leading-snug: 1.4;
   --leading-normal: 1.5;
   --leading-relaxed: 1.6;
   --leading-loose: 1.75;
 
-  /* Type scale — 16–17px body, 24–32px section, 40–56px hero */
-  --text-hero: clamp(2.5rem, 6vw, 3.5rem);
-  --text-section-heading: clamp(1.5rem, 3vw, 2rem);
-  --text-lead: 1.0625rem;
-  --text-lead-lg: 1.125rem;
-  --text-body: 1rem;
-  --text-body-lg: 1.0625rem;
-  --text-caption: 0.8125rem;
-  --text-num: 0.75rem;
-  --text-h3: 1.5rem;
-  --text-h4: 1.25rem;
+  /* ——— Apple-aligned type scale (px base, clamp for large) ——— */
+  --text-display-xl: clamp(40px, 8vw, 64px);
+  --text-display-l: clamp(36px, 6vw, 52px);
+  --text-h1: clamp(32px, 5vw, 44px);
+  --text-h2: clamp(26px, 4vw, 36px);
+  --text-h3: clamp(22px, 3vw, 28px);
+  --text-h4: 22px;
+  --text-body-l: 18px;
+  --text-body: 16px;
+  --text-caption: 14px;
 
-  /* Letter spacing — tighten large type only */
+  /* Legacy tokens mapped to new scale (so existing CSS keeps working) */
+  --text-hero: var(--text-display-l);
+  --text-section-heading: var(--text-h2);
+  --text-lead: var(--text-body-l);
+  --text-lead-lg: var(--text-body-l);
+  --text-body-lg: var(--text-body-l);
+  --text-num: var(--text-caption);
+  --text-body-sm: 16px;
+  --text-overline: var(--text-caption);
+  --text-label: var(--text-caption);
+  --text-helper: var(--text-caption);
+
+  /* Letter spacing — large type only */
   --tracking-tight: -0.02em;
   --tracking-heading: -0.01em;
   --tracking-normal: 0;
   --tracking-wide: 0.01em;
   --tracking-wider: 0.04em;
   --tracking-widest: 0.08em;
-  --tracking-num: 0.08em;
+  --tracking-num: 0.06em;
   --tracking-label: 0.04em;
 }
 
@@ -101,21 +114,88 @@
 }
 
 html {
+  font-size: 16px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   background: var(--md-sys-color-background);
   color: var(--md-sys-color-on-background);
-  font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: 17px;
+  font-family: var(--font-apple);
+  font-size: 16px;
   font-weight: var(--font-regular);
-  line-height: 1.6;
+  line-height: var(--leading-body);
   letter-spacing: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Prevent horizontal scroll; contain layout */
+#main-content {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Semantic heading defaults — Apple HIG hierarchy */
+h1, .t-display-xl, .t-display-l, .t-h1 {
+  font-size: var(--text-h1);
+  line-height: var(--leading-display);
+  font-weight: 600;
+  letter-spacing: var(--tracking-heading);
+}
+h1 { font-size: var(--text-h1); }
+.t-display-xl { font-size: var(--text-display-xl); }
+.t-display-l { font-size: var(--text-display-l); }
+
+h2, .t-h2 {
+  font-size: var(--text-h2);
+  line-height: var(--leading-heading);
+  font-weight: var(--font-heading);
+  letter-spacing: var(--tracking-heading);
+}
+
+h3, .t-h3 {
+  font-size: var(--text-h3);
+  line-height: var(--leading-heading-sm);
+  font-weight: var(--font-heading);
+}
+
+h4, .t-h4 {
+  font-size: var(--text-h4);
+  line-height: var(--leading-heading-sm);
+  font-weight: var(--font-heading);
+}
+
+.t-body-l {
+  font-size: var(--text-body-l);
+  line-height: var(--leading-body);
+  font-weight: var(--font-regular);
+}
+
+.t-body {
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-weight: var(--font-regular);
+}
+
+.t-caption {
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  font-weight: var(--font-regular);
+  letter-spacing: var(--tracking-num);
+}
+
+/* Prose: no overflow from long words/URLs */
+main p,
+main li {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 ::selection {
