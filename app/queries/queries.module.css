@@ -157,6 +157,19 @@
   padding: 2rem;
 }
 
+/* ── Status banner (diagnostics) ─────────────────────── */
+
+.statusBanner {
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  color: #92400e;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
 /* ── Stats row ───────────────────────────────────────── */
 
 .statsRow {

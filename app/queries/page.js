@@ -44,6 +44,7 @@ export default function QueriesPage() {
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(false)
   const [detail, setDetail] = useState(null)
+  const [status, setStatus] = useState(null) // connection diagnostics
 
   /* ── Check existing cookie on mount (persist across refresh) ── */
 
@@ -82,6 +83,19 @@ export default function QueriesPage() {
     setAuthenticated(false)
     setDetail(null)
   }
+
+  /* ── Connection diagnostics (runs once on login) ──── */
+
+  useEffect(() => {
+    if (!authenticated) return
+    async function checkStatus() {
+      try {
+        const res = await fetch("/api/queries/status", { credentials: "include" })
+        if (res.ok) setStatus(await res.json())
+      } catch { /* ignore */ }
+    }
+    checkStatus()
+  }, [authenticated])
 
   /* ── Data fetching ────────────────────────────────── */
 
@@ -208,6 +222,19 @@ export default function QueriesPage() {
         </header>
 
         <div className={styles.content}>
+          {/* Connection status banner */}
+          {status && !status.ok && (
+            <div className={styles.statusBanner}>
+              <strong>⚠️ PocketBase connection issue</strong>
+              <p style={{ margin: "6px 0 0" }}>{status.summary}</p>
+              {Object.entries(status.env || {}).map(([key, v]) => (
+                v.hint ? <p key={key} style={{ margin: "4px 0 0", fontSize: "0.8125rem" }}>• <strong>{key}</strong>: {v.hint}</p> : null
+              ))}
+              {status.admin_auth_error && <p style={{ margin: "4px 0 0", fontSize: "0.8125rem" }}>• Auth error: {status.admin_auth_error}</p>}
+              {status.collection_error && <p style={{ margin: "4px 0 0", fontSize: "0.8125rem" }}>• Collection: {status.collection_error}</p>}
+            </div>
+          )}
+
           {/* Stats cards */}
           <div className={styles.statsRow}>
             <div className={styles.statCard}>

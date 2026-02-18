@@ -16,6 +16,16 @@ export async function GET(request) {
     const perPage = Math.min(parseInt(searchParams.get("perPage") || "50", 10), 200)
     const search = searchParams.get("search")?.trim() || ""
 
+    // Quick env check — surface the problem instead of returning empty results
+    const pbUrl = process.env.POCKETBASE_URL || "http://127.0.0.1:8090"
+    if (!process.env.POCKETBASE_ADMIN_EMAIL || !process.env.POCKETBASE_ADMIN_PASSWORD) {
+      console.error("Queries data: POCKETBASE_ADMIN_EMAIL or POCKETBASE_ADMIN_PASSWORD not set")
+      return NextResponse.json({ items: [], total: 0, page, perPage, warning: "PocketBase credentials not configured. Check Vercel Environment Variables." })
+    }
+    if (pbUrl.includes("127.0.0.1") || pbUrl.includes("localhost")) {
+      console.warn("Queries data: POCKETBASE_URL is still set to localhost — will not work in production")
+    }
+
     let filter = ""
     if (search) {
       const safe = search.replace(/"/g, '\\"')
