@@ -126,6 +126,34 @@ async function main() {
     } else throw e
   }
 
+  // PocketBase 0.36+ uses "fields" (not "schema") and needs explicit autodate fields
+  const scorecardInquiriesSchema = {
+    name: "scorecard_inquiries",
+    type: "base",
+    fields: [
+      { name: "email", type: "text", required: true },
+      { name: "full_name", type: "text", required: true },
+      { name: "company_name", type: "text", required: true },
+      { name: "score_total", type: "number", required: true },
+      { name: "tier", type: "select", required: true, values: ["guessing", "partial_clarity", "defensible_bet"], maxSelect: 1 },
+      { name: "answers", type: "json", required: true },
+      { name: "page_url", type: "text", required: false },
+      { name: "user_agent", type: "text", required: false },
+      { name: "created", type: "autodate", onCreate: true, onUpdate: false },
+      { name: "updated", type: "autodate", onCreate: true, onUpdate: true },
+    ],
+    indexes: [],
+  }
+
+  try {
+    await createCollection(token, scorecardInquiriesSchema)
+    console.log("Created collection: scorecard_inquiries")
+  } catch (e) {
+    if (e.message?.includes("already exists") || e.message?.includes("name must be unique")) {
+      console.log("Collection scorecard_inquiries already exists.")
+    } else throw e
+  }
+
   // If you created inquiries before "website" was added: in PocketBase Admin (/_/) open
   // Collections → inquiries → add field "website" (Text, optional), then save.
   console.log("Done.")

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export-inquiries": "node scripts/export-scorecard-inquiries.js",
+    "export-inquiries:listen": "node scripts/export-scorecard-inquiries.js --listen"
   },
   "dependencies": {
     "@paypal/react-paypal-js": "^8.9.2",

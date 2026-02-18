@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
-import { createScorecardSubmission } from "../../../lib/pocketbase"
+import { createScorecardSubmission, createScorecardInquiry } from "../../../lib/pocketbase"
 
 function isValidEmail(value) {
   if (!value || typeof value !== "string") return false
@@ -22,10 +22,18 @@ export async function POST(request) {
   try {
     const body = await request.json()
     const email = typeof body.email === "string" ? body.email.trim() : ""
+    const fullName = typeof body.fullName === "string" ? body.fullName.trim() : ""
+    const companyName = typeof body.companyName === "string" ? body.companyName.trim() : ""
     const answers = Array.isArray(body.answers) ? body.answers : []
     const createdAt = typeof body.createdAt === "string" ? body.createdAt : new Date().toISOString()
     const pageUrl = typeof body.pageUrl === "string" ? body.pageUrl : ""
 
+    if (!fullName) {
+      return NextResponse.json({ ok: false, error: "Full name is required." }, { status: 400 })
+    }
+    if (!companyName) {
+      return NextResponse.json({ ok: false, error: "Company name is required." }, { status: 400 })
+    }
     if (!isValidEmail(email)) {
       return NextResponse.json({ ok: false, error: "A valid email is required." }, { status: 400 })
     }
@@ -39,6 +47,8 @@ export async function POST(request) {
 
     const submission = {
       email,
+      fullName,
+      companyName,
       totalScore,
       tier,
       answers,
@@ -47,6 +57,9 @@ export async function POST(request) {
     }
 
     const tierForPb = tier === "Defensible Bet" ? "defensible_bet" : tier === "Partial Clarity" ? "partial_clarity" : "guessing"
+    const userAgent = request.headers.get("user-agent") || undefined
+
+    // Save to scorecard_submissions (legacy collection)
     try {
       const saved = await createScorecardSubmission({
         email: email.toLowerCase(),
@@ -54,13 +67,32 @@ export async function POST(request) {
         tier: tierForPb,
         answers: answers.map((a) => Number(a)),
         page_url: pageUrl || undefined,
-        user_agent: request.headers.get("user-agent") || undefined,
+        user_agent: userAgent,
       })
       if (!saved) {
-        console.warn("Scorecard API: PocketBase not configured or save failed; results still returned.")
+        console.warn("Scorecard API: PocketBase scorecard_submissions save failed; results still returned.")
       }
     } catch (pbErr) {
-      console.warn("Scorecard API: PocketBase save error (results still returned):", pbErr)
+      console.warn("Scorecard API: PocketBase scorecard_submissions error (results still returned):", pbErr)
+    }
+
+    // Save to scorecard_inquiries (new collection with mandatory contact info)
+    try {
+      const inquirySaved = await createScorecardInquiry({
+        email: email.toLowerCase(),
+        full_name: fullName,
+        company_name: companyName,
+        score_total: totalScore,
+        tier: tierForPb,
+        answers: answers.map((a) => Number(a)),
+        page_url: pageUrl || undefined,
+        user_agent: userAgent,
+      })
+      if (!inquirySaved) {
+        console.warn("Scorecard API: PocketBase scorecard_inquiries save failed; results still returned.")
+      }
+    } catch (pbErr) {
+      console.warn("Scorecard API: PocketBase scorecard_inquiries error (results still returned):", pbErr)
     }
 
     // Try to send email notification; do not fail the request if email is not configured or send fails
@@ -77,6 +109,8 @@ export async function POST(request) {
         const text = [
           "Discovery Scorecard submission",
           "",
+          `Name: ${fullName}`,
+          `Company: ${companyName}`,
           `Email: ${email}`,
           `Score: ${totalScore}`,
           `Tier: ${tier}`,
@@ -86,23 +120,23 @@ export async function POST(request) {
           "Answers (1-5):",
           answers.map((a, i) => `  Q${i + 1}: ${a}`).join("\n"),
         ].join("\n")
-        const safeEmail = email.replace(/</g, "&lt;").replace(/>/g, "&gt;")
-        const safeUrl = (pageUrl || "(unknown)").replace(/</g, "&lt;").replace(/>/g, "&gt;")
-        const safeCreated = createdAt.replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        const esc = (s) => (s || "").replace(/</g, "&lt;").replace(/>/g, "&gt;")
         const html = [
           "<h2>Discovery Scorecard submission</h2>",
-          `<p><strong>Email:</strong> ${safeEmail}</p>`,
+          `<p><strong>Name:</strong> ${esc(fullName)}</p>`,
+          `<p><strong>Company:</strong> ${esc(companyName)}</p>`,
+          `<p><strong>Email:</strong> ${esc(email)}</p>`,
           `<p><strong>Score:</strong> ${totalScore}</p>`,
           `<p><strong>Tier:</strong> ${tier}</p>`,
-          `<p><strong>Page:</strong> ${safeUrl}</p>`,
-          `<p><strong>Submitted:</strong> ${safeCreated}</p>`,
+          `<p><strong>Page:</strong> ${esc(pageUrl || "(unknown)")}</p>`,
+          `<p><strong>Submitted:</strong> ${esc(createdAt)}</p>`,
           "<p><strong>Answers (1-5):</strong></p><pre>" + answers.map((a, i) => `Q${i + 1}: ${a}`).join(", ") + "</pre>",
         ].join("")
         await transporter.sendMail({
           from: user,
           to: to || user,
           replyTo: email,
-          subject: `Discovery Scorecard: ${tier} (${totalScore}/50) ${email}`,
+          subject: `Discovery Scorecard: ${tier} (${totalScore}/50) — ${fullName} (${companyName}) ${email}`,
           text,
           html,
         })

@@ -94,6 +94,8 @@ export default function ScorecardPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState(Array(10).fill(null))
   const [email, setEmail] = useState("")
+  const [fullName, setFullName] = useState("")
+  const [companyName, setCompanyName] = useState("")
   const [emailError, setEmailError] = useState("")
   const [submitStatus, setSubmitStatus] = useState("idle")
   const [totalScore, setTotalScore] = useState(null)
@@ -147,9 +149,19 @@ export default function ScorecardPage() {
   function handleEmailSubmit(e) {
     e.preventDefault()
     setEmailError("")
-    const trimmed = email.trim()
+    const trimmedEmail = email.trim()
+    const trimmedName = fullName.trim()
+    const trimmedCompany = companyName.trim()
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!re.test(trimmed)) {
+    if (!trimmedName) {
+      setEmailError("Full name is required.")
+      return
+    }
+    if (!trimmedCompany) {
+      setEmailError("Company name is required.")
+      return
+    }
+    if (!re.test(trimmedEmail)) {
       setEmailError("Please enter a valid email address.")
       return
     }
@@ -157,7 +169,9 @@ export default function ScorecardPage() {
     const score = computedScore
     const tierName = computedTier
     const payload = {
-      email: trimmed,
+      email: trimmedEmail,
+      fullName: trimmedName,
+      companyName: trimmedCompany,
       totalScore: score,
       tier: tierName,
       answers: answers.map((a) => Number(a)),
@@ -259,11 +273,38 @@ export default function ScorecardPage() {
               <p className={styles.stepIndicator}>Almost there</p>
               <h1 className={styles.title}>Get your results</h1>
               <p className={styles.emailTease}>
-                Your score is calculated. Enter your email to reveal your tier and recommendations.
+                Your score is calculated. Fill in the details below to reveal your tier and recommendations.
               </p>
               <form onSubmit={handleEmailSubmit} className={styles.emailForm}>
-                <label htmlFor="scorecard-email" className={styles.visuallyHidden}>
-                  Email address
+                <label htmlFor="scorecard-fullname" className={styles.fieldLabel}>
+                  Full name <span className={styles.required}>*</span>
+                </label>
+                <input
+                  id="scorecard-fullname"
+                  type="text"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  placeholder="Jane Smith"
+                  className={styles.emailInput}
+                  autoComplete="name"
+                  disabled={submitStatus === "loading"}
+                  autoFocus
+                />
+                <label htmlFor="scorecard-company" className={styles.fieldLabel}>
+                  Company name <span className={styles.required}>*</span>
+                </label>
+                <input
+                  id="scorecard-company"
+                  type="text"
+                  value={companyName}
+                  onChange={(e) => setCompanyName(e.target.value)}
+                  placeholder="Acme Inc."
+                  className={styles.emailInput}
+                  autoComplete="organization"
+                  disabled={submitStatus === "loading"}
+                />
+                <label htmlFor="scorecard-email" className={styles.fieldLabel}>
+                  Email address <span className={styles.required}>*</span>
                 </label>
                 <input
                   id="scorecard-email"
@@ -274,7 +315,6 @@ export default function ScorecardPage() {
                   className={styles.emailInput}
                   autoComplete="email"
                   disabled={submitStatus === "loading"}
-                  autoFocus
                 />
                 {emailError && (
                   <p className={styles.error} role="alert">
